@@ -10,7 +10,7 @@ let infoDisplayValue = "";
 buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
         displayValue += btn.id;
-        updateTextContent(display, displayValue);
+        updateTextContent(display, displayValue.substring(0,10)); //substring to limit max 10 characters in display
     });
 });
 
