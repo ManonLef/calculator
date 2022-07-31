@@ -18,7 +18,7 @@ body {
 
 .top-window {
     margin: 0px 0px 5px 0px;
-    height: 150px;
+    height: 200px;
     display: flex;
     flex-direction: column;
 }
@@ -35,7 +35,7 @@ body {
 }
 
 .menu-bar {
-    height: 100px;
+    height: 80px;
     margin: 5px 0px 5px 0px;
     display: flex;
     gap: 10px;
@@ -56,6 +56,6 @@ body {
 .square-btn {
     border: 2px solid black;
     flex: 1 0 auto; 
-    height: 100px;
+    height: 80px;
     width: 22%;
 }
