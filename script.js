@@ -1,6 +1,8 @@
-const display = document.querySelector('#inputDisplay');
 const buttons = document.querySelectorAll('.btn');
+const display = document.querySelector('#inputDisplay');
+
 let displayValue = "";
+let infoDisplayValue = "";
 
 function add(num1, num2) {
     return num1 + num2;
@@ -20,6 +22,15 @@ function divide(num1, num2) {
 
 //function that calls on above functions depending on operator
 function operate(num1, operator, num2) {
+    if (operator === "-") {
+        operator = substract;
+    } else if (operator === "+") {
+        operator = add;
+    } else if (operator === "/") {
+        operator = divide;
+    } else if (operator === "×") {
+        operator = multiply;
+    }  
     return operator(num1, num2);
 };
 
@@ -27,11 +38,9 @@ function operate(num1, operator, num2) {
 buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
         displayValue += btn.id;
-        updateTextContent(display, displayValue)
+        updateTextContent(display, displayValue);
     });
 });
-
-
 
 //function to shorten textupdate in functions
 function updateTextContent(section, output) {
