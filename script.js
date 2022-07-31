@@ -1,16 +1,28 @@
-const buttons = document.querySelectorAll('.btn');
+const buttons = document.querySelectorAll('.btn,.operatorBtn');
 const display = document.querySelector('#inputDisplay');
 const topDisplay = document.querySelector('#info');
 const ac = document.querySelector('#AC');
 
 let displayValue = "";
-let infoDisplayValue = "";
-
+let infoDisplayValue = "hi";
+let operator = "";
 // number buttons to fill display when clicked
 buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
-        displayValue += btn.id;
-        updateTextContent(display, displayValue.substring(0,10)); //substring to limit max 10 characters in display
+        if (btn.className === 'btn') {
+            displayValue += btn.id;
+            updateTextContent(display, displayValue.substring(0,10)); //substring to limit max 10 characters in display
+        } else {
+            operator = btn.id;
+            infoDisplayValue = displayValue;
+            displayValue = ""
+            updateTextContent(topDisplay, infoDisplayValue);
+            updateTextContent(display, "");
+            console.log("operator:" + operator);
+            console.log("infodisplay:" + infoDisplayValue);
+            console.log("displayvalue:" + displayValue);
+            console.log(btn.className);
+        }
     });
 });
 
