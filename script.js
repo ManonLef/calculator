@@ -28,3 +28,18 @@ function divide(num1, num2) {
 function operate(num1, operator, num2) {
     return operator(num1, num2);
 };
+
+/* Create the functions that populate the display when you click 
+the number buttons. You should be storing the ‘display value’ in a 
+variable somewhere for use in the next step.
+*/
+
+let displayValue = "";
+
+const btns = document.querySelectorAll('.btn');
+btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        displayValue += btn.id;
+        console.log(displayValue);
+    });
+});
