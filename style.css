@@ -64,8 +64,7 @@ body {
 }
 
 .btn, 
-.menuBtn,
-.operatorBtn {
+.menuBtn {
     border: 2px solid black;
     flex: 1 0 auto; 
     height: 80px;
