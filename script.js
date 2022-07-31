@@ -1,24 +1,9 @@
 const buttons = document.querySelectorAll('.btn');
 const display = document.querySelector('#inputDisplay');
+const topDisplay = document.querySelector('#info');
 
 let displayValue = "";
 let infoDisplayValue = "";
-
-function add(num1, num2) {
-    return num1 + num2;
-};
-
-function substract(num1, num2) {
-    return num1 - num2;
-};
-
-function multiply(num1, num2) {
-    return num1 * num2;
-};
-
-function divide(num1, num2) {
-    return num1 / num2;
-};
 
 //function that calls on above functions depending on operator
 function operate(num1, operator, num2) {
@@ -45,4 +30,21 @@ buttons.forEach((btn) => {
 //function to shorten textupdate in functions
 function updateTextContent(section, output) {
     section.textContent = (output);
-}
+};
+
+//operator basic functions
+function add(num1, num2) {
+    return num1 + num2;
+};
+
+function substract(num1, num2) {
+    return num1 - num2;
+};
+
+function multiply(num1, num2) {
+    return num1 * num2;
+};
+
+function divide(num1, num2) {
+    return num1 / num2;
+};
