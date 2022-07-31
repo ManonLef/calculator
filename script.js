@@ -1,23 +1,10 @@
 const buttons = document.querySelectorAll('.btn');
 const display = document.querySelector('#inputDisplay');
 const topDisplay = document.querySelector('#info');
+const ac = document.querySelector('#AC');
 
 let displayValue = "";
 let infoDisplayValue = "";
-
-//function that calls on above functions depending on operator
-function operate(num1, operator, num2) {
-    if (operator === "-") {
-        operator = substract;
-    } else if (operator === "+") {
-        operator = add;
-    } else if (operator === "/") {
-        operator = divide;
-    } else if (operator === "×") {
-        operator = multiply;
-    }  
-    return operator(num1, num2);
-};
 
 // number buttons to fill display when clicked
 buttons.forEach((btn) => {
@@ -26,6 +13,12 @@ buttons.forEach((btn) => {
         updateTextContent(display, displayValue);
     });
 });
+
+// deletes displayValue
+ac.addEventListener('click', () => {
+    displayValue = "";
+    updateTextContent(display, displayValue);
+})
 
 //function to shorten textupdate in functions
 function updateTextContent(section, output) {
@@ -47,4 +40,18 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     return num1 / num2;
+};
+
+//function that calls on above functions depending on operator
+function operate(num1, operator, num2) {
+    if (operator === "-") {
+        operator = substract;
+    } else if (operator === "+") {
+        operator = add;
+    } else if (operator === "/") {
+        operator = divide;
+    } else if (operator === "×") {
+        operator = multiply;
+    }  
+    return operator(num1, num2);
 };
