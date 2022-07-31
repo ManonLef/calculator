@@ -3,48 +3,59 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    margin: 5%;
+    margin: 20px;
 }
 
 .calculator-body {
     width: 500px;
-    height: 800px;
+    height: auto;
+    padding: 10px;
     border: 2px solid black;
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
 }
 
 
 .top-window {
+    margin: 0px 0px 5px 0px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+#info {
     border: 2px solid black;
-    height: 25%;
-    margin: 10px 10px 5px;
-    box-sizing: border-box;
+    flex: 1 0 auto;
+}
+
+#input-display {
+    border: 2px solid black;
+    border-top: 0px;
+    flex: 2 0 auto;
 }
 
 .menu-bar {
-    border: 2px solid black;
-    height: 15%;
-    margin: 5px 10px;
-    box-sizing: border-box;
+    height: 100px;
+    margin: 5px 0px 5px 0px;
+    display: flex;
+    gap: 10px;
 }
 
-
+.menu-btn {
+    border: 2px solid black;
+    flex: 1 0 auto;
+}
 
 .num-operators {
-    border: 2px solid black;
-    height: 60%;
-    margin: 5px 10px 10px;
+    margin: 5px 0px 0px;
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 10px;
-    box-sizing: border-box;
 }
 
 .square-btn {
     border: 2px solid black;
-    width: 110.5px;
-    height: 110.5px;  
-    box-sizing: border-box;  
+    flex: 1 0 auto; 
+    height: 100px;
+    width: 22%;
 }
