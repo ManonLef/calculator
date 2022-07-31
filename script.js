@@ -45,7 +45,7 @@ function updateTextContent(section, output) {
 
 //operator basic functions
 function add(num1, num2) {
-    return num1 + num2;
+    return parseFloat(num1) + parseFloat(num2);
 };
 
 function substract(num1, num2) {
