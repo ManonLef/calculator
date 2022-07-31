@@ -36,10 +36,10 @@ variable somewhere for use in the next step.
 
 let displayValue = "";
 
-const btns = document.querySelectorAll('.btn');
-btns.forEach((btn) => {
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
-        displayValue += btn.id;
+        displayValue += ("," + btn.id);
         console.log(displayValue);
     });
 });
