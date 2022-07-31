@@ -12,17 +12,19 @@ buttons.forEach((btn) => {
         if (btn.className === 'btn') {
             displayValue += btn.id;
             updateTextContent(display, displayValue.substring(0,10)); //substring to limit max 10 characters in display
-        } else {
+        } else if (btn.className === 'btn operatorBtn' && btn.id !== "=") {
             operator = btn.id;
             infoDisplayValue = displayValue;
             displayValue = ""
-            updateTextContent(topDisplay, infoDisplayValue);
+            updateTextContent(topDisplay, infoDisplayValue.substring(0,17));
             updateTextContent(display, "");
             console.log("operator:" + operator);
             console.log("infodisplay:" + infoDisplayValue);
             console.log("displayvalue:" + displayValue);
             console.log(btn.className);
-        }
+        } else {
+            console.log(operate(infoDisplayValue, operator, displayValue));
+        };
     });
 });
 
