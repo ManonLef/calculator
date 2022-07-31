@@ -40,10 +40,15 @@ const display = document.querySelector('#inputDisplay');
 
 const buttons = document.querySelectorAll('.btn');
 
+// number buttons to fill display when clicked
 buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
         displayValue += btn.id;
-        display.textContent = (displayValue);
-        console.log(displayValue);
+        updateTextContent(display, displayValue)
     });
 });
+
+//function to shorten textupdate in functions
+function updateTextContent(section, output) {
+    section.textContent = (output);
+}
