@@ -50,7 +50,7 @@ body {
     gap: 10px;
 }
 
-.menu-btn {
+.menuBtn {
     border: 2px solid black;
     flex: 1 0 auto;
 }
@@ -63,7 +63,7 @@ body {
 }
 
 .btn, 
-.menu-btn {
+.menuBtn {
     border: 2px solid black;
     flex: 1 0 auto; 
     height: 80px;
