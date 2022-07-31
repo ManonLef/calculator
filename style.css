@@ -8,27 +8,41 @@ body {
 
 .calculator-body {
     width: 500px;
-    height: 700px;
+    height: 800px;
     border: 2px solid black;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
+
 
 .top-window {
     border: 2px solid black;
     height: 25%;
     margin: 10px 10px 5px;
+    box-sizing: border-box;
 }
 
 .menu-bar {
     border: 2px solid black;
     height: 15%;
     margin: 5px 10px;
+    box-sizing: border-box;
 }
 
 .num-operators {
     border: 2px solid black;
     height: 60%;
     margin: 5px 10px 10px;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    box-sizing: border-box;
 }
 
+.square-btn {
+    border: 2px solid black;
+    width: 110.5px;
+    height: 110.5px;  
+    box-sizing: border-box;  
+}
