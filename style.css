@@ -18,25 +18,26 @@ body {
 
 .top-window {
     margin: 0px 0px 5px 0px;
-    height: 100px;
+    height: 120px;
     display: flex;
     flex-direction: column;
 }
-/*
+
 #info {
     border: 2px solid black;
-    flex: 1 0 auto;
+    height: 50px;
     font-size: 30px;
     display: flex;
     align-items: center;
     justify-content: end;
     padding: 0px 10px;
 }
-*/
+
 #inputDisplay {
     border: 2px solid black;
-    flex: 2 0 auto;
-    font-size: 58px;
+    height: 70px;
+    border-top: 0px;  
+    font-size: 50px;
     display: flex;
     align-items: center;
     justify-content: end;

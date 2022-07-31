@@ -31,6 +31,8 @@ buttons.forEach((btn) => {
     });
 });
 
+
+
 //function to shorten textupdate in functions
 function updateTextContent(section, output) {
     section.textContent = (output);
