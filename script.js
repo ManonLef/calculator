@@ -18,7 +18,7 @@ buttons.forEach((btn) => {
 ac.addEventListener('click', () => {
     displayValue = "";
     updateTextContent(display, displayValue);
-})
+});
 
 //function to shorten textupdate in functions
 function updateTextContent(section, output) {

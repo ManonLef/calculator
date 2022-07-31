@@ -5,6 +5,11 @@ body {
     justify-content: center;
     margin: 20px;
     font-family: 'Major Mono Display', monospace;
+    /*the below makes the button text unselectable*/
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .calculator-body {
