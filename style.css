@@ -18,7 +18,7 @@ body {
 
 .top-window {
     margin: 0px 0px 5px 0px;
-    height: 200px;
+    height: 170px;
     display: flex;
     flex-direction: column;
 }
@@ -26,12 +26,22 @@ body {
 #info {
     border: 2px solid black;
     flex: 1 0 auto;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0px 10px;
 }
 
 #input-display {
     border: 2px solid black;
     border-top: 0px;
     flex: 2 0 auto;
+    font-size: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0px 10px;
 }
 
 .menu-bar {
@@ -53,9 +63,14 @@ body {
     gap: 10px;
 }
 
-.square-btn {
+.square-btn, 
+.menu-btn {
     border: 2px solid black;
     flex: 1 0 auto; 
     height: 80px;
     width: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
 }
