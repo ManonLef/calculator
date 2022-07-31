@@ -4,7 +4,7 @@ const topDisplay = document.querySelector('#info');
 const ac = document.querySelector('#AC');
 
 let displayValue = "";
-let infoDisplayValue = "hi";
+let infoDisplayValue = "";
 let operator = "";
 // number buttons to fill display when clicked
 buttons.forEach((btn) => {
@@ -23,7 +23,8 @@ buttons.forEach((btn) => {
             console.log("displayvalue:" + displayValue);
             console.log(btn.className);
         } else {
-            console.log(operate(infoDisplayValue, operator, displayValue));
+            updateTextContent(display,(operate(infoDisplayValue, operator, displayValue)));
+            displayValue = display.textContent;
         };
     });
 });
@@ -31,7 +32,9 @@ buttons.forEach((btn) => {
 // deletes displayValue
 ac.addEventListener('click', () => {
     displayValue = "";
-    updateTextContent(display, displayValue);
+    infoDisplayValue = "";
+    updateTextContent(display, 0);
+    updateTextContent(topDisplay, "");
 });
 
 //function to shorten textupdate in functions
@@ -69,3 +72,5 @@ function operate(num1, operator, num2) {
     }  
     return operator(num1, num2);
 };
+
+updateTextContent(display, 0);
