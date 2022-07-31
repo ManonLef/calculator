@@ -33,7 +33,7 @@ body {
     padding: 0px 10px;
 }
 */
-#input-display {
+#inputDisplay {
     border: 2px solid black;
     flex: 2 0 auto;
     font-size: 58px;

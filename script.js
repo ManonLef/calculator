@@ -36,10 +36,14 @@ variable somewhere for use in the next step.
 
 let displayValue = "";
 
+const display = document.querySelector('#inputDisplay');
+
 const buttons = document.querySelectorAll('.btn');
+
 buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
-        displayValue += ("," + btn.id);
+        displayValue += btn.id;
+        display.textContent = (displayValue);
         console.log(displayValue);
     });
 });
