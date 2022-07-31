@@ -17,11 +17,18 @@ body {
 .top-window {
     border: 2px solid black;
     height: 25%;
-    margin: 10px 10px;
+    margin: 10px 10px 5px;
 }
 
-.top-window {
+.menu-bar {
     border: 2px solid black;
-    height: 25%;
-    margin: 10px 10px;
+    height: 15%;
+    margin: 5px 10px;
 }
+
+.num-operators {
+    border: 2px solid black;
+    height: 60%;
+    margin: 5px 10px 10px;
+}
+
