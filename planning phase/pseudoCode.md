@@ -56,6 +56,7 @@
     - windows back to basic state
 2. OPTIONAL feature: User should be able to use DEL to remove the last clicked number or operator
 3. Something funny when operator = "/" and number2 = "0"
+4. OPTIONAL idea I had: add on/off unctionality with "hello" and "goodbye"
 
 ### Ideas
 
