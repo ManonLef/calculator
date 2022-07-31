@@ -15,7 +15,7 @@ buttons.forEach((btn) => {
         } else if (btn.className === 'btn operatorBtn' && btn.id !== "=") {
             operator = btn.id;
             infoDisplayValue = displayValue;
-            displayValue = ""
+            displayValue = "";
             updateTextContent(topDisplay, infoDisplayValue.substring(0,17));
             updateTextContent(display, "");
             console.log("operator:" + operator);
@@ -24,6 +24,7 @@ buttons.forEach((btn) => {
             console.log(btn.className);
         } else {
             updateTextContent(display,(operate(infoDisplayValue, operator, displayValue)));
+            console.log(infoDisplayValue, operator, displayValue);
             displayValue = display.textContent;
         };
     });
