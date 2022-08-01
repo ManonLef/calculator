@@ -96,6 +96,13 @@ function updateTextContent(section, output) {
 };
 
 //function to revert to default by pressing the AC button
+acButton.addEventListener('click', () => {
+    num1 = "";
+    operator = "";
+    num2 = "";
+    updateTextContent(bottomWindow,0);
+    updateTextContent(topWindow, "");
+});
 
 //operator basic functions
 //add with parseFloat to avoid concatenating strings
