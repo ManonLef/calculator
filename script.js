@@ -40,13 +40,13 @@
 //     updateTextContent(topDisplay, "");
 // });
 
-// button selectors
-const numberButtons = document.querySelectorAll('.numberBtn');
-const operatorButtons = document.querySelectorAll('.operatorBtn');
-const equalButton = document.querySelector('.equalsBtn');
+// button and display selectors
+const buttons = document.querySelectorAll('.btn')
+//const numberButtons = document.querySelectorAll('.numberBtn');
+//const operatorButtons = document.querySelectorAll('.operatorBtn');
+//const equalButton = document.querySelector('.equalsBtn');
 const acButton = document.querySelector('#AC');
 const delButton = document.querySelector('#DEL');
-// display selectors
 const topWindow = document.querySelector('#topWindow');
 const bottomWindow = document.querySelector('#bottomWindow');
 
@@ -55,11 +55,20 @@ let num1 = "";
 let operator = "×";
 let num2 = 1;
 
-//listen for first input
-
-
 //default display state
 updateTextContent(bottomWindow,0);
+
+//listen for first input
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (bottomWindow.textContent === "0") { //first input check. 
+            if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
+                num1 += button.textContent;
+                updateTextContent(topWindow, num1);
+            };
+        };
+    });
+});
 
 //function to quickly update text content
 function updateTextContent(section, output) {
