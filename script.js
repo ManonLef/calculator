@@ -1,44 +1,44 @@
-const buttons = document.querySelectorAll('.btn,.operatorBtn');
-const display = document.querySelector('#inputDisplay');
-const topDisplay = document.querySelector('#info');
-const ac = document.querySelector('#AC');
+// const buttons = document.querySelectorAll('.btn,.operatorBtn');
+// const display = document.querySelector('#bottomWindow');
+// const topDisplay = document.querySelector('#topDisplay');
+// const ac = document.querySelector('#AC');
 
-let displayValue = "";
-let infoDisplayValue = "";
-let operator = "";
-// number buttons to fill display when clicked
-buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        if (btn.className === 'btn') {
-            displayValue += btn.id;
-            updateTextContent(display, displayValue.substring(0,10)); //substring to limit max 10 characters in display
-        } else if (btn.className === 'btn operatorBtn' && btn.id !== "=") {
-            operator = btn.id;
-            infoDisplayValue = displayValue;
-            displayValue = "";
-            updateTextContent(topDisplay, infoDisplayValue.substring(0,17));
-            updateTextContent(display, "");
-            console.log("operator:" + operator);
-            console.log("infodisplay:" + infoDisplayValue);
-            console.log("displayvalue:" + displayValue);
-            console.log(btn.className);
-        } else {
-            updateTextContent(display,(operate(infoDisplayValue, operator, displayValue)));
-            console.log(infoDisplayValue, operator, displayValue);
-            displayValue = display.textContent;
-            operator="";
-            console.log(infoDisplayValue, operator, displayValue);
-        };;
-    });
-});
+// let displayValue = "";
+// let infoDisplayValue = "";
+// let operator = "";
+// // number buttons to fill display when clicked
+// buttons.forEach((btn) => {
+//     btn.addEventListener('click', () => {
+//         if (btn.className === 'btn') {
+//             displayValue += btn.id;
+//             updateTextContent(display, displayValue.substring(0,10)); //substring to limit max 10 characters in display
+//         } else if (btn.className === 'btn operatorBtn' && btn.id !== "=") {
+//             operator = btn.id;
+//             infoDisplayValue = displayValue;
+//             displayValue = "";
+//             updateTextContent(topDisplay, infoDisplayValue.substring(0,17));
+//             updateTextContent(display, "");
+//             console.log("operator:" + operator);
+//             console.log("infodisplay:" + infoDisplayValue);
+//             console.log("displayvalue:" + displayValue);
+//             console.log(btn.className);
+//         } else {
+//             updateTextContent(display,(operate(infoDisplayValue, operator, displayValue)));
+//             console.log(infoDisplayValue, operator, displayValue);
+//             displayValue = display.textContent;
+//             operator="";
+//             console.log(infoDisplayValue, operator, displayValue);
+//         };;
+//     });
+// });
 
-// deletes displayValue
-ac.addEventListener('click', () => {
-    displayValue = "";
-    infoDisplayValue = "";
-    updateTextContent(display, 0);
-    updateTextContent(topDisplay, "");
-});
+// // deletes displayValue
+// ac.addEventListener('click', () => {
+//     displayValue = "";
+//     infoDisplayValue = "";
+//     updateTextContent(display, 0);
+//     updateTextContent(topDisplay, "");
+// });
 
 //function to shorten textupdate in functions
 function updateTextContent(section, output) {
