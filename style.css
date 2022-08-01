@@ -21,7 +21,7 @@ body {
     flex-direction: column;
 }
 
-.top-window {
+.display {
     margin: 0px 0px 5px 0px;
     height: 120px;
     display: flex;
@@ -29,7 +29,7 @@ body {
     font-size: 50px;
 }
 
-#info {
+#topWindow {
     border: 2px solid black;
     height: 50px;
     font-size: 30px;
@@ -39,7 +39,7 @@ body {
     padding: 0px 10px;
 }
 
-#inputDisplay {
+#bottomWindow {
     border: 2px solid black;
     height: 70px;
     border-top: 0px;
@@ -49,27 +49,29 @@ body {
     padding: 0px 5px;
 }
 
-.menu-bar {
+.utilityBtns {
     height: 80px;
     margin: 5px 0px 10px 0px;
     display: flex;
     gap: 10px;
 }
 
-.menuBtn {
+.utilityBtn {
     border: 2px solid black;
     flex: 1 0 auto;
 }
 
-.num-operators {
+.numOperators {
     margin: 5px 0px 0px 0px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.btn, 
-.menuBtn {
+.numberBtn,
+.operatorBtn,
+.equalsBtn, 
+.utilityBtn {
     border: 2px solid black;
     flex: 1 0 auto; 
     height: 80px;
