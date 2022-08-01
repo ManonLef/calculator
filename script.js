@@ -1,56 +1,12 @@
-// const buttons = document.querySelectorAll('.btn,.operatorBtn');
-// const display = document.querySelector('#bottomWindow');
-// const topDisplay = document.querySelector('#topDisplay');
-// const ac = document.querySelector('#AC');
-
-// let displayValue = "";
-// let infoDisplayValue = "";
-// let operator = "";
-// // number buttons to fill display when clicked
-// buttons.forEach((btn) => {
-//     btn.addEventListener('click', () => {
-//         if (btn.className === 'btn') {
-//             displayValue += btn.id;
-//             updateTextContent(display, displayValue.substring(0,10)); //substring to limit max 10 characters in display
-//         } else if (btn.className === 'btn operatorBtn' && btn.id !== "=") {
-//             operator = btn.id;
-//             infoDisplayValue = displayValue;
-//             displayValue = "";
-//             updateTextContent(topDisplay, infoDisplayValue.substring(0,17));
-//             updateTextContent(display, "");
-//             console.log("operator:" + operator);
-//             console.log("infodisplay:" + infoDisplayValue);
-//             console.log("displayvalue:" + displayValue);
-//             console.log(btn.className);
-//         } else {
-//             updateTextContent(display,(operate(infoDisplayValue, operator, displayValue)));
-//             console.log(infoDisplayValue, operator, displayValue);
-//             displayValue = display.textContent;
-//             operator="";
-//             console.log(infoDisplayValue, operator, displayValue);
-//         };;
-//     });
-// });
-
-// // deletes displayValue
-// ac.addEventListener('click', () => {
-//     displayValue = "";
-//     infoDisplayValue = "";
-//     updateTextContent(display, 0);
-//     updateTextContent(topDisplay, "");
-// });
-
 // button and display selectors
-const buttons = document.querySelectorAll('.btn')
-//const numberButtons = document.querySelectorAll('.numberBtn');
-//const operatorButtons = document.querySelectorAll('.operatorBtn');
-//const equalButton = document.querySelector('.equalsBtn');
+const buttons = document.querySelectorAll('.btn');
 const acButton = document.querySelector('#AC');
-const delButton = document.querySelector('#DEL');
+//const delButton = document.querySelector('#DEL');
 const topWindow = document.querySelector('#topWindow');
 const bottomWindow = document.querySelector('#bottomWindow');
+const powerButton = document.querySelector('#power');
 
-//variables needed in their default state
+//global variables needed in their default state
 let num1 = "";
 let operator = "";
 let num2 = "";
@@ -78,13 +34,12 @@ buttons.forEach((button) => {
                 updateTextContent(topWindow, "meh");
                 num1 = "";
             };
-        // next input to get num2 value
+        // next inputs to get num2 value and operate.
         } else if (operator !== "" && num1 !== "") {
-            if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
+            //checks if number is pressed instead of operator
+            if (button.className === "btn numberBtn") { 
                 num2 += button.textContent; 
                 updateTextContent(topWindow, (num1 + operatorSymbol + num2));
-        // if user tries to divide by zero
-        //    } else if (num2 === 0 && (button.className === "btn equalsBtn" || button.className === "btn operatorBtn")) {  
             } else if (num2 === "" && button.className === "btn operatorBtn") {
                 operator = button.id; 
                 operatorSymbol = button.textContent;
