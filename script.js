@@ -11,9 +11,15 @@ let num1 = "";
 let operator = "";
 let num2 = "";
 let operatorSymbol = "";
-
-//default display state
-updateTextContent(bottomWindow,0);
+let power = "off"
+;
+//powerbutton functionality
+powerButton.addEventListener('click', () => {
+    if (power === "off") {
+        power = "on"
+        updateTextContent(bottomWindow,0);
+    }
+});
 
 //listen for first input
 buttons.forEach((button) => {
