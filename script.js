@@ -40,24 +40,46 @@
 //     updateTextContent(topDisplay, "");
 // });
 
-//function to shorten textupdate in functions
+// button selectors
+const numberButtons = document.querySelectorAll('.numberBtn');
+const operatorButtons = document.querySelectorAll('.operatorBtn');
+const equalButton = document.querySelector('.equalsBtn');
+const acButton = document.querySelector('#AC');
+const delButton = document.querySelector('#DEL');
+// display selectors
+const topWindow = document.querySelector('#topWindow');
+const bottomWindow = document.querySelector('#bottomWindow');
+
+//variables needed in their default state
+let num1 = "";
+let operator = "×";
+let num2 = 1;
+
+//listen for first input
+
+
+//default display state
+updateTextContent(bottomWindow,0);
+
+//function to quickly update text content
 function updateTextContent(section, output) {
     section.textContent = (output);
 };
 
 //operator basic functions
+//add with parseFloat to avoid concatenating strings
 function add(num1, num2) {
-    return parseFloat(num1) + parseFloat(num2);
+    return parseFloat(num1) + parseFloat(num2); 
 };
-
+//subtract function
 function subtract(num1, num2) {
     return num1 - num2;
 };
-
+//multiply function
 function multiply(num1, num2) {
     return num1 * num2;
 };
-
+//division function
 function divide(num1, num2) {
     return num1 / num2;
 };
@@ -75,5 +97,3 @@ function operate(num1, operator, num2) {
     }  
     return operator(num1, num2);
 };
-
-updateTextContent(display, 0);
