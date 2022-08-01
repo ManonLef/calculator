@@ -83,14 +83,21 @@ buttons.forEach((button) => {
             if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
                 num2 += button.textContent; 
                 updateTextContent(topWindow, (num1 + operatorSymbol + num2));
-            
-            } else if (num2 !== "" && (button.className === "btn equalsBtn" || button.className === "btn operatorBtn")){
-                num1 = operate(num1, operator, num2);
+        // if user tries to divide by zero
+        //    } else if (num2 === 0 && (button.className === "btn equalsBtn" || button.className === "btn operatorBtn")) {  
+            } else if (num2 === "" && button.className === "btn operatorBtn") {
                 operator = button.id; 
                 operatorSymbol = button.textContent;
                 updateTextContent(topWindow, (num1 + operatorSymbol));
+            } else if (num2 !== "" && (button.className === "btn equalsBtn" || button.className === "btn operatorBtn")) {
+                num1 = operate(num1, operator, num2);
                 updateTextContent(bottomWindow, num1);
                 num2 = "";
+                if (button.className === "btn operatorBtn") {
+                    operator = button.id; 
+                    operatorSymbol = button.textContent;
+                    updateTextContent(topWindow, (num1 + operatorSymbol));
+                };
             };
         };
     });
