@@ -61,12 +61,26 @@ updateTextContent(bottomWindow,0);
 //listen for first input
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (operator === "" && num2 === "") { //first input check. 
+        //first input check. 
+        if (operator === "" && num2 === "") { 
             if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
                 num1 += button.textContent; 
                 updateTextContent(topWindow, num1);
-            } else if (button.className === "btn operatorBtn") {
+            } else if (button.className === "btn operatorBtn" && num1 !== "") {
                 operator = button.id; 
+                updateTextContent(topWindow, "")
+                updateTextContent(bottomWindow, num1);
+            } else {
+                updateTextContent(topWindow, "meh");
+            };
+         // next inputs  
+        } else if (operator !== "" && num1 !== "") {
+            if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
+                num2 += button.textContent; 
+                updateTextContent(topWindow, num2);
+            } else if (num2 !== "" && button.className === "btn equalsBtn"){
+                num1 = operate(num1, operator, num2);
+                updateTextContent(topWindow, "")
                 updateTextContent(bottomWindow, num1);
             };
         };
