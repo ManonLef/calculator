@@ -52,8 +52,8 @@ const bottomWindow = document.querySelector('#bottomWindow');
 
 //variables needed in their default state
 let num1 = "";
-let operator = "multiply";
-let num2 = 1;
+let operator = "";
+let num2 = "";
 
 //default display state
 updateTextContent(bottomWindow,0);
@@ -61,12 +61,13 @@ updateTextContent(bottomWindow,0);
 //listen for first input
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (bottomWindow.textContent === "0") { //first input check. 
+        if (operator === "" && num2 === "") { //first input check. 
             if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
                 num1 += button.textContent; 
                 updateTextContent(topWindow, num1);
             } else if (button.className === "btn operatorBtn") {
                 operator = button.id; 
+                updateTextContent(bottomWindow, num1);
             };
         };
     });
