@@ -54,6 +54,7 @@ const bottomWindow = document.querySelector('#bottomWindow');
 let num1 = "";
 let operator = "";
 let num2 = "";
+let operatorSymbol = "";
 
 //default display state
 updateTextContent(bottomWindow,0);
@@ -66,25 +67,30 @@ buttons.forEach((button) => {
             if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
                 num1 += button.textContent; 
                 updateTextContent(topWindow, num1);
+            //if num1 is filled, an operator is expected. 
             } else if (button.className === "btn operatorBtn" && num1 !== "") {
                 operator = button.id; 
-                updateTextContent(topWindow, "");
-                updateTextContent(bottomWindow, num1);
-            } else if (button.className === "btn equalsBtn" && num1 !== "") {
-                updateTextContent(topWindow, "");
-                updateTextContent(bottomWindow, num1);
+                operatorSymbol = button.textContent;
+                updateTextContent(topWindow, (num1 + operatorSymbol));
+                
+            //no operator yet but equal button clicked, stores just num1 and places it in bottom window
             } else {
                 updateTextContent(topWindow, "meh");
+                num1 = "";
             };
-         // next inputs  
+        // next input to get num2 value
         } else if (operator !== "" && num1 !== "") {
             if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
                 num2 += button.textContent; 
-                updateTextContent(topWindow, num2);
-            } else if (num2 !== "" && button.className === "btn equalsBtn"){
+                updateTextContent(topWindow, (num1 + operatorSymbol + num2));
+            
+            } else if (num2 !== "" && (button.className === "btn equalsBtn" || button.className === "btn operatorBtn")){
                 num1 = operate(num1, operator, num2);
-                updateTextContent(topWindow, "")
+                operator = button.id; 
+                operatorSymbol = button.textContent;
+                updateTextContent(topWindow, (num1 + operatorSymbol));
                 updateTextContent(bottomWindow, num1);
+                num2 = "";
             };
         };
     });
