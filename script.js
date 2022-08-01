@@ -61,14 +61,17 @@ updateTextContent(bottomWindow,0);
 //listen for first input
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        //first input check. 
+        //first input check to fill num1 and operator. 
         if (operator === "" && num2 === "") { 
             if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
                 num1 += button.textContent; 
                 updateTextContent(topWindow, num1);
             } else if (button.className === "btn operatorBtn" && num1 !== "") {
                 operator = button.id; 
-                updateTextContent(topWindow, "")
+                updateTextContent(topWindow, "");
+                updateTextContent(bottomWindow, num1);
+            } else if (button.className === "btn equalsBtn" && num1 !== "") {
+                updateTextContent(topWindow, "");
                 updateTextContent(bottomWindow, num1);
             } else {
                 updateTextContent(topWindow, "meh");
@@ -91,6 +94,8 @@ buttons.forEach((button) => {
 function updateTextContent(section, output) {
     section.textContent = (output);
 };
+
+//function to revert to default by pressing the AC button
 
 //operator basic functions
 //add with parseFloat to avoid concatenating strings
