@@ -52,7 +52,7 @@ const bottomWindow = document.querySelector('#bottomWindow');
 
 //variables needed in their default state
 let num1 = "";
-let operator = "×";
+let operator = "multiply";
 let num2 = 1;
 
 //default display state
@@ -63,8 +63,10 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if (bottomWindow.textContent === "0") { //first input check. 
             if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
-                num1 += button.textContent;
+                num1 += button.textContent; 
                 updateTextContent(topWindow, num1);
+            } else if (button.className === "btn operatorBtn") {
+                operator = button.id; 
             };
         };
     });
@@ -95,13 +97,13 @@ function divide(num1, num2) {
 
 //function that calls on above functions depending on operator
 function operate(num1, operator, num2) {
-    if (operator === "-") {
+    if (operator === "-" || operator === "subtract") {
         operator = subtract;
-    } else if (operator === "+") {
+    } else if (operator === "+" || operator === "add") {
         operator = add;
-    } else if (operator === "/") {
+    } else if (operator === "/" || operator === "divide") {
         operator = divide;
-    } else if (operator === "×") {
+    } else if (operator === "×" || operator === "multiply") {
         operator = multiply;
     }  
     return operator(num1, num2);

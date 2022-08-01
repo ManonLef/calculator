@@ -4,6 +4,7 @@
     - change the ID's to match the function names which also gets rid of some code interpreting ID's to attach to the operators.
 Typing this out, that last option is best since I can instead use the textcontent of those buttons as input.
 So things to do now:
-- [ ] add `btn` class to every num/operator button
-- [ ] update the queryselectors as needed
+- [x] add `btn` class to every num/operator button
+- [x] update the queryselectors as needed
+- [ ] edit the operate function. Consider a switch case.
 - [ ] write a listener function and continue with the pseudo
