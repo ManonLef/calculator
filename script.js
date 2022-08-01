@@ -18,6 +18,10 @@ powerButton.addEventListener('click', () => {
     if (power === "off") {
         power = "on"
         updateTextContent(bottomWindow,0);
+    } else {
+        power = "off"
+        updateTextContent(bottomWindow,"")
+        updateTextContent(topWindow,"");
     }
 });
 
@@ -25,7 +29,7 @@ powerButton.addEventListener('click', () => {
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         //first input check to fill num1 and operator. 
-        if (operator === "" && num2 === "") { 
+        if (operator === "" && num2 === "" && power === "on") { 
             if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
                 num1 += button.textContent; 
                 updateTextContent(topWindow, num1);
@@ -41,7 +45,7 @@ buttons.forEach((button) => {
                 num1 = "";
             };
         // next inputs to get num2 value and operate.
-        } else if (operator !== "" && num1 !== "") {
+        } else if (operator !== "" && num1 !== "" && power === "on") {
             //checks if number is pressed instead of operator
             if (button.className === "btn numberBtn") { 
                 num2 += button.textContent; 
