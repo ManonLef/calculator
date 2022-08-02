@@ -11,49 +11,60 @@ let num1 = "";
 let operator = "";
 let num2 = "";
 let operatorSymbol = "";
-let power = "off"
-;
+let power = "off";
+
 //powerbutton functionality
 powerButton.addEventListener('click', () => {
     if (power === "off") {
         power = "on"
-        updateTextContent(bottomWindow,0);
+        updateTextContent(bottomWindow,"hello");
+        setTimeout(() => { 
+            updateTextContent(bottomWindow,0);  // this code gets executed
+        }, 750);                                // after this amount of ms
     } else {
         power = "off"
-        updateTextContent(bottomWindow,"")
-        updateTextContent(topWindow,"");
-    }
+        updateTextContent(bottomWindow, "goodbye");
+        setTimeout(() => {
+            updateTextContent(bottomWindow,"");
+            updateTextContent(topWindow,"");
+        }, 750);
+    };
 });
 
-//listen for first input
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+        
         //first input check to fill num1 and operator. 
         if (operator === "" && num2 === "" && power === "on") { 
             if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
                 num1 += button.textContent; 
                 updateTextContent(topWindow, num1);
-            //if num1 is filled, an operator is expected. 
+            
+                //if num1 is filled, an operator is expected. 
             } else if (button.className === "btn operatorBtn" && num1 !== "") {
                 operator = button.id; 
                 operatorSymbol = button.textContent;
                 updateTextContent(topWindow, (num1 + operatorSymbol));
-                
-            //no operator yet but equal button clicked, stores just num1 and places it in bottom window
+            
+                //no operator yet but equal button clicked, stores just num1 and places it in bottom window
             } else {
                 updateTextContent(topWindow, "meh");
                 num1 = "";
             };
+        
         // next inputs to get num2 value and operate.
         } else if (operator !== "" && num1 !== "" && power === "on") {
+
             //checks if number is pressed instead of operator
             if (button.className === "btn numberBtn") { 
                 num2 += button.textContent; 
                 updateTextContent(topWindow, (num1 + operatorSymbol + num2));
+
             } else if (num2 === "" && button.className === "btn operatorBtn") {
                 operator = button.id; 
                 operatorSymbol = button.textContent;
                 updateTextContent(topWindow, (num1 + operatorSymbol));
+                
             } else if (num2 !== "" && (button.className === "btn equalsBtn" || button.className === "btn operatorBtn")) {
                 num1 = operate(num1, operator, num2);
                 updateTextContent(bottomWindow, num1);
