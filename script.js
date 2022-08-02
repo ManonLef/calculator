@@ -64,15 +64,26 @@ buttons.forEach((button) => {
                 operator = button.id; 
                 operatorSymbol = button.textContent;
                 updateTextContent(topWindow, (num1 + operatorSymbol));
-                
+
             } else if (num2 !== "" && (button.className === "btn equalsBtn" || button.className === "btn operatorBtn")) {
-                num1 = operate(num1, operator, num2);
-                updateTextContent(bottomWindow, num1);
-                num2 = "";
-                if (button.className === "btn operatorBtn") {
-                    operator = button.id; 
-                    operatorSymbol = button.textContent;
-                    updateTextContent(topWindow, (num1 + operatorSymbol));
+                if (button.id !== divide && num2 !== "0") {
+                    num1 = operate(num1, operator, num2);
+                    updateTextContent(bottomWindow, num1);
+                    num2 = "";
+                    if (button.className === "btn operatorBtn") {
+                        operator = button.id; 
+                        operatorSymbol = button.textContent;
+                        updateTextContent(topWindow, (num1 + operatorSymbol));
+                    };
+                } else {
+                    updateTextContent(topWindow, "self destruct in")
+                    updateTextContent(bottomWindow,"3");
+                    setTimeout(() => {
+                        updateTextContent(bottomWindow,"2");
+                    }, 750);
+                    setTimeout(() => {
+                        updateTextContent(bottomWindow,"1");
+                    }, 1500);
                 };
             };
         };
