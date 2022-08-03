@@ -13,8 +13,8 @@ body {
 }
 
 .calculator-body {
-    width: 450px;
-    min-width: 450px;
+    width: 425px;
+    min-width: 425px;
     height: auto;
     padding: 10px;
     border: 2px solid black;
@@ -28,6 +28,9 @@ body {
     display: flex;
     flex-direction: column;
     font-size: 50px;
+
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #topWindow {
