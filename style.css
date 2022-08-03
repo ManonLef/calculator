@@ -69,9 +69,7 @@ body {
     gap: 10px;
 }
 
-.numberBtn,
-.operatorBtn,
-.equalsBtn, 
+.btn,
 .utilityBtn {
     border: 2px solid black;
     flex: 1 0 auto; 
