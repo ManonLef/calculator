@@ -20,3 +20,6 @@ If I am typing in the operator, I'll have num1 and operator.
     I'd have to remove the operator.
 If I only have num1
     I'd have to edit num1
+
+- BUG after operate function is invoked, and you enter another number, topwindow will update num1 adding that number.
+- [ ] look into long int rounding
