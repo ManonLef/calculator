@@ -11,3 +11,12 @@ So things to do now:
 
 - *2208032350* The Selfdestruct function does not prevent other code to run. 
 - [ ] consider adding a state during the timeout function that prevents the btn eventlisteners from functioning.
+
+- *2208032358* DEL functionality pseudo.
+If I press the DEL button, I want the last inputted symbol to be removed. So I'll have to figure out what that symbol was.
+In case I'm in the last phase, I'll have num1, num2 and an operator
+    I'd have to edit num2 here
+If I am typing in the operator, I'll have num1 and operator.
+    I'd have to remove the operator.
+If I only have num1
+    I'd have to edit num1

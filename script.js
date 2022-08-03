@@ -19,8 +19,8 @@ powerButton.addEventListener('click', () => {
         power = "on"
         updateTextContent(bottomWindow,"hello");
         setTimeout(() => { 
-            updateTextContent(bottomWindow,0);  // this code gets executed
-        }, 750);                                // after this amount of ms
+            updateTextContent(bottomWindow,0);  
+        }, 750);
     } else {
         power = "off"
         updateTextContent(bottomWindow, "goodbye");
@@ -70,7 +70,7 @@ buttons.forEach((button) => {
             //execute the operate function when all variables are filled.
             // will execute operate() as soon as all variables are filled and an operator or the equals button is pressed.
             } else if (num2 !== "" && (button.className === "btn equalsBtn" || button.className === "btn operatorBtn")) {
-                
+
                 // divide by zero
                 if (operator === "divide" && num2 === "0") {
                     selfDestruct();
