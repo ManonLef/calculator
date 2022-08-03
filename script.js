@@ -43,7 +43,6 @@ buttons.forEach((button) => {
                     updateTextContent(bottomWindow, "0")
                     num1 = "";
                 }
-                
                 num1 += button.textContent; 
                 updateTextContent(topWindow, num1);
             
@@ -55,8 +54,13 @@ buttons.forEach((button) => {
             
                 //no operator yet but equal button clicked, stores just num1 and places it in bottom window
             } else {
-                updateTextContent(topWindow, "meh");
-                num1 = "";
+                setTimeout(() => {
+                    updateTextContent(bottomWindow, "");
+                }, 100);
+                setTimeout(() => {
+                    updateTextContent(topWindow, "");
+                    updateTextContent(bottomWindow, num1);
+                }, 200);
             };
         
         // next inputs to get num2 value and operate.
@@ -80,7 +84,7 @@ buttons.forEach((button) => {
                 // divide by zero
                 if (operator === "divide" && num2 === "0") {
                     selfDestruct();
-
+                
                 // all other calculations not being divide by zero
                 } else {
                     num1 = operate(num1, operator, num2);
