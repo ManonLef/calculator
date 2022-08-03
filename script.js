@@ -81,6 +81,7 @@ buttons.forEach((button) => {
                     num1 = operate(num1, operator, num2);
                     updateTextContent(bottomWindow, num1);
                     num2 = "";
+                    operator = ""; 
                     if (button.className === "btn operatorBtn") {
                         operator = button.id; 
                         operatorSymbol = button.textContent;
@@ -105,6 +106,7 @@ del.addEventListener('click', () => {
         operator = "";
         updateTextContent(topWindow, (num1));
     } else {
+        num1= num1.toString(); //to avoid issues in case num1 is after operate/ans
         num1 = num1.slice(0,-1);
         updateTextContent(topWindow, (num1));
     }
