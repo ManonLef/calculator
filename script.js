@@ -28,6 +28,7 @@ powerButton.addEventListener('click', () => {
             updateTextContent(bottomWindow,"");
             updateTextContent(topWindow,"");
         }, 750);
+        reset(); // to clear variables
     };
 });
 
@@ -95,14 +96,19 @@ function updateTextContent(section, output) {
     section.textContent = (output);
 };
 
-//function to revert to default by pressing the AC button
-acButton.addEventListener('click', () => {
+//listener to revert to default by pressing the AC button
+acButton.addEventListener('click', reset);
+
+//resetting variables for power off or ac click
+function reset() {
     num1 = "";
     operator = "";
     num2 = "";
-    updateTextContent(bottomWindow,0);
-    updateTextContent(topWindow, "");
-});
+    if (power === "on") {
+        updateTextContent(bottomWindow,0);
+        updateTextContent(topWindow, "");
+    };
+};
 
 //operator basic functions
 //add with parseFloat to avoid concatenating strings
