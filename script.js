@@ -39,6 +39,11 @@ buttons.forEach((button) => {
         //first input check to fill num1 and operator. 
         if (operator === "" && num2 === "" && power === "on") { 
             if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
+                if (bottomWindow.textContent !== "0") {
+                    updateTextContent(bottomWindow, "0")
+                    num1 = "";
+                }
+                
                 num1 += button.textContent; 
                 updateTextContent(topWindow, num1);
             
