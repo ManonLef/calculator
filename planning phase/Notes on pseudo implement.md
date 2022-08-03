@@ -7,4 +7,7 @@ So things to do now:
 - [x] add `btn` class to every num/operator button
 - [x] update the queryselectors as needed
 - [ ] edit the operate function. Consider a switch case.
-- [ ] write a listener function and continue with the pseudo
+- [x] write a listener function and continue with the pseudo
+
+- *2208032350* The Selfdestruct function does not prevent other code to run. 
+- [ ] consider adding a state during the timeout function that prevents the btn eventlisteners from functioning.
