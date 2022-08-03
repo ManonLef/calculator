@@ -5,6 +5,7 @@ const acButton = document.querySelector('#AC');
 const topWindow = document.querySelector('#topWindow');
 const bottomWindow = document.querySelector('#bottomWindow');
 const powerButton = document.querySelector('#power');
+const del = document.querySelector('#DEL');
 
 //global variables needed in their default state
 let num1 = "";
@@ -90,6 +91,25 @@ buttons.forEach((button) => {
         };
     });
 });
+
+
+//DEL button functionality
+del.addEventListener('click', () => {
+    if (num1 !== "" && operator !== "" && num2 !== "") {
+        //remove last character from num2
+        //update topwindow num1 + operatorsymbol + num2
+        num2 = num2.slice(0, -1);
+        updateTextContent(topWindow, (num1 + operatorSymbol + num2));
+    } else if (num1 !== "" && operator !== "" && num2 === "") {
+        //remove operator 
+        operator = "";
+        updateTextContent(topWindow, (num1));
+    } else {
+        num1 = num1.slice(0,-1);
+        updateTextContent(topWindow, (num1));
+    }
+});
+
 
 //function to quickly update text content
 function updateTextContent(section, output) {
