@@ -77,14 +77,7 @@ buttons.forEach((button) => {
                         updateTextContent(topWindow, (num1 + operatorSymbol));
                     };
                 } else {
-                    updateTextContent(topWindow, "self destruct in")
-                    updateTextContent(bottomWindow,"3");
-                    setTimeout(() => {
-                        updateTextContent(bottomWindow,"2");
-                    }, 750);
-                    setTimeout(() => {
-                        updateTextContent(bottomWindow,"1");
-                    }, 1500);
+                    selfDestruct();
                 };
             };
         };
@@ -109,6 +102,40 @@ function reset() {
         updateTextContent(topWindow, "");
     };
 };
+
+function selfDestruct() {
+    updateTextContent(topWindow, "self destruct in")
+    updateTextContent(bottomWindow,"");
+    setTimeout(() => {
+        updateTextContent(bottomWindow,"3");
+    }, 800);
+    setTimeout(() => {
+        updateTextContent(bottomWindow,"2");
+    }, 1600);
+    setTimeout(() => {
+        updateTextContent(bottomWindow,"1");
+    }, 2400);
+    setTimeout(() => {
+        updateTextContent(bottomWindow,".");
+    }, 3200);
+    setTimeout(() => {
+        updateTextContent(topWindow, "uh")
+        updateTextContent(bottomWindow,"..");
+    }, 4000);
+    setTimeout(() => {
+        updateTextContent(topWindow, "uh oh")
+        updateTextContent(bottomWindow,"...");
+    }, 4800);
+    setTimeout(() => {
+        updateTextContent(bottomWindow,"KABOOM");
+    }, 5600);
+    setTimeout(() => {
+        power = "off";
+        reset();
+        updateTextContent(bottomWindow,"");
+        updateTextContent(topWindow,"");
+    }, 7000);
+}
 
 //operator basic functions
 //add with parseFloat to avoid concatenating strings
