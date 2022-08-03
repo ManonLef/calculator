@@ -56,18 +56,27 @@ buttons.forEach((button) => {
         // next inputs to get num2 value and operate.
         } else if (operator !== "" && num1 !== "" && power === "on") {
 
-            //checks if number is pressed instead of operator
+            //once a number gets pressed, it will now update num2 (it already has num1 and operator).
             if (button.className === "btn numberBtn") { 
                 num2 += button.textContent; 
                 updateTextContent(topWindow, (num1 + operatorSymbol + num2));
 
+            //updates the operator when pressing. Also when pressing multiple in a row.
             } else if (num2 === "" && button.className === "btn operatorBtn") {
                 operator = button.id; 
                 operatorSymbol = button.textContent;
                 updateTextContent(topWindow, (num1 + operatorSymbol));
-
+            
+            //execute the operate function when all variables are filled.
+            // will execute operate() as soon as all variables are filled and an operator or the equals button is pressed.
             } else if (num2 !== "" && (button.className === "btn equalsBtn" || button.className === "btn operatorBtn")) {
-                if (button.id !== divide && num2 !== "0") {
+                
+                // divide by zero
+                if (operator === "divide" && num2 === "0") {
+                    selfDestruct();
+
+                // all other calculations not being divide by zero
+                } else {
                     num1 = operate(num1, operator, num2);
                     updateTextContent(bottomWindow, num1);
                     num2 = "";
@@ -76,8 +85,6 @@ buttons.forEach((button) => {
                         operatorSymbol = button.textContent;
                         updateTextContent(topWindow, (num1 + operatorSymbol));
                     };
-                } else {
-                    selfDestruct();
                 };
             };
         };
