@@ -34,7 +34,7 @@ buttons.forEach((button) => {
         
         //first input check to fill num1 and operator. 
         if (operator === "" && num2 === "" && power === "on") { 
-            if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
+            if (button.className === "btn numberBtn") { // line 38 pseudo impl
                 if (bottomWindow.textContent !== "0") {
                     btmDisplay("0")
                     num1 = "";
@@ -43,13 +43,13 @@ buttons.forEach((button) => {
                 topDisplay(num1);
             
                 //if num1 is filled, an operator is expected. 
-            } else if (button.className === "btn operatorBtn" && num1 !== "") {
+            } else if (button.className === "btn operatorBtn" && num1 !== "") { //line 44 pseudo
                 operator = button.id; 
                 operatorSymbol = button.textContent;
                 topDisplay((num1 + operatorSymbol));
             
                 //no operator yet but equal button clicked, stores just num1 and places it in bottom window
-            } else {
+            } else { //line 54 pseudo
                 setTimeout(() => {
                     btmDisplay("");
                 }, 100);
@@ -62,12 +62,12 @@ buttons.forEach((button) => {
         } else if (operator !== "" && num1 !== "" && power === "on") {
 
             //once a number gets pressed, it will now update num2 (it already has num1 and operator).
-            if (button.className === "btn numberBtn") { 
+            if (button.className === "btn numberBtn") { //line 37 pseudo
                 num2 += button.textContent; 
                 topDisplay((num1 + operatorSymbol + num2));
 
             //updates the operator when pressing. Also when pressing multiple in a row.
-            } else if (num2 === "" && button.className === "btn operatorBtn") {
+            } else if (num2 === "" && button.className === "btn operatorBtn") { //line 44 pseudo
                 operator = button.id; 
                 operatorSymbol = button.textContent;
                 topDisplay((num1 + operatorSymbol));
@@ -77,11 +77,7 @@ buttons.forEach((button) => {
             } else if (num2 !== "" && (button.className === "btn equalsBtn" || button.className === "btn operatorBtn")) {
 
                 // divide by zero
-                if (operator === "divide" && num2 === "0") {
-                    selfDestruct();
                 
-                // all other calculations not being divide by zero
-                } else {
                     num1 = operate(num1, operator, num2);
                     btmDisplay(num1);
                     num2 = "";
@@ -90,7 +86,7 @@ buttons.forEach((button) => {
                         operator = button.id; 
                         operatorSymbol = button.textContent;
                         topDisplay(num1 + operatorSymbol);
-                    };
+                    
                 };
             };
         };
@@ -116,6 +112,8 @@ del.addEventListener('click', () => {
     }
 });
 
+//listener to revert to default by pressing the AC button
+acButton.addEventListener('click', reset);
 
 //functions to quickly update text content
 function topDisplay(output) {
@@ -124,9 +122,6 @@ function topDisplay(output) {
 function btmDisplay(output) {
     bottomWindow.textContent = (output);
 }
-
-//listener to revert to default by pressing the AC button
-acButton.addEventListener('click', reset);
 
 //resetting variables for power off or ac click
 function reset() {
@@ -149,6 +144,9 @@ function operate(num1, operator, num2) {
     } else if (operator === "add") {
         return parseFloat(num1) + parseFloat(num2);
     } else if (operator === "divide") {
+        if (num2 === "0") {
+            return selfDestruct();
+        };
         return num1 / num2;
     } else if (operator === "multiply") {
         return num1 * num2;
@@ -157,35 +155,31 @@ function operate(num1, operator, num2) {
 
 //divide by zero destruction
 function selfDestruct() {
-    updateTextContent(topWindow, "self destruct in")
-    updateTextContent(bottomWindow,"");
+    topDisplay("self destruct in"); btmDisplay("");
     setTimeout(() => {
-        updateTextContent(bottomWindow,"3");
+        btmDisplay("3");
     }, 800);
     setTimeout(() => {
-        updateTextContent(bottomWindow,"2");
+        btmDisplay("2");
     }, 1600);
     setTimeout(() => {
-        updateTextContent(bottomWindow,"1");
+        btmDisplay("1");
     }, 2400);
     setTimeout(() => {
-        updateTextContent(bottomWindow,".");
+        btmDisplay(".");
     }, 3200);
     setTimeout(() => {
-        updateTextContent(topWindow, "uh")
-        updateTextContent(bottomWindow,"..");
+        topDisplay("uh"); btmDisplay("..");
     }, 4000);
     setTimeout(() => {
-        updateTextContent(topWindow, "uh oh")
-        updateTextContent(bottomWindow,"...");
+        topDisplay("uh oh"); btmDisplay("...");
     }, 4800);
     setTimeout(() => {
-        updateTextContent(bottomWindow,"KABOOM");
+        btmDisplay("KABOOM");
     }, 5600);
     setTimeout(() => {
         power = "off";
         reset();
-        updateTextContent(bottomWindow,"");
-        updateTextContent(topWindow,"");
+        btmDisplay(""); topDisplay("");
     }, 7000);
 }
