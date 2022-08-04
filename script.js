@@ -32,72 +32,78 @@ powerButton.addEventListener('click', () => {
 
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (num2 !== "") { // if we have num2 we have num1 and operator and are working on adding num2
-            num2 += button.id; 
-                topDisplay((num1 + operatorSymbol + num2));
-        } else { // we have no num2 yet
-            if (operator !== "") { // if we do have an operator
+        if (power === "on") {
+            if (num2 !== "") { // if we have num2 we have num1 and operator and are working on adding num2
                 num2 += button.id; 
-                topDisplay((num1 + operatorSymbol + num2));
-            } else { //if we don't have an operator and are working on num1
-                if (bottomWindow.textContent !== "0") {
-                    btmDisplay("0")
-                    num1 = "";
-                }
-                num1 += button.textContent; 
-                topDisplay(num1);
+                    topDisplay((num1 + operatorSymbol + num2));
+            } else { // we have no num2 yet
+                if (operator !== "") { // if we do have an operator
+                    num2 += button.id; 
+                    topDisplay((num1 + operatorSymbol + num2));
+                } else { //if we don't have an operator and are working on num1
+                    if (bottomWindow.textContent !== "0") {
+                        btmDisplay("0")
+                        num1 = "";
+                    }
+                    num1 += button.textContent; 
+                    topDisplay(num1);
+                };
             };
-        };
+        };    
     });
 });
 
 operatorButton.forEach((button) => {
     button.addEventListener('click', () => {
-        if (num2 !== "") {
-            num1 = operate(num1, operator, num2);
-            btmDisplay(num1);
-            num2 = "";
-            operator = button.id; 
-            operatorSymbol = button.textContent;
-            topDisplay(num1 + operatorSymbol);
-        } else if (num1 !== "") {
-            operator = button.id; 
-            operatorSymbol = button.textContent;
-            topDisplay(num1 + operatorSymbol);
-        } else {
-            randomError();
+        if (power === "on") {
+            if (num2 !== "") {
+                num1 = operate(num1, operator, num2);
+                btmDisplay(num1);
+                num2 = "";
+                operator = button.id; 
+                operatorSymbol = button.textContent;
+                topDisplay(num1 + operatorSymbol);
+            } else if (num1 !== "") {
+                operator = button.id; 
+                operatorSymbol = button.textContent;
+                topDisplay(num1 + operatorSymbol);
+            } else {
+                randomError();
+            };
         };
     });
 });
 
 
 equalsButton.addEventListener('click', () => { //NOTE same as first if in operatorbutton function
-    setTimeout(() => {
-        btmDisplay("");
-    }, 100);
+    if (power === "on") {
+        setTimeout(() => {
+            btmDisplay("");
+        }, 100);
 
-    if (num2 !== "") {
-        num1 = operate(num1, operator, num2);
-        
-        setTimeout(() => {
-            btmDisplay(num1);
-        }, 200);
+        if (num2 !== "") {
+            num1 = operate(num1, operator, num2);
+            
+            setTimeout(() => {
+                btmDisplay(num1);
+            }, 200);
 
-        num2 = "";
-        operator = ""; 
-    } else if (operator !== "") {
-        
-        setTimeout(() => {
-            randomError();
-        }, 200);
-       
-    } else {
-        setTimeout(() => {
-            if (num1 === "") { //only happens after turning on
-                num1 = "0";
-            }
-            topDisplay(""); btmDisplay(num1);
-        }, 200);
+            num2 = "";
+            operator = ""; 
+        } else if (operator !== "") {
+            
+            setTimeout(() => {
+                randomError();
+            }, 200);
+            
+        } else {
+            setTimeout(() => {
+                if (num1 === "") { //only happens after turning on
+                    num1 = "0";
+                }
+                topDisplay(""); btmDisplay(num1);
+            }, 200);
+        };
     };
 });
 
