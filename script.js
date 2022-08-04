@@ -103,12 +103,12 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
 
 //DEL button functionality
 del.addEventListener('click', () => {
-    if (num1 !== "" && operator !== "" && num2 !== "") {
+    if (num2 !== "") {
         //remove last character from num2
         //update topwindow num1 + operatorsymbol + num2
         num2 = num2.slice(0, -1);
         topDisplay(num1 + operatorSymbol + num2);
-    } else if (num1 !== "" && operator !== "" && num2 === "") {
+    } else if (num1 !== "" && operator !== "") {
         //remove operator 
         operator = "";
         topDisplay(num1);
