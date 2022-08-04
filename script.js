@@ -69,6 +69,9 @@ operatorButton.forEach((button) => {
                 topDisplay(num1 + operatorSymbol);
             } else {
                 randomError();
+                setTimeout(() => {
+                    reset();
+                }, 500);
             };
         };
     });
@@ -97,12 +100,11 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
             }, 200);
             
         } else {
-            setTimeout(() => {
-                if (num1 === "") { //only happens after turning on
-                    num1 = "0";
-                }
+            if (num1 === "") { //only happens after turning on
+                reset();
+            } else {
                 topDisplay(""); btmDisplay(num1);
-            }, 200);
+            };
         };
     };
 });
