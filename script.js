@@ -61,12 +61,32 @@ operatorButton.forEach((button) => {
         } else if (num1 !== "") {
             operator = button.id; 
             operatorSymbol = button.textContent;
-            topDisplay((num1 + operatorSymbol));
+            topDisplay(num1 + operatorSymbol);
         } else {
             btmDisplay("syntax error");
-        }
+        };
     })
 });
+
+
+equalsButton.addEventListener('click', () => { //NOTE same as first if in operatorbutton function
+    if (num2 !== "") {
+        num1 = operate(num1, operator, num2);
+        btmDisplay(num1);
+        num2 = "";
+        operator = ""; 
+    } else if (operator !== "") {
+        btmDisplay("syntax error");
+    } else {
+        setTimeout(() => { //consider putting this into a blink function after pressing equal
+            btmDisplay("");
+        }, 100);
+        setTimeout(() => {
+            topDisplay(""); btmDisplay(num1);
+        }, 200);
+    };
+});
+
 //btn listener
 // buttons.forEach((button) => {
 //     button.addEventListener('click', () => {
