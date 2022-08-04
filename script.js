@@ -147,7 +147,7 @@ function reset() {
 //compute depending on operator.id
 function operate(num1, operator, num2) {
     if (operator === "subtract") {
-        return num1 - num2;
+        return parseFloat(num1) - parseFloat(num2);
     } else if (operator === "add") {
         return parseFloat(num1) + parseFloat(num2);
     } else if (operator === "divide") {
@@ -156,11 +156,11 @@ function operate(num1, operator, num2) {
         };
         return num1 / num2;
     } else if (operator === "multiply") {
-        return num1 * num2;
+        return parseFloat(num1) * parseFloat(num2);
     }  
 };
 
-//divide by zero destruction
+//divide by zero destruction (text animation)
 function selfDestruct() {
     topDisplay("self destruct in"); btmDisplay("");
     setTimeout(() => {

@@ -6,7 +6,7 @@ Typing this out, that last option is best since I can instead use the textconten
 So things to do now:
 - [x] add `btn` class to every num/operator button
 - [x] update the queryselectors as needed
-- [ ] edit the operate function. Consider a switch case.
+- [x] edit the operate function. Consider a switch case.
 - [x] write a listener function and continue with the pseudo
 
 - *2208032350* The Selfdestruct function does not prevent other code to run. 
@@ -26,8 +26,8 @@ If I only have num1
 - [x] clean up operate function *2208040956*
 
 - *2208040957* edit display update to shorten code needed
-- [ ] look into blink on every equals click
-- [ ] consider rewriting functions to evaluate depending on number button clicked, operator button clicked or equals button clicked:
+- [x] look into blink on every equals click
+- [x] consider rewriting functions to evaluate depending on number button clicked, operator button clicked or equals button clicked:
 - Pseudo for above (check with current code):
     - Power has to be on for all buttons to function (perhaps put const btn value queryselectors in power on)
     - number is clicked
@@ -53,4 +53,4 @@ If I only have num1
                         - num1? 
                             - y? blink and put in bottom display
                             - n?  blink and keep bottom display at 0
-- [ ] after implementing above, test with 9-9 and then continuing on that. If that behaves strange, consider changing default screen to an actual number zero or empty.
+- [x] after implementing above, test with 9-9 and then continuing on that. If that behaves strange, consider changing default screen to an actual number zero or empty.
