@@ -65,7 +65,7 @@ operatorButton.forEach((button) => {
             operatorSymbol = button.textContent;
             topDisplay(num1 + operatorSymbol);
         } else {
-            btmDisplay("syntax error");
+            randomError();
         };
     });
 });
@@ -88,12 +88,14 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
     } else if (operator !== "") {
         
         setTimeout(() => {
-            btmDisplay("syntax error");
+            randomError();
         }, 200);
        
     } else {
-
         setTimeout(() => {
+            if (num1 === "") { //only happens after turning on
+                num1 = "0";
+            }
             topDisplay(""); btmDisplay(num1);
         }, 200);
     };
@@ -189,4 +191,9 @@ function selfDestruct() {
     }, 7000);
 }
 
-
+//syntax errors
+function randomError() {
+    let message = ["nope", "doesn't work", "error", "boooo", "retry", "seriously?"];
+    let randomMsg = Math.floor(Math.random() * message.length);
+    btmDisplay(message[randomMsg]);
+}
