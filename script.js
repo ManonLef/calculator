@@ -175,34 +175,15 @@ function selfDestruct() {
     }, 7000);
 }
 
-//operator basic functions
-//add with parseFloat to avoid concatenating strings
-function add(num1, num2) {
-    return parseFloat(num1) + parseFloat(num2); 
-};
-//subtract function
-function subtract(num1, num2) {
-    return num1 - num2;
-};
-//multiply function
-function multiply(num1, num2) {
-    return num1 * num2;
-};
-//division function
-function divide(num1, num2) {
-    return num1 / num2;
-};
-
 //function that calls on above functions depending on operator
 function operate(num1, operator, num2) {
-    if (operator === "-" || operator === "subtract") {
-        operator = subtract;
-    } else if (operator === "+" || operator === "add") {
-        operator = add;
-    } else if (operator === "/" || operator === "divide") {
-        operator = divide;
-    } else if (operator === "×" || operator === "multiply") {
-        operator = multiply;
+    if (operator === "subtract") {
+        return num1 - num2;
+    } else if (operator === "add") {
+        return parseFloat(num1) + parseFloat(num2);
+    } else if (operator === "divide") {
+        return num1 / num2;
+    } else if (operator === "multiply") {
+        return num1 * num2;
     }  
-    return operator(num1, num2);
 };

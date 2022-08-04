@@ -23,3 +23,4 @@ If I only have num1
 
 - (fixed) BUG after operate function is invoked, and you enter another number, topwindow will update num1 adding that number.
 - [ ] look into long int rounding
+- [ ] clean up operate function
