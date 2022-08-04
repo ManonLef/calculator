@@ -50,6 +50,23 @@ numberButtons.forEach((button) => {
         };
     });
 });
+
+operatorButton.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (num2 !== "") {
+            num1 = operate(num1, operator, num2);
+            btmDisplay(num1);
+            num2 = "";
+            operator = ""; 
+        } else if (num1 !== "") {
+            operator = button.id; 
+            operatorSymbol = button.textContent;
+            topDisplay((num1 + operatorSymbol));
+        } else {
+            btmDisplay("syntax error");
+        }
+    })
+});
 //btn listener
 // buttons.forEach((button) => {
 //     button.addEventListener('click', () => {
