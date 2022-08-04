@@ -1,7 +1,6 @@
 // button and display selectors
 const buttons = document.querySelectorAll('.btn');
 const acButton = document.querySelector('#AC');
-//const delButton = document.querySelector('#DEL');
 const topWindow = document.querySelector('#topWindow');
 const bottomWindow = document.querySelector('#bottomWindow');
 const powerButton = document.querySelector('#power');
@@ -37,26 +36,25 @@ buttons.forEach((button) => {
         if (operator === "" && num2 === "" && power === "on") { 
             if (button.className === "btn numberBtn") { //checks if number is pressed instead of operator
                 if (bottomWindow.textContent !== "0") {
-                    updateTextContent(bottomWindow, "0")
+                    btmDisplay("0")
                     num1 = "";
                 }
                 num1 += button.textContent; 
-                updateTextContent(topWindow, num1);
+                topDisplay(num1);
             
                 //if num1 is filled, an operator is expected. 
             } else if (button.className === "btn operatorBtn" && num1 !== "") {
                 operator = button.id; 
                 operatorSymbol = button.textContent;
-                updateTextContent(topWindow, (num1 + operatorSymbol));
+                topDisplay((num1 + operatorSymbol));
             
                 //no operator yet but equal button clicked, stores just num1 and places it in bottom window
             } else {
                 setTimeout(() => {
-                    updateTextContent(bottomWindow, "");
+                    btmDisplay("");
                 }, 100);
                 setTimeout(() => {
-                    updateTextContent(topWindow, "");
-                    updateTextContent(bottomWindow, num1);
+                    topDisplay(""); btmDisplay(num1);
                 }, 200);
             };
         
@@ -66,13 +64,13 @@ buttons.forEach((button) => {
             //once a number gets pressed, it will now update num2 (it already has num1 and operator).
             if (button.className === "btn numberBtn") { 
                 num2 += button.textContent; 
-                updateTextContent(topWindow, (num1 + operatorSymbol + num2));
+                topDisplay((num1 + operatorSymbol + num2));
 
             //updates the operator when pressing. Also when pressing multiple in a row.
             } else if (num2 === "" && button.className === "btn operatorBtn") {
                 operator = button.id; 
                 operatorSymbol = button.textContent;
-                updateTextContent(topWindow, (num1 + operatorSymbol));
+                topDisplay((num1 + operatorSymbol));
             
             //execute the operate function when all variables are filled.
             // will execute operate() as soon as all variables are filled and an operator or the equals button is pressed.
@@ -85,13 +83,13 @@ buttons.forEach((button) => {
                 // all other calculations not being divide by zero
                 } else {
                     num1 = operate(num1, operator, num2);
-                    updateTextContent(bottomWindow, num1);
+                    btmDisplay(num1);
                     num2 = "";
                     operator = ""; 
                     if (button.className === "btn operatorBtn") {
                         operator = button.id; 
                         operatorSymbol = button.textContent;
-                        updateTextContent(topWindow, (num1 + operatorSymbol));
+                        topDisplay(num1 + operatorSymbol);
                     };
                 };
             };
@@ -106,31 +104,27 @@ del.addEventListener('click', () => {
         //remove last character from num2
         //update topwindow num1 + operatorsymbol + num2
         num2 = num2.slice(0, -1);
-        updateTextContent(topWindow, (num1 + operatorSymbol + num2));
+        topDisplay(num1 + operatorSymbol + num2);
     } else if (num1 !== "" && operator !== "" && num2 === "") {
         //remove operator 
         operator = "";
-        updateTextContent(topWindow, (num1));
+        topDisplay(num1);
     } else {
         num1= num1.toString(); //to avoid issues in case num1 is after operate/ans
         num1 = num1.slice(0,-1);
-        updateTextContent(topWindow, (num1));
+        topDisplay(num1);
     }
 });
 
 
-//function to quickly update text content
-function updateTextContent(section, output) {
-    section.textContent = (output);
-};
-
+//functions to quickly update text content
 function topDisplay(output) {
     topWindow.textContent = (output);
 }
-
 function btmDisplay(output) {
     bottomWindow.textContent = (output);
 }
+
 //listener to revert to default by pressing the AC button
 acButton.addEventListener('click', reset);
 
@@ -140,8 +134,7 @@ function reset() {
     operator = "";
     num2 = "";
     if (power === "on") {
-        updateTextContent(bottomWindow,0);
-        updateTextContent(topWindow, "");
+        btmDisplay(0); topDisplay("");
     } else {
         setTimeout(() => {
             btmDisplay(""); topDisplay("");
