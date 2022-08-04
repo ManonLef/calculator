@@ -74,9 +74,8 @@ buttons.forEach((button) => {
             
             //execute the operate function when all variables are filled.
             // will execute operate() as soon as all variables are filled and an operator or the equals button is pressed.
-            } else if (num2 !== "" && (button.className === "btn equalsBtn" || button.className === "btn operatorBtn")) {
+            } else if (num2 !== "" && (button.className === "btn equalsBtn" /*line 48*/ || button.className === "btn operatorBtn" /*line 41*/)) {
 
-                // divide by zero
                 
                     num1 = operate(num1, operator, num2);
                     btmDisplay(num1);

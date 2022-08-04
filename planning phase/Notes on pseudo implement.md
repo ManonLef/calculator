@@ -26,3 +26,30 @@ If I only have num1
 - [x] clean up operate function *2208040956*
 
 - *2208040957* edit display update to shorten code needed
+- [ ] look into blink on every equals click
+- [ ] consider rewriting functions to evaluate depending on number button clicked, operator button clicked or equals button clicked:
+- Pseudo for above (check with current code):
+    - Power has to be on for all buttons to function (perhaps put const btn value queryselectors in power on)
+    - number is clicked
+        - check if num2 available.
+            - y? add to it
+            - n? do we have operator?
+                y? add to num2
+                n? add to num1 unless text in bottomwindow
+    - operator is clicked
+        - do we have num2?
+            - y? operate
+            - n? see below
+        - do we have num1?
+            - y? store operator and display with num1
+            - n? makes no sense. throw syntax error may update topdisplay anyway like casio until equals is clicked
+    - equals is clicked
+        - check if we have num2
+            - y? operate
+            - n? 
+                - do we have operator? 
+                    - y? not enough arguments syntax error
+                    - n?
+                        - num1? 
+                            - y? blink and put in bottom display
+                            - n?  blink and keep bottom display at 0
