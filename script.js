@@ -17,22 +17,19 @@ let power = "off";
 //powerbutton functionality
 powerButton.addEventListener('click', () => {
     if (power === "off") {
-        power = "on"
-        updateTextContent(bottomWindow,"hello");
+        power = "on";
+        btmDisplay("hello");
         setTimeout(() => { 
-            updateTextContent(bottomWindow,0);  
+            btmDisplay(0);  
         }, 750);
     } else {
         power = "off"
-        updateTextContent(bottomWindow, "goodbye");
-        setTimeout(() => {
-            updateTextContent(bottomWindow,"");
-            updateTextContent(topWindow,"");
-        }, 750);
+        btmDisplay("goodbye");
         reset(); // to clear variables
     };
 });
 
+//btn listener
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         
@@ -127,6 +124,13 @@ function updateTextContent(section, output) {
     section.textContent = (output);
 };
 
+function topDisplay(output) {
+    topWindow.textContent = (output);
+}
+
+function btmDisplay(output) {
+    bottomWindow.textContent = (output);
+}
 //listener to revert to default by pressing the AC button
 acButton.addEventListener('click', reset);
 
@@ -138,9 +142,27 @@ function reset() {
     if (power === "on") {
         updateTextContent(bottomWindow,0);
         updateTextContent(topWindow, "");
+    } else {
+        setTimeout(() => {
+            btmDisplay(""); topDisplay("");
+        }, 750);
     };
 };
 
+//compute depending on operator.id
+function operate(num1, operator, num2) {
+    if (operator === "subtract") {
+        return num1 - num2;
+    } else if (operator === "add") {
+        return parseFloat(num1) + parseFloat(num2);
+    } else if (operator === "divide") {
+        return num1 / num2;
+    } else if (operator === "multiply") {
+        return num1 * num2;
+    }  
+};
+
+//divide by zero destruction
 function selfDestruct() {
     updateTextContent(topWindow, "self destruct in")
     updateTextContent(bottomWindow,"");
@@ -174,16 +196,3 @@ function selfDestruct() {
         updateTextContent(topWindow,"");
     }, 7000);
 }
-
-//function that calls on above functions depending on operator
-function operate(num1, operator, num2) {
-    if (operator === "subtract") {
-        return num1 - num2;
-    } else if (operator === "add") {
-        return parseFloat(num1) + parseFloat(num2);
-    } else if (operator === "divide") {
-        return num1 / num2;
-    } else if (operator === "multiply") {
-        return num1 * num2;
-    }  
-};
