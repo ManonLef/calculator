@@ -53,3 +53,4 @@ If I only have num1
                         - num1? 
                             - y? blink and put in bottom display
                             - n?  blink and keep bottom display at 0
+- [ ] after implementing above, test with 9-9 and then continuing on that. If that behaves strange, consider changing default screen to an actual number zero or empty.
