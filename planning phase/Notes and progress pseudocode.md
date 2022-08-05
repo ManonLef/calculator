@@ -68,4 +68,9 @@ If I only have num1
 - [x] rewrite the operate function to use `Number` or `+` instead of `parseFloat`
 - [x] test the above task
 
+- *2208051825* Official TODO's left
+    - [ ] implement decimal funtionality after a pseudo session
+    - [ ] round decimals to avoid overflowing the screen
+    - [ ] OPTIONAL add keyboard support
+
 
