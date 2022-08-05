@@ -79,8 +79,10 @@ If I only have num1
     - [ ] OPTIONAL add keyboard support
 
 - *2208052032*
-    -[ ] OPTIONAL Look into `setTimeout` ID. How to find it. If I can find it, I can then use `clearTimeout(id)`.
+    - [ ] OPTIONAL Look into `setTimeout` ID. How to find it. If I can find it, I can then use `clearTimeout(id)`.
         - Possible usecase: after dividing by zero, a selfDestruct timeout sequence is started. When turning off the calculator while that's running, there's another timeout triggered that runs in sequence with the selfDestruct one.
-    -[ ] turn calculator "off" and the remove the eventlistener for the on off button temporarily? add it back after the sequence. No clue if this would work
-
+    - [x] turn calculator "off" and the remove the eventlistener for the on off button temporarily? add it back after the sequence. No clue if this would work
+        - not needed if I convert all divs to buttons. Then you can use `button.disabled: true;` and false ofcourse
+    - [ ] convert all `divs` to `buttons`
+    - [ ] edit css after above task to remove button styling, including disabled styling
 
