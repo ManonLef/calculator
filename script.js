@@ -201,7 +201,7 @@ function selfDestruct() {
 
 //syntax errors
 function randomError() {
-    let message = ["nope", "doesn't work", "error", "boooo", "retry", "seriously?"];
+    let message = ["nope", "doesn't work", "error", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh"];
     let randomMsg = Math.floor(Math.random() * message.length);
     btmDisplay(message[randomMsg]);
 }
