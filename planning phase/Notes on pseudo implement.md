@@ -56,4 +56,7 @@ If I only have num1
 - [x] after implementing above, test with 9-9 and then continuing on that. If that behaves strange, consider changing default screen to an actual number zero or empty.
 
 - *2208041545* BUG
-- [ ] Check why equalsBtn right after startup without num1 messes up the reset().
+- [x] Check why equalsBtn right after startup without num1 messes up the reset(). (fixed, it did a reset faster than the inital timeout on equals button for the blink effect)
+
+- *2208051515* conside making a separate function for timeout to shorten the code for all the animations.
+

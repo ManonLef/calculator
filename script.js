@@ -79,7 +79,7 @@ operatorButton.forEach((button) => {
 
 
 equalsButton.addEventListener('click', () => { //NOTE same as first if in operatorbutton function
-    if (power === "on") {
+    if (power === "on") { //general "blink effect" every time the equal button is clicked.
         setTimeout(() => {
             btmDisplay("");
         }, 100);
@@ -100,11 +100,9 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
             }, 200);
             
         } else {
-            if (num1 === "") { //only happens after turning on
+            setTimeout(() => {
                 reset();
-            } else {
-                topDisplay(""); btmDisplay(num1);
-            };
+            }, 200);
         };
     };
 });
