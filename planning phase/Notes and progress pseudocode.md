@@ -60,7 +60,7 @@ If I only have num1
 
 - *2208051515* 
     - [x] consider making a separate function for timeout to shorten the code for all the animations.
-        - note on above. You could use `setTimeout(command, timeout)` but it's not advised due to the same problems as `eval()` apparently has. Note to self to 
+        - note on above. You could use `setTimeout(command, timeout)` but it's not advised due to the same potential security risks as `eval()` apparently has since it uses some sort of an implied `eval`. Note to self to 
         - [ ] research the security risks of `eval()`.
         - The advised way to do this is how I did it. Another way would be to use `promises` maybe but I haven't learned about them yet so will not dive into that rabbit hole for an unneeded easter-egg at this point.
     - [ ] check changing all top windows to (num1 + operatorSymbol + num2). Expecting the same result since the other strings are empty if absent
@@ -75,5 +75,10 @@ If I only have num1
     - [ ] implement decimal funtionality after a pseudo session
     - [ ] round decimals to avoid overflowing the screen
     - [ ] OPTIONAL add keyboard support
+
+- *2208052032*
+    -[ ] OPTIONAL Look into `setTimeout` ID. How to find it. If I can find it, I can then use `clearTimeout(id)`.
+        - Possible usecase: after dividing by zero, a selfDestruct timeout sequence is started. When turning off the calculator while that's running, there's another timeout triggered that runs in sequence with the selfDestruct one.
+    -[ ] turn calculator "off" and the remove the eventlistener for the on off button temporarily? add it back after the sequence. No clue if this would work
 
 
