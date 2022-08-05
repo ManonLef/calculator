@@ -60,9 +60,9 @@ If I only have num1
 
 - *2208051515* 
     - [x] consider making a separate function for timeout to shorten the code for all the animations.
-<<<<<<< HEAD
+
         - note on above. You could use `setTimeout(command, timeout)` but it's not advised due to the same potential security risks as `eval()` apparently has since it uses some sort of an implied `eval`. Note to self to 
-        
+
         - [ ] research the security risks of `eval()`.
         - The advised way to do this is how I did it. Another way would be to use `promises` maybe but I haven't learned about them yet so will not dive into that rabbit hole for an unneeded easter-egg at this point.
     - [ ] check changing all top windows to (num1 + operatorSymbol + num2). Expecting the same result since the other strings are empty if absent
