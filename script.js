@@ -124,7 +124,7 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
                 setTimeout(() => {
                     topDisplay(""); btmDisplay(num1);
                 }, 200);
-            } 
+            }; 
         };
     };
 });
@@ -144,7 +144,7 @@ del.addEventListener('click', () => {
         num1= num1.toString(); //to avoid issues in case num1 is after operate/ans
         num1 = num1.slice(0,-1);
         topDisplay(num1);
-    }
+    };
 });
 
 //listener to revert to default by pressing the AC button
@@ -153,10 +153,10 @@ acButton.addEventListener('click', reset);
 //functions to quickly update text content
 function topDisplay(output) {
     topWindow.textContent = (output);
-}
+};
 function btmDisplay(output) {
     bottomWindow.textContent = (output);
-}
+};
 
 //resetting variables for power off or ac click
 function reset() {
@@ -181,7 +181,7 @@ function operate(num1, operator, num2) {
     } else if (operator === "add") {
         return num1 + num2;
     } else if (operator === "divide") {
-        if (num2 === "0") {
+        if (num2 === 0) {
             return selfDestruct();
         };
         return num1 / num2;
@@ -219,11 +219,11 @@ function selfDestruct() {
         reset();
         btmDisplay(""); topDisplay("");
     }, 7000);
-}
+};
 
 //syntax errors
 function randomError() {
     let message = ["nope", "doesn't work", "error", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh"];
     let randomMsg = Math.floor(Math.random() * message.length);
     btmDisplay(message[randomMsg]);
-}
+};
