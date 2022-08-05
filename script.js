@@ -100,9 +100,15 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
             }, 200);
             
         } else {
-            setTimeout(() => {
-                reset();
-            }, 200);
+            if (num1 === "") { //right after startup 
+                setTimeout(() => {
+                    reset();
+                }, 200);
+            } else {
+                setTimeout(() => {
+                    topDisplay(""); btmDisplay(num1);
+                }, 200);
+            } 
         };
     };
 });
