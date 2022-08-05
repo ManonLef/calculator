@@ -58,5 +58,11 @@ If I only have num1
 - *2208041545* BUG
 - [x] Check why equalsBtn right after startup without num1 messes up the reset(). (fixed, it did a reset faster than the inital timeout on equals button for the blink effect)
 
-- *2208051515* conside making a separate function for timeout to shorten the code for all the animations.
+- *2208051515* 
+    - [ ] consider making a separate function for timeout to shorten the code for all the animations.
+    - [ ] check changing all top windows to (num1 + operatorSymbol + num2). Expecting the same result since the other strings are empty if absent
+
+- *2208051819* random thought: why not just concatenate every input to later convert and calculate. 
+    - [ ] test the above somewhere after finishing calculator. 
+
 
