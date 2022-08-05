@@ -30,17 +30,23 @@ powerButton.addEventListener('click', () => {
     };
 });
 
+//assigns to num variable num1 or num2 when a number button is clicked. 
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         if (power === "on") {
-            if (num2 !== "") { // if we have num2 we have num1 and operator and are working on adding num2
+            // if we have num2 we have num1 and operator and are working on adding num2
+            if (num2 !== "") { 
                 num2 += button.id; 
                     topDisplay((num1 + operatorSymbol + num2));
-            } else { // we have no num2 yet
-                if (operator !== "") { // if we do have an operator
+            // in case we have no num2 yet        
+            } else { 
+                // if we do have an operator 
+                if (operator !== "") { 
                     num2 += button.id; 
                     topDisplay((num1 + operatorSymbol + num2));
-                } else { //if we don't have an operator and are working on num1
+                //if we don't have an operator then we are inputting num1    
+                } else { 
+                    // if bottom window has a previous result, we wipe it.
                     if (bottomWindow.textContent !== "0") {
                         btmDisplay("0")
                         num1 = "";
@@ -53,9 +59,13 @@ numberButtons.forEach((button) => {
     });
 });
 
+//aassigns to operator or operates before doing so
 operatorButton.forEach((button) => {
     button.addEventListener('click', () => {
         if (power === "on") {
+            // since we only operate two numbers at a time, 
+            // if we have num2 we operate the previous num1 
+            // and previous operator before assigning this operator
             if (num2 !== "") {
                 num1 = operate(num1, operator, num2);
                 btmDisplay(num1);
@@ -67,6 +77,7 @@ operatorButton.forEach((button) => {
                 operator = button.id; 
                 operatorSymbol = button.textContent;
                 topDisplay(num1 + operatorSymbol);
+            // in case an operator is clicked without anything preceding it.
             } else {
                 randomError();
                 setTimeout(() => {
@@ -77,13 +88,14 @@ operatorButton.forEach((button) => {
     });
 });
 
-
+//operate 
 equalsButton.addEventListener('click', () => { //NOTE same as first if in operatorbutton function
-    if (power === "on") { //general "blink effect" every time the equal button is clicked.
+    if (power === "on") { 
+        //general "blink effect" every time the equal button is clicked.
         setTimeout(() => {
             btmDisplay("");
         }, 100);
-
+        //operate if all variables filled.
         if (num2 !== "") {
             num1 = operate(num1, operator, num2);
             
@@ -92,7 +104,9 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
             }, 200);
 
             num2 = "";
-            operator = ""; 
+            operator = "";
+        
+        // we have no num2, but do have a variable. This throws a syntax error
         } else if (operator !== "") {
             
             setTimeout(() => {
@@ -100,10 +114,12 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
             }, 200);
             
         } else {
-            if (num1 === "") { //right after startup 
+            //right after startup "=" is pressed
+            if (num1 === "") {  
                 setTimeout(() => {
                     reset();
                 }, 200);
+            //
             } else {
                 setTimeout(() => {
                     topDisplay(""); btmDisplay(num1);
@@ -158,17 +174,19 @@ function reset() {
 
 //compute depending on operator.id
 function operate(num1, operator, num2) {
+    num1 = +num1;
+    num2 = +num2;
     if (operator === "subtract") {
-        return parseFloat(num1) - parseFloat(num2);
+        return num1 - num2;
     } else if (operator === "add") {
-        return parseFloat(num1) + parseFloat(num2);
+        return num1 + num2;
     } else if (operator === "divide") {
         if (num2 === "0") {
             return selfDestruct();
         };
         return num1 / num2;
     } else if (operator === "multiply") {
-        return parseFloat(num1) * parseFloat(num2);
+        return num1 * num2;
     }  
 };
 

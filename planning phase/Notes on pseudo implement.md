@@ -65,4 +65,7 @@ If I only have num1
 - *2208051819* random thought: why not just concatenate every input to later convert and calculate. 
     - [ ] test the above somewhere after finishing calculator. 
 
+- [x] rewrite the operate function to use `Number` or `+` instead of `parseFloat`
+- [x] test the above task
+
 
