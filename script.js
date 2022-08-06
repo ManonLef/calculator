@@ -10,51 +10,55 @@ const del = document.querySelector('#DEL');
 const buttons = document.getElementsByTagName('button');
 const decimalButton = document.querySelector('.decimalBtn');
 
-//global variables needed in their default state
+//Startup State
 let num1 = "";
 let operator = "";
 let num2 = "";
 let operatorSymbol = "";
-let power = "off";
+let powerOn = false;
+
+disableButtons();
+powerButton.disabled = false;
 
 powerButton.addEventListener('click', () => {
-    if (power === "off") {
-        power = "on";
+    if (!powerOn) {
+        powerOn = true;
         btmDisplay("hello");
         setTimeout(() => { 
             btmDisplay(0);  
         }, 750);
+        enableButtons();
     } else {
-        power = "off"
+        powerOn = false;
         btmDisplay("goodbye");
         reset(); // to clear variables
+        disableButtons();
+        powerButton.disabled = false;
     };
 });
 
 //assigns to num variable num1 or num2 when a number button is clicked. 
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (power === "on") {
-            // if we have num2 we have num1 and operator and are working on adding num2
-            if (num2 !== "") { 
+        // if we have num2 we have num1 and operator and are working on adding num2
+        if (num2 !== "") { 
+            num2 += button.id; 
+                topDisplay("trackInput");
+        // in case we have no num2 yet        
+        } else { 
+            // if we do have an operator 
+            if (operator !== "") { 
                 num2 += button.id; 
-                    topDisplay("trackInput");
-            // in case we have no num2 yet        
+                topDisplay("trackInput");
+            //if we don't have an operator then we are inputting num1    
             } else { 
-                // if we do have an operator 
-                if (operator !== "") { 
-                    num2 += button.id; 
-                    topDisplay("trackInput");
-                //if we don't have an operator then we are inputting num1    
-                } else { 
-                    // if bottom window has a previous result, we wipe it.
-                    if (bottomWindow.textContent !== "0") {
-                        btmDisplay("0")
-                        num1 = "";
-                    };
-                    num1 += button.textContent; 
-                    topDisplay("trackInput");
+                // if bottom window has a previous result, we wipe it.
+                if (bottomWindow.textContent !== "0") {
+                    btmDisplay("0")
+                    num1 = "";
                 };
+                num1 += button.textContent; 
+                topDisplay("trackInput");
             };
         };    
     });
@@ -63,71 +67,67 @@ numberButtons.forEach((button) => {
 //aassigns to operator or operates before doing so
 operatorButton.forEach((button) => {
     button.addEventListener('click', () => {
-        if (power === "on") {
-            decimalButton.disabled = false;
-            // since we only operate two numbers at a time, 
-            // if we have num2 we operate the previous num1 
-            // and previous operator before assigning this operator
-            if (num2 !== "") {
-                num1 = operate(num1, operator, num2);
-                btmDisplay(num1);
-                num2 = "";
-                operator = button.id; 
-                operatorSymbol = button.textContent;
-                topDisplay("trackInput");
-            } else if (num1 !== "") {
-                operator = button.id; 
-                operatorSymbol = button.textContent;
-                topDisplay("trackInput");
-            // in case an operator is clicked without anything preceding it.
-            } else {
-                randomError();
-                setTimeout(() => {
-                    reset();
-                }, 500);
-            };
+        decimalButton.disabled = false;
+        // since we only operate two numbers at a time, 
+        // if we have num2 we operate the previous num1 
+        // and previous operator before assigning this operator
+        if (num2 !== "") {
+            num1 = operate(num1, operator, num2);
+            btmDisplay(num1);
+            num2 = "";
+            operator = button.id; 
+            operatorSymbol = button.textContent;
+            topDisplay("trackInput");
+        } else if (num1 !== "") {
+            operator = button.id; 
+            operatorSymbol = button.textContent;
+            topDisplay("trackInput");
+        // in case an operator is clicked without anything preceding it.
+        } else {
+            randomError();
+            setTimeout(() => {
+                reset();
+            }, 500);
         };
     });
 });
 
 //operate 
 equalsButton.addEventListener('click', () => { //NOTE same as first if in operatorbutton function
-    if (power === "on") { 
-        //general "blink effect" every time the equal button is clicked.
-        setTimeout(() => {
-            btmDisplay("");
-        }, 100);
-        //operate if all variables filled.
-        if (num2 !== "") {
-            num1 = operate(num1, operator, num2);
-            
-            setTimeout(() => {
-                btmDisplay(num1);
-            }, 200);
-
-            num2 = "";
-            operator = "";
+    //general "blink effect" every time the equal button is clicked.
+    setTimeout(() => {
+        btmDisplay("");
+    }, 100);
+    //operate if all variables filled.
+    if (num2 !== "") {
+        num1 = operate(num1, operator, num2);
         
-        // we have no num2, but do have a variable. This throws a syntax error
-        } else if (operator !== "") {
-            
+        setTimeout(() => {
+            btmDisplay(num1);
+        }, 200);
+
+        num2 = "";
+        operator = "";
+    
+    // we have no num2, but do have a variable. This throws a syntax error
+    } else if (operator !== "") {
+        
+        setTimeout(() => {
+            randomError();
+        }, 200);
+        
+    } else {
+        //right after startup "=" is pressed
+        if (num1 === "") {  
             setTimeout(() => {
-                randomError();
+                reset();
             }, 200);
-            
+        //
         } else {
-            //right after startup "=" is pressed
-            if (num1 === "") {  
-                setTimeout(() => {
-                    reset();
-                }, 200);
-            //
-            } else {
-                setTimeout(() => {
-                    topDisplay(""); btmDisplay(num1);
-                }, 200);
-            }; 
-        };
+            setTimeout(() => {
+                topDisplay(""); btmDisplay(num1);
+            }, 200);
+        }; 
     };
 });
 
@@ -189,12 +189,13 @@ function reset() {
     operator = "";
     num2 = "";
     operatorSymbol = "";
-    if (power === "on") {
+    if (powerOn) {
         btmDisplay(0); topDisplay("");
     } else {
         setTimeout(() => {
             btmDisplay(""); topDisplay("");
         }, 750);
+        powerButton.disabled = false;
     };
 };
 
@@ -242,10 +243,8 @@ function selfDestruct() {
         btmDisplay("KABOOM");
     }, 5600);
     setTimeout(() => {
-        power = "off";
+        powerOn = false;
         reset();
-        btmDisplay(""); topDisplay("");
-        enableButtons();
     }, 7000);
     
 };
@@ -263,7 +262,7 @@ function enableButtons() {
 };
 
 function randomError() {
-    let message = ["nope", "doesn't work", "error", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh", "stop that!", "stop it",];
+    let message = ["nope", "doesn't work", "error", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh", "stop that!", "stop it", "no parse", "don't!"];
     let randomMsg = Math.floor(Math.random() * message.length);
     btmDisplay(message[randomMsg]);
 };
