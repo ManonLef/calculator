@@ -51,7 +51,7 @@ numberButtons.forEach((button) => {
                     if (bottomWindow.textContent !== "0") {
                         btmDisplay("0")
                         num1 = "";
-                    }
+                    };
                     num1 += button.textContent; 
                     topDisplay(num1);
                 };
@@ -152,9 +152,13 @@ del.addEventListener('click', () => {
 acButton.addEventListener('click', reset);
 
 decimalButton.addEventListener('click', () => {
-    if (num2 !== "") {
+    if (operator !== "") {
         num2 += "."; 
     } else {
+        if (bottomWindow.textContent !== "0") {
+            btmDisplay("0")
+            num1 = "";
+        };
         num1 += ".";
     };
     topDisplay((num1 + operatorSymbol + num2));
@@ -183,6 +187,7 @@ function reset() {
 };
 
 function operate(num1, operator, num2) {
+    decimalButton.disabled = false;
     num1 = +num1;
     num2 = +num2;
     if (operator === "subtract") {
