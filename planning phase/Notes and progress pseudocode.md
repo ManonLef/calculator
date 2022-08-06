@@ -111,3 +111,16 @@ Then I looked at my html and found out the divide button's `id` was literally `b
         - n? concatenate with num1 and disable button
     - equals pressed? enable decimal button
     - operator pressed? enable decimal button
+
+### 2208061124 Notes on decimal
+- when num2 isn't assigned but operator is clicked, it adds to num1 so that's undesirable. Instead rewrite to (if operator !== "")
+    - [x] try above rewrite in decimalButton
+- Instead of re-enabling the decimalButton when either `equals` or `operator` are clicked, I added it to the operate function. 
+- ISSUE the decimal now also concatenates with the previous `ans`. numbers used to do that too. 
+- [x] Add current line 51 conditional to decimal button as well. 
+- Update: [last point here](#-2208051515) will only work if all other strings are empty. This means once we have operated, we want to default `num2` and `operatorsymbol` to `""`.
+- [x] Test the following:
+    - add `operatorSymbol = ""` to the operate function since it doesn't use it
+    - check to see if that would allow most functions to use `topDisplay(num1 + operatorSymbol + num2)`
+        - Note after test: seems to work
+- [ ] Test all topwindow to `topDisplay(num1 + operatorSymbol + num2)`

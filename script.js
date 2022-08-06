@@ -188,6 +188,7 @@ function reset() {
 
 function operate(num1, operator, num2) {
     decimalButton.disabled = false;
+    operatorSymbol = "";
     num1 = +num1;
     num2 = +num2;
     if (operator === "subtract") {
