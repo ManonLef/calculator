@@ -8,6 +8,8 @@ const bottomWindow = document.querySelector('#bottomWindow');
 const powerButton = document.querySelector('#power');
 const del = document.querySelector('#DEL');
 
+const buttons = document.getElementsByTagName('button');
+
 //global variables needed in their default state
 let num1 = "";
 let operator = "";
@@ -192,6 +194,7 @@ function operate(num1, operator, num2) {
 
 //divide by zero destruction (text animation)
 function selfDestruct() {
+    disableButtons();
     topDisplay("self destruct in"); btmDisplay("");
     setTimeout(() => {
         btmDisplay("3");
@@ -218,8 +221,24 @@ function selfDestruct() {
         power = "off";
         reset();
         btmDisplay(""); topDisplay("");
+        enableButtons();
     }, 7000);
+    
 };
+
+//function to disable all buttons before text animation runs
+function disableButtons() {
+    for (const button of buttons) {
+        button.disabled = true;
+    }
+}
+
+// function to re-enable all buttons when text animation is done
+function enableButtons() {
+    for (const button of buttons) {
+        button.disabled = false;
+    }
+}
 
 //syntax errors
 function randomError() {

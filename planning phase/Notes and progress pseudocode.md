@@ -84,7 +84,7 @@ If I only have num1
     - [x] turn calculator "off" and the remove the eventlistener for the on off button temporarily? add it back after the sequence. No clue if this would work
         - not needed if I convert all divs to buttons. Then you can use `button.disabled: true;` and false ofcourse
     - [x] convert all `divs` to `buttons`
-    - [x] edit css after above task to remove button styling, including disabled styling
+    - [x] edit css after above task to remove button styling
 
 - [ ] turn buttons off during text animation
 
@@ -92,3 +92,4 @@ If I only have num1
 - After a futile debugging attempt, the operator kept being assigned `buttonide` when it should be assigned the `button.id`. I thought that was something fancy caused by me having changed every div to a button. Not sure what I was thinking but no matter what I changed in my script, 9/0 would not invoke `selfDestruct()`. I never checked with other divisions... 
 Then I looked at my html and found out the divide button's `id` was literally `buttonide` now. Facepalm. xy problem.
     
+- [ ] remove styling when buttons are disabled
