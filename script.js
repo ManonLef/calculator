@@ -64,6 +64,7 @@ numberButtons.forEach((button) => {
 operatorButton.forEach((button) => {
     button.addEventListener('click', () => {
         if (power === "on") {
+            decimalButton.disabled = false;
             // since we only operate two numbers at a time, 
             // if we have num2 we operate the previous num1 
             // and previous operator before assigning this operator
