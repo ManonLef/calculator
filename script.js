@@ -38,13 +38,13 @@ numberButtons.forEach((button) => {
             // if we have num2 we have num1 and operator and are working on adding num2
             if (num2 !== "") { 
                 num2 += button.id; 
-                    topDisplay((num1 + operatorSymbol + num2));
+                    topDisplay("trackInput");
             // in case we have no num2 yet        
             } else { 
                 // if we do have an operator 
                 if (operator !== "") { 
                     num2 += button.id; 
-                    topDisplay((num1 + operatorSymbol + num2));
+                    topDisplay("trackInput");
                 //if we don't have an operator then we are inputting num1    
                 } else { 
                     // if bottom window has a previous result, we wipe it.
@@ -53,7 +53,7 @@ numberButtons.forEach((button) => {
                         num1 = "";
                     };
                     num1 += button.textContent; 
-                    topDisplay(num1);
+                    topDisplay("trackInput");
                 };
             };
         };    
@@ -73,11 +73,11 @@ operatorButton.forEach((button) => {
                 num2 = "";
                 operator = button.id; 
                 operatorSymbol = button.textContent;
-                topDisplay(num1 + operatorSymbol);
+                topDisplay("trackInput");
             } else if (num1 !== "") {
                 operator = button.id; 
                 operatorSymbol = button.textContent;
-                topDisplay(num1 + operatorSymbol);
+                topDisplay("trackInput");
             // in case an operator is clicked without anything preceding it.
             } else {
                 randomError();
@@ -130,21 +130,18 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
     };
 });
 
-//DEL button functionality
 del.addEventListener('click', () => {
     if (num2 !== "") {
-        //remove last character from num2
-        //update topwindow num1 + operatorsymbol + num2
         num2 = num2.slice(0, -1);
-        topDisplay(num1 + operatorSymbol + num2);
-    } else if (num1 !== "" && operator !== "") {
-        //remove operator 
+        topDisplay("trackInput");
+    } else if (num1 !== "" && operator !== "") { 
         operator = "";
-        topDisplay(num1);
+        operatorSymbol = "";
+        topDisplay("trackInput");
     } else {
-        num1= num1.toString(); //to avoid issues in case num1 is after operate/ans
+        num1 = num1.toString(); 
         num1 = num1.slice(0,-1);
-        topDisplay(num1);
+        topDisplay("trackInput");
     };
 });
 
@@ -161,14 +158,19 @@ decimalButton.addEventListener('click', () => {
         };
         num1 += ".";
     };
-    topDisplay((num1 + operatorSymbol + num2));
+    topDisplay("trackInput");
     decimalButton.disabled = true;
 });
 
 //functions to quickly update text content
 function topDisplay(output) {
-    topWindow.textContent = (output);
+    if (output === "trackInput") {
+        topWindow.textContent = (num1 + operatorSymbol + num2);
+    } else {
+        topWindow.textContent = (output);
+    }; 
 };
+
 function btmDisplay(output) {
     bottomWindow.textContent = (output);
 };
@@ -177,6 +179,7 @@ function reset() {
     num1 = "";
     operator = "";
     num2 = "";
+    operatorSymbol = "";
     if (power === "on") {
         btmDisplay(0); topDisplay("");
     } else {

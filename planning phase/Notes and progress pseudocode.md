@@ -70,7 +70,7 @@ So things to do now:
     - note on above. You could use `setTimeout(command, timeout)` but it's not advised due to the same potential security risks as `eval()` apparently has since it uses some sort of an implied `eval`. Note to self to 
     - [ ] research the security risks of `eval()`.
     - The advised way to do this is how I did it. Another way would be to use `promises` maybe but I haven't learned about them yet so will not dive into that rabbit hole for an unneeded easter-egg at this point.
-- [ ] check changing all top windows to `(num1 + operatorSymbol + num2)`. Expecting the same result since the other strings are empty if absent
+- [x] check changing all top windows to `(num1 + operatorSymbol + num2)`. Expecting the same result since the other strings are empty if absent
 
 ### 2208051819 
 - random thought: why not just concatenate every input to later convert and calculate. 
@@ -80,19 +80,19 @@ So things to do now:
 - [x] test the above task
 
 ### 2208051825 Official TODO's left
-- [ ] implement decimal funtionality after a pseudo session
+- [x] implement decimal funtionality after a pseudo session
 - [ ] round decimals to avoid overflowing the screen
 - [ ] OPTIONAL add keyboard support
 
 ### 2208052032
-- [ ] OPTIONAL Look into `setTimeout` ID. How to find it. If I can find it, I can then use `clearTimeout(id)`.
-    - Possible usecase: after dividing by zero, a selfDestruct timeout sequence is started. When turning off the calculator while that's running, there's another timeout triggered that runs in sequence with the selfDestruct one.
+- [x] ~~OPTIONAL Look into `setTimeout` ID. How to find it. If I can find it, I can then use `clearTimeout(id)`.~~
+    - Possible usecase: after dividing by zero, a selfDestruct timeout sequence is started. When turning off the calculator while that's running, there's another timeout triggered that runs in sequence with the selfDestruct one. (note on crossout: it became obsolete with implementation of disable buttons)
 - [x] turn calculator "off" and the remove the eventlistener for the on off button temporarily? add it back after the sequence. No clue if this would work
     - not needed if I convert all divs to buttons. Then you can use `button.disabled: true;` and false ofcourse
 - [x] convert all `divs` to `buttons`
 - [x] edit css after above task to remove button styling
 
-- [ ] turn buttons off during text animation
+- [x] turn buttons off during text animation
 
 ### 2208060830 BUG
 - SelfDestruct stopped working... (fixed)
@@ -123,4 +123,10 @@ Then I looked at my html and found out the divide button's `id` was literally `b
     - add `operatorSymbol = ""` to the operate function since it doesn't use it
     - check to see if that would allow most functions to use `topDisplay(num1 + operatorSymbol + num2)`
         - Note after test: seems to work
-- [ ] Test all topwindow to `topDisplay(num1 + operatorSymbol + num2)`
+- [x] Test changing all clicks in numberButtons function`topDisplay(num1 + operatorSymbol + num2)`
+    - Seems to work fine
+- [x] Add above to other functions and simplify code to pass a default value to the topDisplay function
+- [ ] FIX ISSUE: after operating, then hitting DEL will start editing the num1 ans.
+- [ ] FIX ISSUE: when DELing a decimal, the decimal button will still be in disabled state and can't be reused until an operation occurs
+
+- [ ] Research if ternary or switch cases could add to readability of my code
