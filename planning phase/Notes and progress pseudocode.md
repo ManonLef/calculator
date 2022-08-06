@@ -15,11 +15,7 @@ So things to do now:
 ### 2208032350
 - The Selfdestruct function does not prevent other code to run. 
 - [x] consider adding a state during the timeout function that prevents the btn eventlisteners from functioning.
-<<<<<<< HEAD
     - note: changed divs to buttons. See [here](#2208060830-bug) 
-=======
-    - note: changed divs to buttons. See [here](###-2208060830-BUG) 
->>>>>>> 3e07db4a76f1859c6bd0df40cef22f1ab30e4e67
 
 ### 2208032358 DEL functionality pseudo.
 - If I press the DEL button, I want the last inputted symbol to be removed. So I'll have to figure out what that symbol was.
