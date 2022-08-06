@@ -101,3 +101,13 @@ Then I looked at my html and found out the divide button's `id` was literally `b
     
 - [ ] remove styling when buttons are disabled
 - [ ] use the buttons state functions for on and off, and remove the `if (power === "on") from the button listener functions.
+
+### 2208061107 Pseudocode Decimal button
+- We want the button to disable once num1 or num2 contains a decimal
+- So if it's pressed, we want to find out if there's a num2 yet (which means num1 has already been assigned) if it's not, we assign it to num1 and disable the button. if it is, we assign it to num2 and disable the button. We can then re-enable it once an operator is pressed or equal sign is pressed.
+- Flow:
+    - num2 available? 
+        - y? concatenate with num2 and disable button
+        - n? concatenate with num1 and disable button
+    - equals pressed? enable decimal button
+    - operator pressed? enable decimal button
