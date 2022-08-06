@@ -15,7 +15,7 @@ So things to do now:
 ### 2208032350
 - The Selfdestruct function does not prevent other code to run. 
 - [x] consider adding a state during the timeout function that prevents the btn eventlisteners from functioning.
-    - note: changed divs to buttons. See [here](#-2208060830) 
+    - note: changed divs to buttons. See [here](###-2208060830-BUG) 
 
 ### 2208032358 DEL functionality pseudo.
 - If I press the DEL button, I want the last inputted symbol to be removed. So I'll have to figure out what that symbol was.
@@ -94,7 +94,8 @@ So things to do now:
 
 - [ ] turn buttons off during text animation
 
-### 2208060830 BUG SelfDestruct stopped working... (fixed)
+### 2208060830 BUG
+- SelfDestruct stopped working... (fixed)
 - After a futile debugging attempt, the operator kept being assigned `buttonide` when it should be assigned the `button.id`. I thought that was something fancy caused by me having changed every div to a button. Not sure what I was thinking but no matter what I changed in my script, 9/0 would not invoke `selfDestruct()`. I never checked with other divisions... 
 Then I looked at my html and found out the divide button's `id` was literally `buttonide` now. Facepalm. xy problem.
     
