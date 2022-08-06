@@ -17,7 +17,6 @@ let num2 = "";
 let operatorSymbol = "";
 let power = "off";
 
-//powerbutton functionality
 powerButton.addEventListener('click', () => {
     if (power === "off") {
         power = "on";
@@ -160,7 +159,6 @@ function btmDisplay(output) {
     bottomWindow.textContent = (output);
 };
 
-//resetting variables for power off or ac click
 function reset() {
     num1 = "";
     operator = "";
@@ -174,7 +172,6 @@ function reset() {
     };
 };
 
-//compute depending on operator.id
 function operate(num1, operator, num2) {
     num1 = +num1;
     num2 = +num2;
@@ -192,7 +189,6 @@ function operate(num1, operator, num2) {
     }  
 };
 
-//divide by zero destruction (text animation)
 function selfDestruct() {
     disableButtons();
     topDisplay("self destruct in"); btmDisplay("");
@@ -226,23 +222,20 @@ function selfDestruct() {
     
 };
 
-//function to disable all buttons before text animation runs
 function disableButtons() {
     for (const button of buttons) {
         button.disabled = true;
     }
-}
+};
 
-// function to re-enable all buttons when text animation is done
 function enableButtons() {
     for (const button of buttons) {
         button.disabled = false;
     }
-}
+};
 
-//syntax errors
 function randomError() {
-    let message = ["nope", "doesn't work", "error", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh"];
+    let message = ["nope", "doesn't work", "error", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh", "stop that!", "stop it",];
     let randomMsg = Math.floor(Math.random() * message.length);
     btmDisplay(message[randomMsg]);
 };
