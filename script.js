@@ -7,8 +7,8 @@ const topWindow = document.querySelector('#topWindow');
 const bottomWindow = document.querySelector('#bottomWindow');
 const powerButton = document.querySelector('#power');
 const del = document.querySelector('#DEL');
-
 const buttons = document.getElementsByTagName('button');
+const decimalButton = document.querySelector('.decimalBtn');
 
 //global variables needed in their default state
 let num1 = "";
@@ -150,6 +150,16 @@ del.addEventListener('click', () => {
 
 //listener to revert to default by pressing the AC button
 acButton.addEventListener('click', reset);
+
+decimalButton.addEventListener('click', () => {
+    if (num2 !== "") {
+        num2 += "."; 
+    } else {
+        num1 += ".";
+    };
+    topDisplay((num1 + operatorSymbol + num2));
+    decimalButton.disabled = true;
+});
 
 //functions to quickly update text content
 function topDisplay(output) {
