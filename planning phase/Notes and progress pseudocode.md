@@ -127,6 +127,10 @@ Then I looked at my html and found out the divide button's `id` was literally `b
     - Seems to work fine
 - [x] Add above to other functions and simplify code to pass a default value to the topDisplay function
 - [ ] FIX ISSUE: after operating, then hitting DEL will start editing the num1 ans.
-- [ ] FIX ISSUE: when DELing a decimal, the decimal button will still be in disabled state and can't be reused until an operation occurs
+- [x] FIX ISSUE: when DELing a decimal, the decimal button will still be in disabled state and can't be reused until an operation occurs
+    - fixed by checking string including decimal or not
 
-- [ ] Research if ternary or switch cases could add to readability of my code
+- [ ] Consider a state for power. Something like `let powerOn = false;`
+
+### Pseudocode on decimalButton remaining disabled when using DEL key.
+- Each time the DEL key is pressed, I want to check if the `num1` or `num2`, whichever we are editing contains a decimal.

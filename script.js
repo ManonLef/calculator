@@ -135,11 +135,19 @@ del.addEventListener('click', () => {
     if (num2 !== "") {
         num2 = num2.slice(0, -1);
         topDisplay("trackInput");
+        let decimalCheck = num2.includes(".");
+        if (!decimalCheck) {
+            decimalButton.disabled = false;
+        };
     } else if (num1 !== "" && operator !== "") { 
         operator = "";
         operatorSymbol = "";
         topDisplay("trackInput");
     } else {
+        let decimalCheck = num1.includes(".");
+        //surprise ternary (edit on final run for consistency)
+        (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false;
+        //
         num1 = num1.toString(); 
         num1 = num1.slice(0,-1);
         topDisplay("trackInput");
