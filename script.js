@@ -102,13 +102,13 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
     if (num2 !== "") {
         num1 = operate(num1, operator, num2);
         
-        setTimeout(() => {
-            btmDisplay(Math.round(num1 * 1000)/1000);
-        }, 200);
-
-        num2 = "";
-        operator = "";
-    
+        if (num1 !== undefined) {
+            setTimeout(() => {
+                btmDisplay(Math.round(num1 * 1000)/1000);
+            }, 200);
+            num2 = "";
+            operator = "";
+        };
     // we have no num2, but do have a variable. This throws a syntax error
     } else if (operator !== "") {
         
