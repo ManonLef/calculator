@@ -126,11 +126,15 @@ Then I looked at my html and found out the divide button's `id` was literally `b
 - [x] Test changing all clicks in numberButtons function`topDisplay(num1 + operatorSymbol + num2)`
     - Seems to work fine
 - [x] Add above to other functions and simplify code to pass a default value to the topDisplay function
-- [ ] FIX ISSUE: after operating, then hitting DEL will start editing the num1 ans.
+### DEL1
+- [x] FIX ISSUE # DEL1: after operating, then hitting DEL will start editing the num1 ans.
 - [x] FIX ISSUE: when DELing a decimal, the decimal button will still be in disabled state and can't be reused until an operation occurs
     - fixed by checking string including decimal or not
 
-- [ ] Consider a state for power. Something like `let powerOn = false;`
+- [x] Consider a state for power. Something like `let powerOn = false;`
 
 ### Pseudocode on decimalButton remaining disabled when using DEL key.
 - Each time the DEL key is pressed, I want to check if the `num1` or `num2`, whichever we are editing contains a decimal.
+
+- [x] go through code and adjust everything for `powerOn` state
+- Issue [with DEL button](#del1) seems gone all of a sudden. Test and if so, check why
