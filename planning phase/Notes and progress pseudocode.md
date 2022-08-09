@@ -81,7 +81,7 @@ So things to do now:
 
 ### 2208051825 Official TODO's left
 - [x] implement decimal funtionality after a pseudo session
-- [ ] round decimals to avoid overflowing the screen
+- [x] round decimals to avoid overflowing the screen *changed on [9 august](#2208091346) to round to 3 decimals
 - [ ] OPTIONAL add keyboard support
 
 ### 2208052032
@@ -138,3 +138,16 @@ Then I looked at my html and found out the divide button's `id` was literally `b
 
 - [x] go through code and adjust everything for `powerOn` state
 - Issue [with DEL button](#del1) seems gone all of a sudden. Test and if so, check why
+
+### *2208091346*
+- I want to start preparing for keyboard implementation and I believe that should be done by removing the functions from the event listeners and making them stand alone. This way I can invoke the function with multiple event listeners. 
+The number and decimal buttons are obvious for the keyboard. I'll have to think about the other buttons.
+- [ ] remove functions from eventListeners and plave them in the global scope.
+- [ ] decide which button to ise for DEL, AC, Power
+
+- For rounding current max:
+    - Top Display: 18 characters
+    - Bottom Display: 14 characters maybe 13.
+- Implementation possibilities; 
+    - `Math.round(num * 100)/100` or for correct rounding `Math.round(x)(num + Number.EPSILON * 100)/100`
+    - `number = +number.toFixed(decimals)` the plus sign is needed to get rid of unnecessary zeroes

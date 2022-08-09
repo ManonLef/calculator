@@ -73,7 +73,7 @@ operatorButton.forEach((button) => {
         // and previous operator before assigning this operator
         if (num2 !== "") {
             num1 = operate(num1, operator, num2);
-            btmDisplay(num1);
+            btmDisplay(Math.round(num1 * 1000)/1000);
             num2 = "";
             operator = button.id; 
             operatorSymbol = button.textContent;
@@ -103,7 +103,7 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
         num1 = operate(num1, operator, num2);
         
         setTimeout(() => {
-            btmDisplay(num1);
+            btmDisplay(Math.round(num1 * 1000)/1000);
         }, 200);
 
         num2 = "";
@@ -125,7 +125,7 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
         //
         } else {
             setTimeout(() => {
-                topDisplay(""); btmDisplay(num1);
+                topDisplay(""); btmDisplay(Math.round(num1 * 1000)/1000);
             }, 200);
         }; 
     };
@@ -154,7 +154,6 @@ del.addEventListener('click', () => {
     };
 });
 
-//listener to revert to default by pressing the AC button
 acButton.addEventListener('click', reset);
 
 decimalButton.addEventListener('click', () => {
