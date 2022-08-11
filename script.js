@@ -181,7 +181,7 @@ function topDisplay(output) {
         };
     } else {
         if (output.length <= 18) {
-            topWindow.textContent = output.slice(0,18);
+            topWindow.textContent = output;
         } else {
             topWindow.textContent = output.slice(0,17) + ">";
         }
