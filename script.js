@@ -30,6 +30,7 @@ powerButton.addEventListener('click', () => {
         enableButtons();
     } else {
         powerOn = false;
+        topDisplay("");
         btmDisplay("goodbye");
         reset(); // to clear variables
         disableButtons();
@@ -102,7 +103,7 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
     if (num2 !== "") {
         num1 = operate(num1, operator, num2);
         
-        if (num1 !== undefined) {
+        if (num1 !== undefined) { 
             setTimeout(() => {
                 btmDisplay(Math.round(num1 * 1000)/1000);
             }, 200);
