@@ -181,15 +181,15 @@ function topDisplay(output) {
         };
     } else {
         if (output.length <= 18) {
-            topWindow.textContent = (output).slice(0,18);
+            topWindow.textContent = output.slice(0,18);
         } else {
-            topWindow.textContent = (output).slice(0,17) + ">";
+            topWindow.textContent = output.slice(0,17) + ">";
         }
     }; 
 };
 
 function btmDisplay(output) {
-    bottomWindow.textContent = (output);
+    bottomWindow.textContent = output;
 };
 
 function reset() {
@@ -199,6 +199,7 @@ function reset() {
     operatorSymbol = "";
     if (powerOn) {
         btmDisplay(0); topDisplay("");
+        enableButtons();
     } else {
         setTimeout(() => {
             btmDisplay(""); topDisplay("");
