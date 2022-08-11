@@ -26,7 +26,7 @@ So things to do now:
 - If I only have num1
     - I'd have to edit num1
 - (fixed) BUG after operate function is invoked, and you enter another number, topwindow will update num1 adding that number.
-- [ ] look into long int rounding
+- [x] look into long int rounding
 
 ### 2208040956
 - [x] clean up operate function
@@ -100,7 +100,7 @@ So things to do now:
 Then I looked at my html and found out the divide button's `id` was literally `buttonide` now. Facepalm. xy problem.
     
 - [ ] remove styling when buttons are disabled
-- [ ] use the buttons state functions for on and off, and remove the `if (power === "on") from the button listener functions.
+- [x] use the buttons state functions for on and off, and remove the `if (power === "on") from the button listener functions.
 
 ### 2208061107 Pseudocode Decimal button
 - We want the button to disable once num1 or num2 contains a decimal
@@ -139,11 +139,11 @@ Then I looked at my html and found out the divide button's `id` was literally `b
 - [x] go through code and adjust everything for `powerOn` state
 - Issue [with DEL button](#del1) seems gone all of a sudden. Test and if so, check why
 
-### *2208091346*
+### 2208091346 rounding and prep for keyboard support
 - I want to start preparing for keyboard implementation and I believe that should be done by removing the functions from the event listeners and making them stand alone. This way I can invoke the function with multiple event listeners. 
 The number and decimal buttons are obvious for the keyboard. I'll have to think about the other buttons.
-- [ ] remove functions from eventListeners and plave them in the global scope.
-- [ ] decide which button to ise for DEL, AC, Power
+- [ ] remove functions from eventListeners and place them in the global scope.
+- [ ] decide which button to use for DEL, AC, Power
 
 - For rounding current max:
     - Top Display: 18 characters
@@ -151,3 +151,15 @@ The number and decimal buttons are obvious for the keyboard. I'll have to think 
 - Implementation possibilities; 
     - `Math.round(num * 100)/100` or for correct rounding `Math.round(x)(num + Number.EPSILON * 100)/100`
     - `number = +number.toFixed(decimals)` the plus sign is needed to get rid of unnecessary zeroes
+
+### 2208091411 rounding implemented 
+- for keeping num1 unadjusted, could use a burner number to round off in the display, keep the num1 for further calculations. 
+- [x] FIX ISSUE selfDestruct displays nan or infinity.
+- [ ] Consider equalsbutton (and possible operatorbutton) `if ((num2 !== "") && (num2 !== 0 && operator !== "divide"))` else selfdestruct. Redundant code. We can then remove selfdestruct from operate function.
+- *2208091519* BUG(fixed) pressing equals button on division. 
+- [ ] add check when pressing num/dec buttons to see if it reaches end of display length.
+
+### 2208111409 
+- [x] (fixed) BUG -> AC pressed keeps decimal button disabled.
+- working on displaying a max set of numbers instead of rounding to 3 decimals.
+- [ ] add a ± sign to input negative numbers.
