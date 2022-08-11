@@ -174,9 +174,17 @@ decimalButton.addEventListener('click', () => {
 //functions to quickly update text content
 function topDisplay(output) {
     if (output === "trackInput") {
-        topWindow.textContent = (num1 + operatorSymbol + num2);
+        if ((num1 + operatorSymbol + num2).length <= 18) {
+            topWindow.textContent = (num1 + operatorSymbol + num2);
+        } else {
+            topWindow.textContent = (num1 + operatorSymbol + num2).slice(0,17) + ">";
+        };
     } else {
-        topWindow.textContent = (output);
+        if (output.length <= 18) {
+            topWindow.textContent = (output).slice(0,18);
+        } else {
+            topWindow.textContent = (output).slice(0,17) + ">";
+        }
     }; 
 };
 
