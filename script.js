@@ -9,6 +9,7 @@ const powerButton = document.querySelector('#power');
 const del = document.querySelector('#DEL');
 const buttons = document.getElementsByTagName('button');
 const decimalButton = document.querySelector('.decimalBtn');
+const plusMinusButton = document.querySelector('#plusMinus');
 
 //Startup State
 let num1 = "";
