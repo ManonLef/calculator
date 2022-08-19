@@ -172,6 +172,13 @@ decimalButton.addEventListener('click', () => {
     decimalButton.disabled = true;
 });
 
+plusMinusButton.addEventListener('click', () => {
+    if (num1 !== "" && num1 !== "0") {
+        num1 = "-" + num1;
+        topDisplay("trackInput");
+    };
+});
+
 //functions to quickly update text content
 function topDisplay(output) {
     if (output === "trackInput") {
