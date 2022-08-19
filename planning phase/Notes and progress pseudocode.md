@@ -163,3 +163,9 @@ The number and decimal buttons are obvious for the keyboard. I'll have to think 
 - [x] (fixed) BUG -> AC pressed keeps decimal button disabled.
 - working on displaying a max set of numbers instead of rounding to 3 decimals.
 - [ ] add a ± sign to input negative numbers.
+
+### 2208191145
+- been out of it for a while. I will add a branch today to try and add the negative numbers functionality.
+- for this button I need to add another button
+- [ ] add plusminus button to html
+- [ ] pseudocode use of this button
