@@ -162,13 +162,13 @@ The number and decimal buttons are obvious for the keyboard. I'll have to think 
 ### 2208111409 
 - [x] (fixed) BUG -> AC pressed keeps decimal button disabled.
 - working on displaying a max set of numbers instead of rounding to 3 decimals.
-- [ ] add a ± sign to input negative numbers.
+- [x] add a ± sign to input negative numbers.
 
 ### 2208191145
 - been out of it for a while. I will add a branch today to try and add the negative numbers functionality.
 - for this button I need to add another button
 - [x] add plusminus button to html
-- [ ] pseudocode use of this button
+- [x] pseudocode use of this button
 - [x] add eventlistener for button 
 #### plusminus pseudocode
 - regular calculator on apple doesn't add the minus sign unless a number is already there. 
