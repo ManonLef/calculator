@@ -178,4 +178,6 @@ The number and decimal buttons are obvious for the keyboard. I'll have to think 
     - check already a minus sign?
         yes: remove it
         no: add one in front of the number
-
+### 2208252300 
+- the functionality is there but the code could probably use some simplifciation. 
+- [ ] Refactor plusMinusButton

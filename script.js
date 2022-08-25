@@ -183,6 +183,15 @@ plusMinusButton.addEventListener('click', () => {
         num2 = num2.substring(1)
         topDisplay("trackInput");
     };
+
+    if (num1 !== "" && num1 !== "0" && num2 === "" && !num1NegativeCheck) {
+        num1 = "-" + num1;
+        topDisplay("trackInput");
+    } else if (num1 !== "" && num1 !== "0"  && num2 === "" && num1NegativeCheck) {
+        num1 = num1.substring(1)
+        topDisplay("trackInput");
+    };
+
 });
 
 //functions to quickly update text content
