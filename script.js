@@ -173,8 +173,14 @@ decimalButton.addEventListener('click', () => {
 });
 
 plusMinusButton.addEventListener('click', () => {
-    if (num1 !== "" && num1 !== "0") {
-        num1 = "-" + num1;
+    let num2NegativeCheck = num2.includes("-");
+    let num1NegativeCheck = num1.includes("-");
+
+    if (num2 !== "" && num2 !== "0" && !num2NegativeCheck) {
+        num2 = "-" + num2;
+        topDisplay("trackInput");
+    } else if (num2 !== "" && num2 !== "0" && num2NegativeCheck) {
+        num2 = num2.substring(1)
         topDisplay("trackInput");
     };
 });
