@@ -167,5 +167,15 @@ The number and decimal buttons are obvious for the keyboard. I'll have to think 
 ### 2208191145
 - been out of it for a while. I will add a branch today to try and add the negative numbers functionality.
 - for this button I need to add another button
-- [ ] add plusminus button to html
+- [x] add plusminus button to html
 - [ ] pseudocode use of this button
+- [x] add eventlistener for button 
+#### plusminus pseudocode
+- regular calculator on apple doesn't add the minus sign unless a number is already there. 
+- turns num1 or num2 positive or negative. 
+- adds the minus sign in front of the number or removes it. 
+- case 1: if we're working on num1 (so we don't have num 2 yet)
+    - check already a minus sign?
+        yes: remove it
+        no: add one in front of the number
+
