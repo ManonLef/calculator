@@ -106,7 +106,7 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
         
         if (num1 !== undefined) { 
             setTimeout(() => {
-                btmDisplay(Math.round(num1 * 1000)/1000);
+                btmDisplay(num1);
             }, 200);
             num2 = "";
             operator = "";
@@ -127,7 +127,7 @@ equalsButton.addEventListener('click', () => { //NOTE same as first if in operat
         //
         } else {
             setTimeout(() => {
-                topDisplay(""); btmDisplay(Math.round(num1 * 1000)/1000);
+                topDisplay(""); btmDisplay(num1);
             }, 200);
         }; 
     };
