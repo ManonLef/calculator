@@ -295,7 +295,7 @@ function enableButtons() {
 };
 
 function randomError() {
-    let message = ["nope", "doesn't work", "error", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh", "don't!"];
+    let message = ["nope", "doesn't work", "error", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh", "don't!", "welp!", "that tickles!", "oh no!", "let's not"];
     let randomMsg = Math.floor(Math.random() * message.length);
     btmDisplay(message[randomMsg]);
 };
