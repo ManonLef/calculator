@@ -173,6 +173,8 @@ decimalButton.addEventListener('click', () => {
 });
 
 plusMinusButton.addEventListener('click', () => {
+    num1 = num1.toString()
+
     let num2NegativeCheck = num2.includes("-");
     let num1NegativeCheck = num1.includes("-");
 

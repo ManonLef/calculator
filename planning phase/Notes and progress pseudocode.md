@@ -189,3 +189,5 @@ The number and decimal buttons are obvious for the keyboard. I'll have to think 
 It could be nice to then bind the arrow functions on the keyboard to move left an right with something like changing slice indices. Or add some buttons below the text box
 to slide left and right
 - I'll remove the rounding on bottom window because rounding to 3 decimals makes little sense to be honest
+- BUG (fixed): After operating through hitting an operator, num2 doesn't accept the plusminus button
+- Fixed the above bug which was caused by num1 being a number, not a string after operating
