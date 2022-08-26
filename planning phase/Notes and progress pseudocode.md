@@ -184,6 +184,8 @@ The number and decimal buttons are obvious for the keyboard. I'll have to think 
 
 ### 2208261600
 - I'm thinking about first rounding the input numbers and showing a message when the end is reached below the calculator
-- [ ] ad div below calculator for textcontent
-- [ ] figure out max amount of numbers btmDisplay will take as input
-- [ ] Think of alternatives to current Math.round for results after oparate is done.
+- [x] ad div below calculator for textcontent
+- I was a bit out of my code at this point. The topDisplay is the input portion which is already behaving pretty nicely with the arrow showing.
+It could be nice to then bind the arrow functions on the keyboard to move left an right with something like changing slice indices. Or add some buttons below the text box
+to slide left and right
+- I'll remove the rounding on bottom window because rounding to 3 decimals makes little sense to be honest
