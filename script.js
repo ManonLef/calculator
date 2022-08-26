@@ -39,7 +39,6 @@ powerButton.addEventListener('click', () => {
     };
 });
 
-//assigns to num variable num1 or num2 when a number button is clicked. 
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         // if we have num2 we have num1 and operator and are working on adding num2
@@ -66,7 +65,7 @@ numberButtons.forEach((button) => {
     });
 });
 
-//aassigns to operator or operates before doing so
+//assigns to operator or operates in case a num1 and num2 are both available
 operatorButton.forEach((button) => {
     button.addEventListener('click', () => {
         decimalButton.disabled = false;
@@ -173,7 +172,7 @@ decimalButton.addEventListener('click', () => {
 });
 
 plusMinusButton.addEventListener('click', () => {
-    num1 = num1.toString()
+    num1 = num1.toString(); // needed after an operation has been done since then it will have been turned into a number
 
     let num2NegativeCheck = num2.includes("-");
     let num1NegativeCheck = num1.includes("-");
