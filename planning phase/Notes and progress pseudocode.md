@@ -206,7 +206,7 @@ to slide left and right
 - made the new branch for the ans functionality. It's a bit annoying because initially it nicely displays `ans` but after that it just tracks input ofcourse when starting on the second number. One way to overcome this is probably by adding a conditional in case the bottomdisplay is not zero. The thing is, you can just have had an operation that came with a result of zero.
 Another possibility is checking if bottomdisplay isn't a string perhaps. Need to check that.
 - [x] Check type of num1 before and after operation (is a number indeed)
-- [ ] ISSUE, when inputting 00000 followed by an operator or equals, it will use that input as num1 and display `00000` in the topDisplay as well. That's a bit funny. 
+- [x] ISSUE, when inputting 00000 followed by an operator or equals, it will use that input as num1 and display `00000` in the bottomDisplay as well. That's a bit funny. 
 - I'll remove the branch and work on other issues for a bit before I can think up a way to simplify some code
 
 ### 2208262230

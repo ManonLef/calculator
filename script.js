@@ -197,6 +197,7 @@ function operateEquals() {
         //
         } else {
             setTimeout(() => {
+                num1 = +num1;
                 topDisplay(""); btmDisplay(num1);
             }, 200);
         };
