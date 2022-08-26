@@ -27,49 +27,12 @@ numberButtons.forEach((button) => {
     button.addEventListener('click', editNumber);
 });
 
-//assigns to operator or operates in case a num1 and num2 are both available
 operatorButton.forEach((button) => {
     button.addEventListener('click', addOperator);
 });
 
 //operate 
-equalsButton.addEventListener('click', () => { //NOTE same as first if in operatorbutton function
-    //general "blink effect" every time the equal button is clicked.
-    setTimeout(() => {
-        btmDisplay("");
-    }, 100);
-    //operate if all variables filled.
-    if (num2 !== "") {
-        num1 = operate(num1, operator, num2);
-        
-        if (num1 !== undefined) { 
-            setTimeout(() => {
-                btmDisplay(num1);
-            }, 200);
-            num2 = "";
-            operator = "";
-        };
-    // we have no num2, but do have a variable. This throws a syntax error
-    } else if (operator !== "") {
-        
-        setTimeout(() => {
-            randomError();
-        }, 200);
-        
-    } else {
-        //right after startup "=" is pressed
-        if (num1 === "") {  
-            setTimeout(() => {
-                reset();
-            }, 200);
-        //
-        } else {
-            setTimeout(() => {
-                topDisplay(""); btmDisplay(num1);
-            }, 200);
-        }; 
-    };
-});
+equalsButton.addEventListener('click', operateEquals);
 
 del.addEventListener('click', () => {
     if (num2 !== "") {
@@ -220,6 +183,43 @@ function addOperator() {
             reset();
         }, 500);
     };
+};
+
+function operateEquals() {
+    setTimeout(() => {
+        btmDisplay("");
+    }, 100);
+    //operate if all variables filled.
+    if (num2 !== "") {
+        num1 = operate(num1, operator, num2);
+        
+        if (num1 !== undefined) { 
+            setTimeout(() => {
+                btmDisplay(num1);
+            }, 200);
+            num2 = "";
+            operator = "";
+        };
+    // we have no num2, but do have a variable. This throws a syntax error
+    } else if (operator !== "") {
+        
+        setTimeout(() => {
+            randomError();
+        }, 200);
+        
+    } else {
+        //right after startup "=" is pressed
+        if (num1 === "") {  
+            setTimeout(() => {
+                reset();
+            }, 200);
+        //
+        } else {
+            setTimeout(() => {
+                topDisplay(""); btmDisplay(num1);
+            }, 200);
+        };
+    }; 
 };
 
 function reset() {
