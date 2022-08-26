@@ -24,57 +24,12 @@ powerButton.disabled = false;
 powerButton.addEventListener('click', switchPower);
 
 numberButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        // if we have num2 we have num1 and operator and are working on adding num2
-        if (num2 !== "") { 
-            num2 += button.id; 
-                topDisplay("trackInput");
-        // in case we have no num2 yet        
-        } else { 
-            // if we do have an operator 
-            if (operator !== "") { 
-                num2 += button.id; 
-                topDisplay("trackInput");
-            //if we don't have an operator then we are inputting num1    
-            } else { 
-                // if bottom window has a previous result, we wipe it.
-                if (bottomWindow.textContent !== "0") {
-                    btmDisplay("0")
-                    num1 = "";
-                };
-                num1 += button.textContent; 
-                topDisplay("trackInput");
-            };
-        };    
-    });
+    button.addEventListener('click', editNumber);
 });
 
 //assigns to operator or operates in case a num1 and num2 are both available
 operatorButton.forEach((button) => {
-    button.addEventListener('click', () => {
-        decimalButton.disabled = false;
-        // since we only operate two numbers at a time, 
-        // if we have num2 we operate the previous num1 
-        // and previous operator before assigning this operator
-        if (num2 !== "") {
-            num1 = operate(num1, operator, num2);
-            btmDisplay(Math.round(num1 * 1000)/1000);
-            num2 = "";
-            operator = button.id; 
-            operatorSymbol = button.textContent;
-            topDisplay("trackInput");
-        } else if (num1 !== "") {
-            operator = button.id; 
-            operatorSymbol = button.textContent;
-            topDisplay("trackInput");
-        // in case an operator is clicked without anything preceding it.
-        } else {
-            randomError();
-            setTimeout(() => {
-                reset();
-            }, 500);
-        };
-    });
+    button.addEventListener('click', addOperator);
 });
 
 //operate 
@@ -215,6 +170,55 @@ function switchPower() {
         reset(); // to clear variables
         disableButtons();
         powerButton.disabled = false;
+    };
+};
+
+function editNumber() {
+    // if we have num2 we have num1 and operator and are working on adding num2
+    if (num2 !== "") { 
+        num2 += this.id; 
+            topDisplay("trackInput");
+    // in case we have no num2 yet        
+    } else { 
+        // if we do have an operator 
+        if (operator !== "") { 
+            num2 += this.id; 
+            topDisplay("trackInput");
+        //if we don't have an operator then we are inputting num1    
+        } else { 
+            // if bottom window has a previous result, we wipe it.
+            if (bottomWindow.textContent !== "0") {
+                btmDisplay("0")
+                num1 = "";
+            };
+            num1 += this.textContent; 
+            topDisplay("trackInput");
+        };
+    };    
+};
+
+function addOperator() {
+    decimalButton.disabled = false;
+    // since we only operate two numbers at a time, 
+    // if we have num2 we operate the previous num1 
+    // and previous operator before assigning this operator
+    if (num2 !== "") {
+        num1 = operate(num1, operator, num2);
+        btmDisplay(Math.round(num1 * 1000)/1000);
+        num2 = "";
+        operator = this.id; 
+        operatorSymbol = this.textContent;
+        topDisplay("trackInput");
+    } else if (num1 !== "") {
+        operator = this.id; 
+        operatorSymbol = this.textContent;
+        topDisplay("trackInput");
+    // in case an operator is clicked without anything preceding it.
+    } else {
+        randomError();
+        setTimeout(() => {
+            reset();
+        }, 500);
     };
 };
 
