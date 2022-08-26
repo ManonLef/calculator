@@ -21,23 +21,7 @@ let powerOn = false;
 disableButtons();
 powerButton.disabled = false;
 
-powerButton.addEventListener('click', () => {
-    if (!powerOn) {
-        powerOn = true;
-        btmDisplay("hello");
-        setTimeout(() => { 
-            btmDisplay(0);  
-        }, 750);
-        enableButtons();
-    } else {
-        powerOn = false;
-        topDisplay("");
-        btmDisplay("goodbye");
-        reset(); // to clear variables
-        disableButtons();
-        powerButton.disabled = false;
-    };
-});
+powerButton.addEventListener('click', switchPower);
 
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -214,6 +198,24 @@ function topDisplay(output) {
 
 function btmDisplay(output) {
     bottomWindow.textContent = output;
+};
+
+function switchPower() {
+    if (!powerOn) {
+        powerOn = true;
+        btmDisplay("hello");
+        setTimeout(() => { 
+            btmDisplay(0);  
+        }, 750);
+        enableButtons();
+    } else {
+        powerOn = false;
+        topDisplay("");
+        btmDisplay("goodbye");
+        reset(); // to clear variables
+        disableButtons();
+        powerButton.disabled = false;
+    };
 };
 
 function reset() {

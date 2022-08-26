@@ -192,12 +192,24 @@ to slide left and right
 - BUG (fixed): After operating through hitting an operator, num2 doesn't accept the plusminus button
 - Fixed the above bug which was caused by num1 being a number, not a string after operating
 
-### 2208261800 What if I were to change the operation result num1 to 'ans' like on CASIO
+### 2208261745 What if I were to change the operation result num1 to 'ans' like on CASIO
 - Pseudocode:
     - after operate is done (either through equalsBtn or operatorBtn), topDisplay will show ans instead of num1. num1 still has to be the result of the operation so the topwindowcontent probably has to be checked to not contain ans. Which may be troublesome for num2 since we still want to be able to make that negative if possible. What's nice about this, is that rounding will probably become easier on the topWindow as well. 
 - [ ] Go through applicable functions to check if the above could work.
     - operatorbutton eventlistener function has to be changed to not display `trackInput` but "ans" + operator.
     - looks like the `topDisplay()` would still work as expected but I'd really like to see the rounding/slice to behave differently.
-- [ ] Make a new branch to implement this
+- [x] Make a new branch to implement this
 
 - [ ] Consider adding the numbers to the right on `topDisplay` when going above 18 characters and let the left ones disappear. 
+
+### 2208261800 new branch for ans
+- made the new branch for the ans functionality. It's a bit annoying because initially it nicely displays `ans` but after that it just tracks input ofcourse when starting on the second number. One way to overcome this is probably by adding a conditional in case the bottomdisplay is not zero. The thing is, you can just have had an operation that came with a result of zero.
+Another possibility is checking if bottomdisplay isn't a string perhaps. Need to check that.
+- [x] Check type of num1 before and after operation (is a number indeed)
+- [ ] ISSUE, when inputting 00000 followed by an operator or equals, it will use that input as num1 and display `00000` in the topDisplay as well. That's a bit funny. 
+- I'll remove the branch and work on other issues for a bit before I can think up a way to simplify some code
+
+### 2208262230
+- I will start pulling functions out of their eventlisteners
+
+
