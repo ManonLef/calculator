@@ -36,44 +36,9 @@ equalsButton.addEventListener('click', operateEquals);
 
 del.addEventListener('click', deleteLastInput);
 
-function deleteLastInput() {
-    if (num2 !== "") {
-        num2 = num2.slice(0, -1);
-        topDisplay("trackInput");
-        let decimalCheck = num2.includes(".");
-        if (!decimalCheck) {
-            decimalButton.disabled = false;
-        };
-    } else if (num1 !== "" && operator !== "") { 
-        operator = "";
-        operatorSymbol = "";
-        topDisplay("trackInput");
-    } else {
-        let decimalCheck = num1.includes(".");
-        //surprise ternary (edit on final run for consistency)
-        (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false;
-        //
-        num1 = num1.toString(); 
-        num1 = num1.slice(0,-1);
-        topDisplay("trackInput");
-    };
-};
-
 acButton.addEventListener('click', reset);
 
-decimalButton.addEventListener('click', () => {
-    if (operator !== "") {
-        num2 += "."; 
-    } else {
-        if (bottomWindow.textContent !== "0") {
-            btmDisplay("0")
-            num1 = "";
-        };
-        num1 += ".";
-    };
-    topDisplay("trackInput");
-    decimalButton.disabled = true;
-});
+decimalButton.addEventListener('click', addDecimal);
 
 plusMinusButton.addEventListener('click', () => {
     num1 = num1.toString(); // needed after an operation has been done since then it will have been turned into a number
@@ -187,6 +152,20 @@ function addOperator() {
     };
 };
 
+function addDecimal() {
+    if (operator !== "") {
+        num2 += "."; 
+    } else {
+        if (bottomWindow.textContent !== "0") {
+            btmDisplay("0")
+            num1 = "";
+        };
+        num1 += ".";
+    };
+    topDisplay("trackInput");
+    decimalButton.disabled = true;
+};
+
 function operateEquals() {
     setTimeout(() => {
         btmDisplay("");
@@ -222,6 +201,29 @@ function operateEquals() {
             }, 200);
         };
     }; 
+};
+
+function deleteLastInput() {
+    if (num2 !== "") {
+        num2 = num2.slice(0, -1);
+        topDisplay("trackInput");
+        let decimalCheck = num2.includes(".");
+        if (!decimalCheck) {
+            decimalButton.disabled = false;
+        };
+    } else if (num1 !== "" && operator !== "") { 
+        operator = "";
+        operatorSymbol = "";
+        topDisplay("trackInput");
+    } else {
+        let decimalCheck = num1.includes(".");
+        //surprise ternary (edit on final run for consistency)
+        (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false;
+        //
+        num1 = num1.toString(); 
+        num1 = num1.slice(0,-1);
+        topDisplay("trackInput");
+    };
 };
 
 function reset() {
