@@ -88,3 +88,15 @@ button {
     align-items: center;
     font-size: 40px;
 }
+
+#container {
+    display: flex;
+    flex-direction: column;
+}
+
+#infoText {
+    width: 425px;
+    min-width: 425px;
+    padding: 10px;
+    text-align: center;
+}
