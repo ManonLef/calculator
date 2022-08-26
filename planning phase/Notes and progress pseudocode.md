@@ -191,3 +191,13 @@ to slide left and right
 - I'll remove the rounding on bottom window because rounding to 3 decimals makes little sense to be honest
 - BUG (fixed): After operating through hitting an operator, num2 doesn't accept the plusminus button
 - Fixed the above bug which was caused by num1 being a number, not a string after operating
+
+### 2208261800 What if I were to change the operation result num1 to 'ans' like on CASIO
+- Pseudocode:
+    - after operate is done (either through equalsBtn or operatorBtn), topDisplay will show ans instead of num1. num1 still has to be the result of the operation so the topwindowcontent probably has to be checked to not contain ans. Which may be troublesome for num2 since we still want to be able to make that negative if possible. What's nice about this, is that rounding will probably become easier on the topWindow as well. 
+- [ ] Go through applicable functions to check if the above could work.
+    - operatorbutton eventlistener function has to be changed to not display `trackInput` but "ans" + operator.
+    - looks like the `topDisplay()` would still work as expected but I'd really like to see the rounding/slice to behave differently.
+- [ ] Make a new branch to implement this
+
+- [ ] Consider adding the numbers to the right on `topDisplay` when going above 18 characters and let the left ones disappear. 
