@@ -181,3 +181,9 @@ The number and decimal buttons are obvious for the keyboard. I'll have to think 
 ### 2208252300 
 - the functionality is there but the code could probably use some simplifciation. 
 - [ ] Refactor plusMinusButton
+
+### 2208261600
+- I'm thinking about first rounding the input numbers and showing a message when the end is reached below the calculator
+- [ ] ad div below calculator for textcontent
+- [ ] figure out max amount of numbers btmDisplay will take as input
+- [ ] Think of alternatives to current Math.round for results after oparate is done.
