@@ -34,7 +34,9 @@ operatorButton.forEach((button) => {
 //operate 
 equalsButton.addEventListener('click', operateEquals);
 
-del.addEventListener('click', () => {
+del.addEventListener('click', deleteLastInput);
+
+function deleteLastInput() {
     if (num2 !== "") {
         num2 = num2.slice(0, -1);
         topDisplay("trackInput");
@@ -55,7 +57,7 @@ del.addEventListener('click', () => {
         num1 = num1.slice(0,-1);
         topDisplay("trackInput");
     };
-});
+};
 
 acButton.addEventListener('click', reset);
 
