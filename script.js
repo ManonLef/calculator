@@ -44,28 +44,26 @@ decimalButton.addEventListener('click', addDecimal);
 
 plusMinusButton.addEventListener('click', toggleMinusSign);
 
-function topDisplay(output) {
-    if (output === "trackInput") {
-        if (bottomWindow.textContent === "0") {
-            if ((num1 + operatorSymbol + num2).length <= 18) {
-                topWindow.textContent = (num1 + operatorSymbol + num2);
-            } else {
-                topWindow.textContent = (num1 + operatorSymbol + num2).slice(0,17) + ">";
-            };
-        } else {
-            if (("ans" + operatorSymbol + num2).length <= 18) {
-                topWindow.textContent = ("ans" + operatorSymbol + num2);
-            } else {
-                topWindow.textContent = ("ans" + operatorSymbol + num2).slice(0,17) + ">";
-            };
-        };
+function topDisplay(output) { //refactored
+    let firstVar;
+    
+    if (bottomWindow.textContent === "0") {
+        firstVar = num1;
     } else {
-        if (output.length <= 18) {
-            topWindow.textContent = output;
+        firstVar = "ans"; //for working with the result of the previous operation which is now stored in num1
+    };
+
+    let defaultOutput = (firstVar + operatorSymbol + num2);
+    
+    if (output === "trackInput") {
+        if ((defaultOutput).length <= 18) {
+            topWindow.textContent = (defaultOutput);
         } else {
-            topWindow.textContent = output.slice(0,17) + ">";
-        }
-    }; 
+            topWindow.textContent = (defaultOutput).slice(0,17) + ">";
+        };
+    } else { // for animations and other "special effects"
+        topWindow.textContent = output;
+    };
 };
 
 function btmDisplay(output) {
