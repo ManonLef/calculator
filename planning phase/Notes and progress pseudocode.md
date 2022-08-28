@@ -224,3 +224,10 @@ Another possibility is checking if bottomdisplay isn't a string perhaps. Need to
 - num1 will not be a number until it was operated on. 
 - [x] remove rounding in operator button function
 - [x] (fixed) QUIRK `ans` in topWindow will change into num1 when plusminus is pressed because it converts into a string there
+- [x] QUIRK: when hitting 0000 and equals, next input concatenates to one zero
+    - fixed the above by resetting the calculator when just the first number is zero without being the result of an operation.
+
+### 2208282000
+- rounding once more: 
+    - topWindow can display 18 symbols.
+        - can either display first 17 + > || < + last 17
