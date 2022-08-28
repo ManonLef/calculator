@@ -42,7 +42,9 @@ acButton.addEventListener('click', reset);
 
 decimalButton.addEventListener('click', addDecimal);
 
-plusMinusButton.addEventListener('click', () => {
+plusMinusButton.addEventListener('click', toggleMinusSign);
+
+function toggleMinusSign() {
     num1 = num1.toString(); // needed after an operation has been done since then it will have been turned into a number
 
     let num2NegativeCheck = num2.includes("-");
@@ -63,9 +65,7 @@ plusMinusButton.addEventListener('click', () => {
         num1 = num1.substring(1)
         topDisplay("trackInput");
     };
-
-});
-
+};
 //functions to quickly update text content
 function topDisplay(output) {
     if (output === "trackInput") {
