@@ -53,7 +53,7 @@ function addOperator() {
             btmDisplay(""); //for blink animation
             num1 = operate();
             setTimeout(() => {
-                btmDisplay(num1);
+                btmDisplay(roundResult(num1));
             }, 200);
             num2 = "";
         };
@@ -70,7 +70,7 @@ function operateEquals() {
     if (num2 !== "") {
         num1 = operate();
         setTimeout(() => {
-            btmDisplay(num1);
+            btmDisplay(roundResult(num1));
         }, 200);
         num2 = "";
         operator = "";
@@ -86,7 +86,7 @@ function operateEquals() {
         } else {
             num1 = +num1;
             setTimeout(() => {
-                topDisplay(""); btmDisplay(num1);
+                topDisplay(""); btmDisplay(roundResult(num1));
             }, 200);
             if (num1 === 0) {
                 setTimeout(() => {
@@ -159,7 +159,7 @@ function topDisplay(output) { //refactored
         if ((defaultOutput).length <= 18) {
             topWindow.textContent = (defaultOutput);
         } else {
-            topWindow.textContent = (defaultOutput).slice(0,17) + ">";
+            topWindow.textContent = ("<" + defaultOutput.slice((defaultOutput).length - 17,(defaultOutput).length));
         };
     } else { //for animations and other "special effects"
         topWindow.textContent = output;
@@ -168,6 +168,23 @@ function topDisplay(output) { //refactored
 
 function btmDisplay(output) {
     bottomWindow.textContent = output;
+};
+
+function roundResult(nm) {
+    if ((num1.toString()).includes(".")) { //to calculate and limit number of decimals depending on whole numbers
+        let separatedNum = (nm.toString()).split('.');
+        let firstNum = separatedNum[0];
+        let maxLengthDecimals = 13 - separatedNum[0].length;
+        let decimals = +("0."+(separatedNum[1]));
+        let roundedDecimals = parseFloat(decimals).toFixed(maxLengthDecimals);
+        return +(firstNum + roundedDecimals);
+    } else {
+        if (((nm).toString()).length > 14) {
+            return nm.toExponential(8);
+        } else {
+            return nm;
+        };
+    };
 };
 
 // extra/bonus functionality
