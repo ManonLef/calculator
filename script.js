@@ -46,10 +46,10 @@ plusMinusButton.addEventListener('click', () => {
     let num2NegativeCheck = num2.includes("-");
     let num1NegativeCheck = num1.includes("-");
 
-    if (num2 !== "" && num2 !== "0" && !num2NegativeCheck) {
+    if (num2 !== "" && +num2 !== 0 && !num2NegativeCheck) {
         num2 = "-" + num2;
         topDisplay("trackInput");
-    } else if (num2 !== "" && num2 !== "0" && num2NegativeCheck) {
+    } else if (num2 !== "" && +num2 !== 0 && num2NegativeCheck) {
         num2 = num2.substring(1)
         topDisplay("trackInput");
     };
@@ -57,7 +57,7 @@ plusMinusButton.addEventListener('click', () => {
     if (num1 !== "" && +num1 !== 0 && num2 === "" && !num1NegativeCheck) {
         num1 = "-" + num1;
         topDisplay("trackInput");
-    } else if (num1 !== "" && num1 !== "0"  && num2 === "" && num1NegativeCheck) {
+    } else if (num1 !== "" && +num1 !== 0  && num2 === "" && num1NegativeCheck) {
         num1 = num1.substring(1)
         topDisplay("trackInput");
     };

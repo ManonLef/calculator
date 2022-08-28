@@ -216,5 +216,5 @@ Another possibility is checking if bottomdisplay isn't a string perhaps. Need to
 - [x] BUG: Found out the decimal button doesn't get reenabled after deleting decimal from num1
 
 ### 2208270100
-- [ ] Quirk: plusminus will not work on `"0"` but it will on `"00000"` for example. Find a fix, may need to convert to num after all.
+- [x] Quirk: plusminus will not work on `"0"` but it will on `"00000"` for example. Find a fix, may need to convert to num after all.
 
