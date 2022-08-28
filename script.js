@@ -47,7 +47,7 @@ plusMinusButton.addEventListener('click', toggleMinusSign);
 function topDisplay(output) { //refactored
     let firstVar;
     
-    if (bottomWindow.textContent === "0") {
+    if (typeof(num1) !== "number") { //num1 has not been operated on yet
         firstVar = num1;
     } else {
         firstVar = "ans"; //for working with the result of the previous operation which is now stored in num1
