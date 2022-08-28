@@ -227,31 +227,26 @@ function addDecimal() {
     decimalButton.disabled = true;
 };
 
-function deleteLastInput() {
+function deleteLastInput() { //refactored
     if (num2 !== "") {
         num2 = num2.slice(0, -1);
-        topDisplay("trackInput");
-        let decimalCheck = num2.includes(".");
-        if (!decimalCheck) {
-            decimalButton.disabled = false;
-        };
-    } else if (num1 !== "" && operator !== "") { 
+    } else if (operator !== "") { 
         operator = "";
         operatorSymbol = "";
-        topDisplay("trackInput");
-        let decimalCheck = num1.includes(".");
-        (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false;
-    } else {
+    } else if (typeof(num1) !== "number") {
         num1 = num1.slice(0,-1);
-        if (num1 === "-") {
-            num1 = "";
-        };
-        topDisplay("trackInput");
-        //surprise ternary (edit on final run for consistency)
-        let decimalCheck = num1.includes(".");
-        (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false;
-
     };
+    topDisplay("trackInput");
+    
+    let decimalCheck; 
+    if (operator !== "") {
+        if (num2 !== "") {
+            decimalCheck = num2.includes(".");
+        };
+    } else if (typeof(num1) !== "number") { // to avoid typeError. If type is "number" we are working on `ans` which is the previous result and we want to leave that alone.
+        decimalCheck = num1.includes(".");
+    };
+    (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false;
 };
 
 function toggleMinusSign() { // refactored
