@@ -74,7 +74,7 @@ So things to do now:
 
 ### 2208051819 
 - random thought: why not just concatenate every input to later convert and calculate. 
-    - [ ] test the above somewhere after finishing calculator. 
+    - ~~[ ] test the above somewhere after finishing calculator.~~ (not needed for now)
 
 - [x] rewrite the operate function to use `Number` or `+` instead of `parseFloat`
 - [x] test the above task
@@ -99,7 +99,7 @@ So things to do now:
 - After a futile debugging attempt, the operator kept being assigned `buttonide` when it should be assigned the `button.id`. I thought that was something fancy caused by me having changed every div to a button. Not sure what I was thinking but no matter what I changed in my script, 9/0 would not invoke `selfDestruct()`. I never checked with other divisions... 
 Then I looked at my html and found out the divide button's `id` was literally `buttonide` now. Facepalm. xy problem.
     
-- [ ] remove styling when buttons are disabled
+- ~~[ ] remove styling when buttons are disabled~~ (will come to this when working on css, this is very useful for testing at the moment)
 - [x] use the buttons state functions for on and off, and remove the `if (power === "on") from the button listener functions.
 
 ### 2208061107 Pseudocode Decimal button
@@ -155,7 +155,7 @@ The number and decimal buttons are obvious for the keyboard. I'll have to think 
 ### 2208091411 rounding implemented 
 - for keeping num1 unadjusted, could use a burner number to round off in the display, keep the num1 for further calculations. 
 - [x] FIX ISSUE selfDestruct displays nan or infinity.
-- [ ] Consider equalsbutton (and possible operatorbutton) `if ((num2 !== "") && (num2 !== 0 && operator !== "divide"))` else selfdestruct. Redundant code. We can then remove selfdestruct from operate function.
+- ~~[ ] Consider equalsbutton (and possible operatorbutton) `if ((num2 !== "") && (num2 !== 0 && operator !== "divide"))` else selfdestruct. Redundant code. We can then remove selfdestruct from operate function.~~ (will check when)
 - *2208091519* BUG(fixed) pressing equals button on division. 
 - [ ] add check when pressing num/dec buttons to see if it reaches end of display length.
 
@@ -180,7 +180,7 @@ The number and decimal buttons are obvious for the keyboard. I'll have to think 
         no: add one in front of the number
 ### 2208252300 
 - the functionality is there but the code could probably use some simplifciation. 
-- [ ] Refactor plusMinusButton
+- ~~[ ] Refactor plusMinusButton~~ (Will do so during complete refactor)
 
 ### 2208261600
 - I'm thinking about first rounding the input numbers and showing a message when the end is reached below the calculator
@@ -195,12 +195,12 @@ to slide left and right
 ### 2208261745 What if I were to change the operation result num1 to 'ans' like on CASIO
 - Pseudocode:
     - after operate is done (either through equalsBtn or operatorBtn), topDisplay will show ans instead of num1. num1 still has to be the result of the operation so the topwindowcontent probably has to be checked to not contain ans. Which may be troublesome for num2 since we still want to be able to make that negative if possible. What's nice about this, is that rounding will probably become easier on the topWindow as well. 
-- [ ] Go through applicable functions to check if the above could work.
+- [x] Go through applicable functions to check if the above could work.
     - operatorbutton eventlistener function has to be changed to not display `trackInput` but "ans" + operator.
     - looks like the `topDisplay()` would still work as expected but I'd really like to see the rounding/slice to behave differently.
 - [x] Make a new branch to implement this
 
-- [ ] Consider adding the numbers to the right on `topDisplay` when going above 18 characters and let the left ones disappear. 
+- ~~[ ] Consider adding the numbers to the right on `topDisplay` when going above 18 characters and let the left ones disappear.~~ (don't see the need for this right now)
 
 ### 2208261800 new branch for ans
 - made the new branch for the ans functionality. It's a bit annoying because initially it nicely displays `ans` but after that it just tracks input ofcourse when starting on the second number. One way to overcome this is probably by adding a conditional in case the bottomdisplay is not zero. The thing is, you can just have had an operation that came with a result of zero.
