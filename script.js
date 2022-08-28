@@ -32,25 +32,17 @@ equalsButton.addEventListener('click', operateEquals);
 
 acButton.addEventListener('click', reset);
 
-function editNumber() {
-    if (num2 !== "") { 
+function editNumber() { //refactored
+    if (operator !== "") { 
         num2 += this.id; 
-            topDisplay("trackInput");
     } else { 
-        if (operator !== "") { 
-            num2 += this.id; 
-            topDisplay("trackInput");
-        //if we don't have an operator then we are inputting num1 or starting with a new calculation after operating a previous one
-        } else { 
-            // if bottom window has a previous result, we reset the display to 0 first.
-            if (bottomWindow.textContent !== "0") {
-                btmDisplay("0")
-                num1 = "";
-            };
-            num1 += this.textContent; 
-            topDisplay("trackInput");
+        // if bottom window has a previous result, we reset and start a new calculation.
+        if (bottomWindow.textContent !== "0") {
+            reset();
         };
-    };    
+        num1 += this.textContent; 
+    };
+    topDisplay("trackInput");
 };
 
 function addOperator() { //refactored
@@ -70,44 +62,7 @@ function addOperator() { //refactored
     };
 };
 
-// function operateEquals() {
-//     btmDisplay("");
-//     //operate if all variables filled.
-//     if (num2 !== "") {
-//         num1 = operate();
-        
-//         if (num1 !== undefined) { 
-//             setTimeout(() => {
-//                 btmDisplay(num1);
-//             }, 200);
-//             num2 = "";
-//             operator = "";
-//         };
-
-//     // we have no num2, but do have a variable. This throws a syntax error
-//     } else if (operator !== "") {
-        
-//         setTimeout(() => {
-//             randomError();
-//         }, 200);
-        
-//     } else {
-//         //right after startup "=" is pressed
-//         if (num1 === "") {  
-//             setTimeout(() => {
-//                 reset();
-//             }, 200);
-//         //
-//         } else {
-//             setTimeout(() => {
-//                 num1 = +num1;
-//                 topDisplay(""); btmDisplay(num1);
-//             }, 200);
-//         };
-//     }; 
-// };
-
-function operateEquals() {
+function operateEquals() { //refactored
     btmDisplay(""); //for blink animation purpose only
     if (num2 !== "") {
         num1 = operate();
