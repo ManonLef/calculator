@@ -76,7 +76,7 @@ function topDisplay(output) {
                 topWindow.textContent = (num1 + operatorSymbol + num2).slice(0,17) + ">";
             };
         } else {
-            if ((num1 + operatorSymbol + num2).length <= 18) {
+            if (("ans" + operatorSymbol + num2).length <= 18) {
                 topWindow.textContent = ("ans" + operatorSymbol + num2);
             } else {
                 topWindow.textContent = ("ans" + operatorSymbol + num2).slice(0,17) + ">";
