@@ -236,3 +236,11 @@ Another possibility is checking if bottomdisplay isn't a string perhaps. Need to
     - determine amount of numbers in front of decimal
     - total available space = 14
     - amount of decimal numbers available = 14-1(dec)-numbers in front of decimal.
+
+### 2208282400
+- Keyboard support notes:
+    - enter for equals
+    - x for multiply
+    - del is backspace
+    - power = p
+    - reset = esc
