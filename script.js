@@ -251,26 +251,25 @@ function deleteLastInput() {
     };
 };
 
-function toggleMinusSign() {
-    num1 = num1.toString(); // needed after an operation has been done since then it will have been turned into a number
-
-    let num2NegativeCheck = num2.includes("-");
-    let num1NegativeCheck = num1.includes("-");
-
-    if (num2 !== "" && +num2 !== 0 && !num2NegativeCheck) {
-        num2 = "-" + num2;
-    } else if (num2 !== "" && +num2 !== 0 && num2NegativeCheck) {
-        num2 = num2.substring(1)  
-    };
-
-    if (num1 !== "" && +num1 !== 0 && num2 === "" && !num1NegativeCheck && bottomWindow.textContent === "0") {
-        num1 = "-" + num1;
-    } else if (num1 !== "" && +num1 !== 0  && num2 === "" && num1NegativeCheck && bottomWindow.textContent === "0") {
-        num1 = num1.substring(1)
+function toggleMinusSign() { // refactored
+    let numNegativeCheck; 
+    if (num2 !== "" && +num2 !== 0) {
+        numNegativeCheck = num2.includes("-");
+        if (!numNegativeCheck) {
+            num2 = "-" + num2;
+        } else {
+            num2 = num2.substring(1);
+        };
+    } else if (typeof(num1) !== "number" && +num1 !== 0 && num1 !== "" && operator === "") {
+         numNegativeCheck = num1.includes("-");
+         if (!numNegativeCheck) {
+            num1 = "-" + num1;
+        } else {
+            num1 = num1.substring(1);
+        };
     };
     topDisplay("trackInput");
 };
-
 // unneeded extras for fun
 
 function selfDestruct() {
