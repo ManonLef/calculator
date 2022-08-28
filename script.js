@@ -278,6 +278,7 @@ function toggleMinusSign() {
 
 function selfDestruct() {
     disableButtons();
+    playDramaticChipmunk();
     topDisplay("self destruct in"); btmDisplay("");
     setTimeout(() => {
         btmDisplay("3");
@@ -314,4 +315,10 @@ function randomError() {
     setTimeout(() => {
         reset();
     }, 750);
+};
+
+function playDramaticChipmunk() {
+    var audio = new Audio("../sounds/DramaChip.mp3");
+    audio.loop = false;
+    audio.play();
 };
