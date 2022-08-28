@@ -219,3 +219,8 @@ Another possibility is checking if bottomdisplay isn't a string perhaps. Need to
 - [x] Quirk: plusminus will not work on `"0"` but it will on `"00000"` for example. Find a fix, may need to convert to num after all.
 - [x] BUG deleting the first inputs will display `ans` when display is empty
     - fixed the above. It had a conditional that num1 shouldn't be an empty string or otherwise it would display `ans`
+
+### 2208281215 Looking at refactor possibilities
+- num1 will not be a number until it was operated on. 
+- [x] remove rounding in operator button function
+- [ ] QUIRK `ans` in topWindow will change into num1 when plusminus is pressed because it converts into a string there
