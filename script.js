@@ -259,19 +259,16 @@ function toggleMinusSign() {
 
     if (num2 !== "" && +num2 !== 0 && !num2NegativeCheck) {
         num2 = "-" + num2;
-        topDisplay("trackInput");
     } else if (num2 !== "" && +num2 !== 0 && num2NegativeCheck) {
-        num2 = num2.substring(1)
-        topDisplay("trackInput");
+        num2 = num2.substring(1)  
     };
 
     if (num1 !== "" && +num1 !== 0 && num2 === "" && !num1NegativeCheck && bottomWindow.textContent === "0") {
         num1 = "-" + num1;
-        topDisplay("trackInput");
     } else if (num1 !== "" && +num1 !== 0  && num2 === "" && num1NegativeCheck && bottomWindow.textContent === "0") {
         num1 = num1.substring(1)
-        topDisplay("trackInput");
     };
+    topDisplay("trackInput");
 };
 
 // unneeded extras for fun
