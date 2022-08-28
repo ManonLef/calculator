@@ -177,7 +177,7 @@ function roundResult(nm) {
         let maxLengthDecimals = 13 - separatedNum[0].length;
         let decimals = +("0."+(separatedNum[1]));
         let roundedDecimals = parseFloat(decimals).toFixed(maxLengthDecimals);
-        return +(firstNum + roundedDecimals);
+        return +(+firstNum + +roundedDecimals);
     } else {
         if (((nm).toString()).length > 14) {
             return nm.toExponential(8);
