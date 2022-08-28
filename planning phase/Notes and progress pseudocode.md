@@ -223,4 +223,4 @@ Another possibility is checking if bottomdisplay isn't a string perhaps. Need to
 ### 2208281215 Looking at refactor possibilities
 - num1 will not be a number until it was operated on. 
 - [x] remove rounding in operator button function
-- [ ] QUIRK `ans` in topWindow will change into num1 when plusminus is pressed because it converts into a string there
+- [x] (fixed) QUIRK `ans` in topWindow will change into num1 when plusminus is pressed because it converts into a string there

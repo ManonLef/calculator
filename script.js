@@ -70,42 +70,68 @@ function addOperator() { //refactored
     };
 };
 
+// function operateEquals() {
+//     btmDisplay("");
+//     //operate if all variables filled.
+//     if (num2 !== "") {
+//         num1 = operate();
+        
+//         if (num1 !== undefined) { 
+//             setTimeout(() => {
+//                 btmDisplay(num1);
+//             }, 200);
+//             num2 = "";
+//             operator = "";
+//         };
+
+//     // we have no num2, but do have a variable. This throws a syntax error
+//     } else if (operator !== "") {
+        
+//         setTimeout(() => {
+//             randomError();
+//         }, 200);
+        
+//     } else {
+//         //right after startup "=" is pressed
+//         if (num1 === "") {  
+//             setTimeout(() => {
+//                 reset();
+//             }, 200);
+//         //
+//         } else {
+//             setTimeout(() => {
+//                 num1 = +num1;
+//                 topDisplay(""); btmDisplay(num1);
+//             }, 200);
+//         };
+//     }; 
+// };
+
 function operateEquals() {
-    setTimeout(() => {
-        btmDisplay("");
-    }, 100);
-    //operate if all variables filled.
+    btmDisplay(""); //for blink animation purpose only
     if (num2 !== "") {
         num1 = operate();
-        
-        if (num1 !== undefined) { 
-            setTimeout(() => {
-                btmDisplay(num1);
-            }, 200);
-            num2 = "";
-            operator = "";
-        };
-    // we have no num2, but do have a variable. This throws a syntax error
+        setTimeout(() => {
+            btmDisplay(num1);
+        }, 200);
+        num2 = "";
+        operator = "";
     } else if (operator !== "") {
-        
         setTimeout(() => {
             randomError();
         }, 200);
-        
     } else {
-        //right after startup "=" is pressed
-        if (num1 === "") {  
+        if (num1 === "") {  //if right after startup "=" is pressed
             setTimeout(() => {
                 reset();
             }, 200);
-        //
         } else {
             setTimeout(() => {
                 num1 = +num1;
                 topDisplay(""); btmDisplay(num1);
             }, 200);
         };
-    }; 
+    };
 };
 
 function reset() {
@@ -305,6 +331,7 @@ function selfDestruct() {
 function randomError() {
     let message = ["nope", "doesn't work", "error :(", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh", "don't!", "welp!", "that tickles!", "oh no!", "let's not"];
     let randomMsg = Math.floor(Math.random() * message.length);
+    topDisplay("");
     btmDisplay(message[randomMsg]);
     setTimeout(() => {
         reset();
