@@ -44,32 +44,9 @@ decimalButton.addEventListener('click', addDecimal);
 
 plusMinusButton.addEventListener('click', toggleMinusSign);
 
-function toggleMinusSign() {
-    num1 = num1.toString(); // needed after an operation has been done since then it will have been turned into a number
-
-    let num2NegativeCheck = num2.includes("-");
-    let num1NegativeCheck = num1.includes("-");
-
-    if (num2 !== "" && +num2 !== 0 && !num2NegativeCheck) {
-        num2 = "-" + num2;
-        topDisplay("trackInput");
-    } else if (num2 !== "" && +num2 !== 0 && num2NegativeCheck) {
-        num2 = num2.substring(1)
-        topDisplay("trackInput");
-    };
-
-    if (num1 !== "" && +num1 !== 0 && num2 === "" && !num1NegativeCheck && bottomWindow.textContent === "0") {
-        num1 = "-" + num1;
-        topDisplay("trackInput");
-    } else if (num1 !== "" && +num1 !== 0  && num2 === "" && num1NegativeCheck && bottomWindow.textContent === "0") {
-        num1 = num1.substring(1)
-        topDisplay("trackInput");
-    };
-};
-//functions to quickly update text content
 function topDisplay(output) {
     if (output === "trackInput") {
-        if (bottomWindow.textContent === "0" && num1 !== "") {
+        if (bottomWindow.textContent === "0") {
             if ((num1 + operatorSymbol + num2).length <= 18) {
                 topWindow.textContent = (num1 + operatorSymbol + num2);
             } else {
@@ -235,6 +212,29 @@ function deleteLastInput() {
         let decimalCheck = num1.includes(".");
         (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false;
         //
+    };
+};
+
+function toggleMinusSign() {
+    num1 = num1.toString(); // needed after an operation has been done since then it will have been turned into a number
+
+    let num2NegativeCheck = num2.includes("-");
+    let num1NegativeCheck = num1.includes("-");
+
+    if (num2 !== "" && +num2 !== 0 && !num2NegativeCheck) {
+        num2 = "-" + num2;
+        topDisplay("trackInput");
+    } else if (num2 !== "" && +num2 !== 0 && num2NegativeCheck) {
+        num2 = num2.substring(1)
+        topDisplay("trackInput");
+    };
+
+    if (num1 !== "" && +num1 !== 0 && num2 === "" && !num1NegativeCheck && bottomWindow.textContent === "0") {
+        num1 = "-" + num1;
+        topDisplay("trackInput");
+    } else if (num1 !== "" && +num1 !== 0  && num2 === "" && num1NegativeCheck && bottomWindow.textContent === "0") {
+        num1 = num1.substring(1)
+        topDisplay("trackInput");
     };
 };
 
