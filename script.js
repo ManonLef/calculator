@@ -33,7 +33,6 @@ operatorButton.forEach((button) => {
     button.addEventListener('click', addOperator);
 });
 
-//operate 
 equalsButton.addEventListener('click', operateEquals);
 
 del.addEventListener('click', deleteLastInput);
@@ -115,7 +114,7 @@ function addOperator() { //refactored
         // since we only operate two numbers at a time, if we have num2 we operate before assigning this new operator to the result (which is now the new num1)
         if (num2 !== "") {
             num1 = operate(num1, operator, num2);
-            btmDisplay(Math.round(num1 * 1000)/1000);
+            btmDisplay(num1);
             num2 = ""; 
         };
         operator = this.id; 
