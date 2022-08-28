@@ -13,12 +13,13 @@ const buttons = document.getElementsByTagName('button');
 const decimalButton = document.querySelector('.decimalBtn');
 const plusMinusButton = document.querySelector('#plusMinus');
 
-//Startup State
 let num1 = "";
 let operator = "";
 let num2 = "";
 let operatorSymbol = "";
 let powerOn = false;
+disableButtons();
+powerButton.disabled = false;
 
 numberButtons.forEach((button) => {
     button.addEventListener('click', editNumber);
@@ -32,7 +33,7 @@ equalsButton.addEventListener('click', operateEquals);
 
 acButton.addEventListener('click', reset);
 
-function editNumber() { //refactored
+function editNumber() { 
     if (operator !== "") { 
         num2 += this.id; 
     } else { 
@@ -45,14 +46,16 @@ function editNumber() { //refactored
     topDisplay("trackInput");
 };
 
-function addOperator() { //refactored
+function addOperator() {
     decimalButton.disabled = false;
     if (num2 !== "" || num1 !== "") {
-        // since we only operate two numbers at a time, if we have num2 we operate before assigning this new operator to the result (which is now the new num1)
         if (num2 !== "") {
+            btmDisplay(""); //for blink animation purpose only
             num1 = operate();
-            btmDisplay(num1);
-            num2 = ""; 
+            setTimeout(() => {
+                btmDisplay(num1);
+            }, 200);
+            num2 = "";
         };
         operator = this.id; 
         operatorSymbol = this.textContent;
@@ -62,7 +65,7 @@ function addOperator() { //refactored
     };
 };
 
-function operateEquals() { //refactored
+function operateEquals() { 
     btmDisplay(""); //for blink animation purpose only
     if (num2 !== "") {
         num1 = operate();
@@ -162,12 +165,7 @@ function btmDisplay(output) {
     bottomWindow.textContent = output;
 };
 
-
 // extra/bonus functionality
-
-disableButtons();
-powerButton.disabled = false;
-
 powerButton.addEventListener('click', switchPower);
 
 decimalButton.addEventListener('click', addDecimal);
@@ -249,7 +247,8 @@ function toggleMinusSign() { // refactored
     };
     topDisplay("trackInput");
 };
-// unneeded extras for fun
+
+//fun extras
 
 function selfDestruct() {
     disableButtons();
