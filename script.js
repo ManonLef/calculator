@@ -54,7 +54,7 @@ plusMinusButton.addEventListener('click', () => {
         topDisplay("trackInput");
     };
 
-    if (num1 !== "" && num1 !== "0" && num2 === "" && !num1NegativeCheck) {
+    if (num1 !== "" && +num1 !== 0 && num2 === "" && !num1NegativeCheck) {
         num1 = "-" + num1;
         topDisplay("trackInput");
     } else if (num1 !== "" && num1 !== "0"  && num2 === "" && num1NegativeCheck) {
