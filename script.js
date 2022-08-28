@@ -1,3 +1,5 @@
+"use strict";
+
 // button and display selectors
 const numberButtons = document.querySelectorAll('.numberBtn');
 const operatorButton = document.querySelectorAll('.operatorBtn');
