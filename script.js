@@ -243,11 +243,14 @@ function deleteLastInput() {
         (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false;
     } else {
         num1 = num1.slice(0,-1);
+        if (num1 === "-") {
+            num1 = "";
+        };
         topDisplay("trackInput");
         //surprise ternary (edit on final run for consistency)
         let decimalCheck = num1.includes(".");
         (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false;
-        //
+
     };
 };
 
