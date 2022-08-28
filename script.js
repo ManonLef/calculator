@@ -179,7 +179,7 @@ function roundResult(nm) {
         let roundedDecimals = parseFloat(decimals).toFixed(maxLengthDecimals);
         return +(+firstNum + +roundedDecimals);
     } else {
-        if (((nm).toString()).length > 14) {
+        if (((nm).toString()).length > 14) { //to lower scientific notation threshold
             return nm.toExponential(8);
         } else {
             return nm;
