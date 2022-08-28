@@ -308,6 +308,7 @@ function randomError() {
     let message = ["nope", "doesn't work", "error :(", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh", "don't!", "welp!", "that tickles!", "oh no!", "let's not"];
     let randomMsg = Math.floor(Math.random() * message.length);
     topDisplay("");
+    disableButtons();
     btmDisplay(message[randomMsg]);
     setTimeout(() => {
         reset();
