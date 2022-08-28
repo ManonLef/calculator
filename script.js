@@ -50,7 +50,7 @@ function addOperator() {
     decimalButton.disabled = false;
     if (num2 !== "" || num1 !== "") {
         if (num2 !== "") {
-            btmDisplay(""); //for blink animation purpose only
+            btmDisplay(""); //for blink animation
             num1 = operate();
             setTimeout(() => {
                 btmDisplay(num1);
@@ -66,7 +66,7 @@ function addOperator() {
 };
 
 function operateEquals() { 
-    btmDisplay(""); //for blink animation purpose only
+    btmDisplay(""); //for blink animation
     if (num2 !== "") {
         num1 = operate();
         setTimeout(() => {
@@ -84,10 +84,15 @@ function operateEquals() {
                 reset();
             }, 200);
         } else {
+            num1 = +num1;
             setTimeout(() => {
-                num1 = +num1;
                 topDisplay(""); btmDisplay(num1);
             }, 200);
+            if (num1 === 0) {
+                setTimeout(() => {
+                    reset();
+                }, 200);
+            };
         };
     };
 };
@@ -156,7 +161,7 @@ function topDisplay(output) { //refactored
         } else {
             topWindow.textContent = (defaultOutput).slice(0,17) + ">";
         };
-    } else { // for animations and other "special effects"
+    } else { //for animations and other "special effects"
         topWindow.textContent = output;
     };
 };
@@ -186,7 +191,7 @@ function switchPower() {
         powerOn = false;
         topDisplay("");
         btmDisplay("goodbye");
-        reset(); // to clear variables
+        reset();
         disableButtons();
         powerButton.disabled = false;
     };
@@ -206,7 +211,7 @@ function addDecimal() {
     decimalButton.disabled = true;
 };
 
-function deleteLastInput() { //refactored
+function deleteLastInput() {
     if (num2 !== "") {
         num2 = num2.slice(0, -1);
     } else if (operator !== "") { 
@@ -222,13 +227,13 @@ function deleteLastInput() { //refactored
         if (num2 !== "") {
             decimalCheck = num2.includes(".");
         };
-    } else if (typeof(num1) !== "number") { // to avoid typeError. If type is "number" we are working on `ans` which is the previous result and we want to leave that alone.
+    } else if (typeof(num1) !== "number") { //to avoid typeError. If type is "number" we are working on `ans` which is the previous result and we want to leave that alone.
         decimalCheck = num1.includes(".");
     };
     (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false;
 };
 
-function toggleMinusSign() { // refactored
+function toggleMinusSign() { 
     let numNegativeCheck; 
     if (num2 !== "" && +num2 !== 0) {
         numNegativeCheck = num2.includes("-");
