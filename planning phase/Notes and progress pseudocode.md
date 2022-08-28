@@ -231,3 +231,8 @@ Another possibility is checking if bottomdisplay isn't a string perhaps. Need to
 - rounding once more: 
     - topWindow can display 18 symbols.
         - can either display first 17 + > || < + last 17
+- [x] implement the above `< + last 17`
+- bottomWindow / result rounding: Dependant on amount of numbers in front of decimal. 
+    - determine amount of numbers in front of decimal
+    - total available space = 14
+    - amount of decimal numbers available = 14-1(dec)-numbers in front of decimal.
