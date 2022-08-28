@@ -69,10 +69,18 @@ plusMinusButton.addEventListener('click', () => {
 //functions to quickly update text content
 function topDisplay(output) {
     if (output === "trackInput") {
-        if ((num1 + operatorSymbol + num2).length <= 18) {
-            topWindow.textContent = (num1 + operatorSymbol + num2);
+        if (bottomWindow.textContent === "0" && num1 !== "") {
+            if ((num1 + operatorSymbol + num2).length <= 18) {
+                topWindow.textContent = (num1 + operatorSymbol + num2);
+            } else {
+                topWindow.textContent = (num1 + operatorSymbol + num2).slice(0,17) + ">";
+            };
         } else {
-            topWindow.textContent = (num1 + operatorSymbol + num2).slice(0,17) + ">";
+            if ((num1 + operatorSymbol + num2).length <= 18) {
+                topWindow.textContent = ("ans" + operatorSymbol + num2);
+            } else {
+                topWindow.textContent = ("ans" + operatorSymbol + num2).slice(0,17) + ">";
+            };
         };
     } else {
         if (output.length <= 18) {
