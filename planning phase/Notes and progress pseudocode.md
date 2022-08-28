@@ -212,7 +212,7 @@ Another possibility is checking if bottomdisplay isn't a string perhaps. Need to
 ### 2208262230
 - I will start pulling functions out of their eventlisteners
     - going smoothly so far, except I had to use `this.id` now instead of `button.id` since the event directed to an outside function now. 
-- [ ] Change plusminus to not change num1 after oparating (so when num1 is answer of previous operation)
+- [x] Change plusminus to not change num1 after oparating (so when num1 is answer of previous operation)
 - [x] BUG: Found out the decimal button doesn't get reenabled after deleting decimal from num1
 
 ### 2208270100
