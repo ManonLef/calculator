@@ -113,7 +113,7 @@ function addOperator() { //refactored
     if (num2 !== "" || num1 !== "") {
         // since we only operate two numbers at a time, if we have num2 we operate before assigning this new operator to the result (which is now the new num1)
         if (num2 !== "") {
-            num1 = operate(num1, operator, num2);
+            num1 = operate();
             btmDisplay(num1);
             num2 = ""; 
         };
@@ -145,7 +145,7 @@ function operateEquals() {
     }, 100);
     //operate if all variables filled.
     if (num2 !== "") {
-        num1 = operate(num1, operator, num2);
+        num1 = operate();
         
         if (num1 !== undefined) { 
             setTimeout(() => {
@@ -240,7 +240,7 @@ function reset() {
     };
 };
 
-function operate(num1, operator, num2) {
+function operate() {
     decimalButton.disabled = false;
     operatorSymbol = "";
     num1 = +num1;
@@ -259,6 +259,19 @@ function operate(num1, operator, num2) {
     }  
 };
 
+function disableButtons() {
+    for (const button of buttons) {
+        button.disabled = true;
+    }
+};
+
+function enableButtons() {
+    for (const button of buttons) {
+        button.disabled = false;
+    }
+};
+
+//unneeded extras for fun
 function selfDestruct() {
     disableButtons();
     topDisplay("self destruct in"); btmDisplay("");
@@ -288,18 +301,6 @@ function selfDestruct() {
         reset();
     }, 7000);
     
-};
-
-function disableButtons() {
-    for (const button of buttons) {
-        button.disabled = true;
-    }
-};
-
-function enableButtons() {
-    for (const button of buttons) {
-        button.disabled = false;
-    }
 };
 
 function randomError() {
