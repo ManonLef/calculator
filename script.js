@@ -91,19 +91,16 @@ function switchPower() {
 };
 
 function editNumber() {
-    // if we have num2 we have num1 and operator and are working on adding num2
     if (num2 !== "") { 
         num2 += this.id; 
             topDisplay("trackInput");
-    // in case we have no num2 yet        
     } else { 
-        // if we do have an operator 
         if (operator !== "") { 
             num2 += this.id; 
             topDisplay("trackInput");
-        //if we don't have an operator then we are inputting num1    
+        //if we don't have an operator then we are inputting num1 or starting with a new calculation after operating a previous one
         } else { 
-            // if bottom window has a previous result, we wipe it.
+            // if bottom window has a previous result, we reset the display to 0 first.
             if (bottomWindow.textContent !== "0") {
                 btmDisplay("0")
                 num1 = "";
@@ -114,28 +111,20 @@ function editNumber() {
     };    
 };
 
-function addOperator() {
+function addOperator() { //refactored
     decimalButton.disabled = false;
-    // since we only operate two numbers at a time, 
-    // if we have num2 we operate the previous num1 
-    // and previous operator before assigning this operator
-    if (num2 !== "") {
-        num1 = operate(num1, operator, num2);
-        btmDisplay(Math.round(num1 * 1000)/1000);
-        num2 = "";
+    if (num2 !== "" || num1 !== "") {
+        // since we only operate two numbers at a time, if we have num2 we operate before assigning this new operator to the result (which is now the new num1)
+        if (num2 !== "") {
+            num1 = operate(num1, operator, num2);
+            btmDisplay(Math.round(num1 * 1000)/1000);
+            num2 = ""; 
+        };
         operator = this.id; 
         operatorSymbol = this.textContent;
         topDisplay("trackInput");
-    } else if (num1 !== "") {
-        operator = this.id; 
-        operatorSymbol = this.textContent;
-        topDisplay("trackInput");
-    // in case an operator is clicked without anything preceding it.
     } else {
         randomError();
-        setTimeout(() => {
-            reset();
-        }, 500);
     };
 };
 
@@ -317,7 +306,7 @@ function enableButtons() {
 };
 
 function randomError() {
-    let message = ["nope", "doesn't work", "error", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh", "don't!", "welp!", "that tickles!", "oh no!", "let's not"];
+    let message = ["nope", "doesn't work", "error :(", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh", "don't!", "welp!", "that tickles!", "oh no!", "let's not"];
     let randomMsg = Math.floor(Math.random() * message.length);
     btmDisplay(message[randomMsg]);
     setTimeout(() => {
