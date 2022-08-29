@@ -135,12 +135,16 @@ function operate() {
 function disableButtons() {
     for (const button of buttons) {
         button.disabled = true;
+        button.style.color = null;
+        button.style.textShadow = null; 
     }
 };
 
 function enableButtons() {
     for (const button of buttons) {
         button.disabled = false;
+        button.style.color = "#fec4ed";
+        button.style.textShadow = "0px 0px 4px rgba(255, 255, 255, 0.5)"; 
     }
 };
 

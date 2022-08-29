@@ -28,12 +28,17 @@ button {
 
     box-shadow: -2px -2px 2px #f684d4,
             2px 2px 5px #bf4e9d;
-    color: #fec4ed;
-    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.2);
+    /* color: #fec4ed;
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5); */
 }
 
 button:active {
     background: radial-gradient(#D65DB1, #da66b7);
+}
+
+#power {
+    color: #fec4ed;
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
 }
 
 .calculator-body {
