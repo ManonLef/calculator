@@ -1,10 +1,11 @@
 body {
-    margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    margin: 100px;
+    margin: 100px 0px;
     font-family: 'Major Mono Display', monospace;
+    width: 100vw;
+    height: auto;
     /*the below makes the button text unselectable*/
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -26,9 +27,13 @@ button {
     border-radius: 20px;
 
     box-shadow: -2px -2px 2px #f684d4,
-            2px 2px 5px #c0429a;
+            2px 2px 5px #bf4e9d;
     color: #fec4ed;
     text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.2);
+}
+
+button:active {
+    background: radial-gradient(#D65DB1, #da66b7);
 }
 
 .calculator-body {
@@ -57,8 +62,6 @@ button {
     
     overflow: hidden;
     white-space: nowrap;
-
-    color: #a63c86;
     text-shadow: 0px 0px 5px rgba(107, 92, 211, 0.3);
     ;
 }
@@ -71,6 +74,7 @@ button {
     align-items: center;
     justify-content: end;
     padding: 0px 10px;
+    color: #845EC2;
 }
 
 #bottomWindow {
@@ -81,6 +85,7 @@ button {
     align-items: center;
     justify-content: end;
     padding: 0px 5px;
+    color: #845EC2;
 }
 
 .utilityBtns {
