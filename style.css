@@ -28,7 +28,7 @@ button {
     box-shadow: -2px -2px 2px #f684d4,
             2px 2px 5px #c0429a;
     color: #fec4ed;
-    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.62)
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.2);
 }
 
 .calculator-body {
@@ -37,11 +37,11 @@ button {
     height: auto;
     padding: 10px;
     /*border: 2px solid black;*/
-    border-radius: 30px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     background-color: #D65DB1;
-    
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .display {
@@ -50,16 +50,17 @@ button {
     display: flex;
     flex-direction: column;
     font-size: 40px;
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: #f9c9ea;
-    box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5), 
-                inset 10px 10px 15px rgba(61, 61, 61, 0.12);
+    box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.7), 
+                inset 10px 10px 15px rgba(192, 66, 154, 0.15);
     
     overflow: hidden;
     white-space: nowrap;
 
-    color: #db5ab4;
-    text-shadow: 0px 0px 3px #d767b5;
+    color: #a63c86;
+    text-shadow: 0px 0px 5px rgba(107, 92, 211, 0.3);
+    ;
 }
 
 #topWindow {
@@ -104,7 +105,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 36px;
 }
 
 #container {
