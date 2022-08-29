@@ -305,7 +305,7 @@ function selfDestruct() {
 };
 
 function randomError() {
-    let message = ["nope", "doesn't work", "error :(", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh", "don't!", "welp!", "that tickles!", "oh no!", "let's not"];
+    let message = ["nope", "doesn't work", "error :(", "boooo", "retry", "seriously?", "nuhuh", "doh!", "meh", "don't!", "welp!", "that tickles!", "oh no!", "let's not", "'puter says no", "meatballs", "no way!", "pleaso no!", "please don't"];
     let randomMsg = Math.floor(Math.random() * message.length);
     topDisplay("");
     disableButtons();
