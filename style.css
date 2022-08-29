@@ -11,7 +11,7 @@ body {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    /*  */
+   
     background-image: linear-gradient(to right top, #ff6f91, #ff7c81, #ff8b72, #ff9c67, #ffae61, #ffaa62, #ffa763, #ffa364, #ff8a6f, #ff7482, #f26499, #d65db1);
     background-repeat: no-repeat;
 }
@@ -27,9 +27,7 @@ button {
     border-radius: 20px;
 
     box-shadow: -2px -2px 2px #f684d4,
-            2px 2px 5px #bf4e9d;
-    /* color: #fec4ed;
-    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5); */
+                 2px 2px 5px #bf4e9d;
 }
 
 button:active {
@@ -46,7 +44,6 @@ button:active {
     min-width: 425px;
     height: auto;
     padding: 10px;
-    /*border: 2px solid black;*/
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -64,7 +61,6 @@ button:active {
     background-color: #f9c9ea;
     box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.7), 
                 inset 10px 10px 15px rgba(192, 66, 154, 0.15);
-    
     overflow: hidden;
     white-space: nowrap;
     text-shadow: 0px 0px 5px rgba(107, 92, 211, 0.3);
@@ -72,7 +68,6 @@ button:active {
 }
 
 #topWindow {
-    /*border: 2px solid black;*/
     height: 50px;
     font-size: 30px;
     display: flex;
@@ -83,7 +78,6 @@ button:active {
 }
 
 #bottomWindow {
-    /*border: 2px solid black;*/
     height: 70px;
     border-top: 0px;
     display: flex;
@@ -108,7 +102,6 @@ button:active {
 
 .btn,
 .utilityBtn {
-    /* border: 2px solid black; */
     flex: 1 0 auto; 
     height: 80px;
     width: 22%;
