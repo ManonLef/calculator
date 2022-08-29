@@ -37,6 +37,12 @@ button:active {
 #power {
     color: #fec4ed;
     text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+    padding-top: 8px;
+}
+
+.material-symbols-outlined {
+    font-size: 40px;
+    font-weight: 300;
 }
 
 .calculator-body {
