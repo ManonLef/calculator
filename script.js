@@ -129,7 +129,7 @@ function operate() {
         return num1 / num2;
     } else if (operator === "multiply") {
         return num1 * num2;
-    }  
+    };  
 };
 
 function disableButtons() {
@@ -237,7 +237,7 @@ function deleteLastInput() {
         num2 = num2.slice(0, -1);
         if (num2 === "-") {
             num2 = "";
-        }
+        };
     } else if (operator !== "") { 
         operator = "";
         operatorSymbol = "";
@@ -245,7 +245,7 @@ function deleteLastInput() {
         num1 = num1.slice(0,-1);
         if (num1 === "-") {
             num1 = "";
-        }
+        };
     };
     topDisplay("trackInput");
     
@@ -305,7 +305,7 @@ function selfDestruct() {
         topDisplay("uh oh"); btmDisplay("...");
     }, 4800);
     setTimeout(() => {
-        btmDisplay("KABOOM");
+        btmDisplay("kaboooooooom");
     }, 5600);
     setTimeout(() => {
         powerOn = false;
