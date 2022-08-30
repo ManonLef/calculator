@@ -67,8 +67,8 @@ button:active {
     background-color: #f9c9ea;
     box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.7), 
                 inset 10px 10px 15px rgba(192, 66, 154, 0.15);
-    overflow: hidden;
-    white-space: nowrap;
+    /* overflow: hidden;
+    white-space: nowrap; */
     text-shadow: 0px 0px 5px rgba(107, 92, 211, 0.3);
     ;
 }

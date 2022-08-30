@@ -235,23 +235,29 @@ function addDecimal() {
 function deleteLastInput() {
     if (num2 !== "") {
         num2 = num2.slice(0, -1);
+        if (num2 === "-") {
+            num2 = "";
+        }
     } else if (operator !== "") { 
         operator = "";
         operatorSymbol = "";
     } else if (typeof(num1) !== "number") {
         num1 = num1.slice(0,-1);
+        if (num1 === "-") {
+            num1 = "";
+        }
     };
     topDisplay("trackInput");
     
     let decimalCheck; 
     if (operator !== "") {
-        if (num2 !== "") {
+        if (num2 !== "") { //may be obsolete to have if statement here
             decimalCheck = num2.includes(".");
         };
     } else if (typeof(num1) !== "number") { //to avoid typeError. If type is "number" we are working on `ans` which is the previous result and we want to leave that alone.
         decimalCheck = num1.includes(".");
     };
-    (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false;
+    (decimalCheck) ? decimalButton.disabled = true : decimalButton.disabled = false; //ternary. Rewrite perhaps?
 };
 
 function toggleMinusSign() { 
