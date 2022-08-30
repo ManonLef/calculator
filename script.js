@@ -189,7 +189,11 @@ function roundResult(nm) { //to make every result fit in the screen while also r
                     return parseFloat(nm.toFixed(12)); //toFixed since zeroes get disregarded with toPrecision
                 }
             } else {
-                return (nm.toPrecision(8));
+                if (nm > 99999999999999) {
+                    return parseFloat(nm).toExponential(8);
+                } else {
+                    return (nm.toPrecision(13));
+                }
             };
         } else {
             return parseFloat(nm).toExponential(8);
