@@ -174,25 +174,25 @@ function btmDisplay(output) {
     bottomWindow.textContent = output;
 };
 
-function roundResult(nm) {
+function roundResult(nm) { //to make every result fit in the screen while also rounding correctly, including scientific notation 
     nm = +nm
     if (nm.toString().length <= 14) {
         return nm;
     } else {
-        if (nm.toString().includes(".")) {
+        if (nm.toString().includes(".")) { 
             if (nm < 1) {
                 if (nm > -1 && nm < 0) {
-                    return parseFloat(nm.toFixed(11));
+                    return parseFloat(nm.toFixed(11)); //toFixed since zeroes get disregarded with toPrecision
                 } else if (nm <= -1) {
                     return parseFloat(nm.toPrecision(12));
                 } else {
-                    return parseFloat(nm.toFixed(12));
+                    return parseFloat(nm.toFixed(12)); //toFixed since zeroes get disregarded with toPrecision
                 }
             } else {
-                return parseFloat(nm.toPrecision(13)) //parseFloat(nm.toPrecision(13));
+                return (nm.toPrecision(8));
             };
         } else {
-            return nm.toPrecision(9);
+            return parseFloat(nm).toExponential(8);
         };
     };
 };
