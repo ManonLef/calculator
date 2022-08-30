@@ -175,18 +175,24 @@ function btmDisplay(output) {
 };
 
 function roundResult(nm) {
-    if ((num1.toString()).includes(".")) { //to calculate and limit number of decimals depending on whole numbers
-        let separatedNum = (nm.toString()).split('.');
-        let firstNum = separatedNum[0];
-        let maxLengthDecimals = 13 - separatedNum[0].length;
-        let decimals = +("0."+(separatedNum[1]));
-        let roundedDecimals = parseFloat(decimals).toFixed(maxLengthDecimals);
-        return +(+firstNum + +roundedDecimals);
+    nm = +nm
+    if (nm.toString().length <= 14) {
+        return nm;
     } else {
-        if (((nm).toString()).length > 14) { //to lower scientific notation threshold
-            return nm.toExponential(8);
+        if (nm.toString().includes(".")) {
+            if (nm < 1) {
+                if (nm > -1 && nm < 0) {
+                    return parseFloat(nm.toFixed(11));
+                } else if (nm <= -1) {
+                    return parseFloat(nm.toPrecision(12));
+                } else {
+                    return parseFloat(nm.toFixed(12));
+                }
+            } else {
+                return parseFloat(nm.toPrecision(13)) //parseFloat(nm.toPrecision(13));
+            };
         } else {
-            return nm;
+            return nm.toPrecision(9);
         };
     };
 };
