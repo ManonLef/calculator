@@ -1,6 +1,5 @@
 "use strict";
 
-// button and display selectors
 const numberButtons = document.querySelectorAll(".numberBtn");
 const operatorButton = document.querySelectorAll(".operatorBtn");
 const equalsButton = document.querySelector(".equalsBtn");
@@ -37,7 +36,6 @@ function editNumber() {
   if (operator !== "") {
     num2 += this.id;
   } else {
-    // if bottom window has a previous result, we reset and start a new calculation.
     if (bottomWindow.textContent !== "0") {
       reset();
     }
@@ -50,7 +48,7 @@ function addOperator() {
   decimalButton.disabled = false;
   if (num2 !== "" || num1 !== "") {
     if (num2 !== "") {
-      btmDisplay(""); //for blink animation
+      btmDisplay("");
       num1 = operate();
       setTimeout(() => {
         btmDisplay(roundResult(num1));
@@ -66,12 +64,15 @@ function addOperator() {
 }
 
 function operateEquals() {
-  btmDisplay(""); //for blink animation
+  btmDisplay("");
   if (num2 !== "") {
     num1 = operate();
-    setTimeout(() => {
-      btmDisplay(roundResult(num1));
-    }, 200);
+    if (num1 !== undefined) {
+      // in case "divide by zero, num1 will now be undefined.
+      setTimeout(() => {
+        btmDisplay(roundResult(num1));
+      }, 200);
+    }
     num2 = "";
     operator = "";
   } else if (operator !== "") {
@@ -80,7 +81,7 @@ function operateEquals() {
     }, 200);
   } else {
     if (num1 === "") {
-      //if right after startup "=" is pressed
+      // if right after startup "=" is pressed
       setTimeout(() => {
         reset();
       }, 200);
@@ -157,10 +158,10 @@ function topDisplay(output) {
   let firstVar;
 
   if (typeof num1 !== "number") {
-    //num1 has not been operated on yet
+    // num1 has not been operated on yet
     firstVar = num1;
   } else {
-    firstVar = "ans"; //for working with the result of the previous operation which is now stored in num1
+    firstVar = "ans"; // for working with the result of the previous operation which is now stored in num1
   }
 
   let defaultOutput = firstVar + operatorSymbol + num2;
@@ -174,7 +175,6 @@ function topDisplay(output) {
         defaultOutput.slice(defaultOutput.length - 17, defaultOutput.length);
     }
   } else {
-    //for animations and other "special effects"
     topWindow.textContent = output;
   }
 }
@@ -184,7 +184,7 @@ function btmDisplay(output) {
 }
 
 function roundResult(nm) {
-  //to make every result fit in the screen while also rounding correctly, including scientific notation
+  // to make every result fit in the screen while also rounding correctly, including scientific notation
   nm = +nm;
   if (nm.toString().length <= 14) {
     return nm;
@@ -193,10 +193,10 @@ function roundResult(nm) {
       if (nm < 1) {
         // numbers below zero and numbers between 0 and 1 for using the `toPrecision` method which disregards zeroes
         if (nm > -1 && nm < 0) {
-          //0 to -1
+          // 0 to -1
           return parseFloat(nm.toFixed(11));
         } else if (nm <= -1) {
-          //-1 and below
+          // -1 and below
           if (nm < -9999999999999) {
             //negatives overflowing screen
             return parseFloat(nm.toExponential(7));
@@ -204,7 +204,7 @@ function roundResult(nm) {
             return parseFloat(nm.toPrecision(12));
           }
         } else {
-          return parseFloat(nm.toFixed(12)); //for everything between 0 and 1
+          return parseFloat(nm.toFixed(12)); // for everything between 0 and 1
         }
       } else {
         if (nm > 99999999999999) {
@@ -219,7 +219,8 @@ function roundResult(nm) {
   }
 }
 
-// extra/bonus functionality
+// extra/bonus functionality below
+
 powerButton.addEventListener("click", switchPower);
 
 decimalButton.addEventListener("click", addDecimal);
@@ -279,17 +280,14 @@ function deleteLastInput() {
 
   let decimalCheck;
   if (operator !== "") {
-    if (num2 !== "") {
-      //may be obsolete to have if statement here
-      decimalCheck = num2.includes(".");
-    }
+    decimalCheck = num2.includes(".");
   } else if (typeof num1 !== "number") {
-    //to avoid typeError. If type is "number" we are working on `ans` which is the previous result and we want to leave that alone.
+    // to not edit num1 if it's the result of previous operation
     decimalCheck = num1.includes(".");
   }
   decimalCheck
     ? (decimalButton.disabled = true)
-    : (decimalButton.disabled = false); //ternary. Rewrite perhaps?
+    : (decimalButton.disabled = false); // ternary for practice
 }
 
 function toggleMinusSign() {
@@ -317,7 +315,7 @@ function toggleMinusSign() {
   topDisplay("trackInput");
 }
 
-//fun extras
+// extras for fun
 
 function selfDestruct() {
   disableButtons();

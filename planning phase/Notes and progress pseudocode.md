@@ -247,4 +247,4 @@ Another possibility is checking if bottomdisplay isn't a string perhaps. Need to
 
 ### 2208292153
 - added styling today.
-- [ ] look into max safe integer. Above that it seems the number doesn't round anymore, could also be error in rounding funtion. perhaps add error.
+- [x] look into max safe integer. Above that it seems the number doesn't round anymore, could also be error in rounding funtion. perhaps add error.
