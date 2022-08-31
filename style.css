@@ -1,7 +1,6 @@
-html,
 body {
   height: 100%;
-  width: 100%;
+  width: auto;
   padding: 0px;
   margin: 0px;
   display: flex;
@@ -31,43 +30,33 @@ body {
   background-repeat: no-repeat;
 }
 
-header {
-  background-color: rgb(255, 255, 255, 0.4);
-  margin-bottom: 50px;
-  padding: 15px;
-  width: 100%;
-  text-align: center;
-  font-family: 'Comfortaa', cursive;
-  font-size: 30px;
-  color: #d65db1;
+html {
+  height: 100%;
+  width: auto;
 }
 
-footer {
-  background-color: rgb(255, 255, 255, 0.4);
-  margin-top: auto;
+header {
+  background-color: rgb(255, 255, 255, 0.75);
   padding: 15px;
+  margin-bottom: 50px;
+  border-bottom: 2px solid #d65db1;
   width: 100%;
   text-align: center;
-  font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
   font-size: 30px;
   color: #d65db1;
-  flex-shrink: 0;
 }
 
 button {
   border: none;
   background-color: #d65db1;
-  font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
   border-radius: 20px;
   box-shadow: -2px -2px 2px #f684d4, 2px 2px 5px #bf4e9d;
 }
 
 button:active {
   background: radial-gradient(#d65db1, #da66b7);
-}
-
-.calculator-container {
-  flex: 1 0 auto;
 }
 
 #power {
@@ -87,6 +76,7 @@ button:active {
   min-width: 425px;
   height: auto;
   padding: 10px;
+  margin-bottom: 50px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -152,4 +142,16 @@ button:active {
   align-items: center;
   font-size: 36px;
   padding-top: 8px;
+}
+
+footer {
+  background-color: rgb(255, 255, 255, 0.75);
+  margin-top: auto;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  font-family: "Comfortaa", cursive;
+  font-size: 25px;
+  color: #d65db1;
+  border-top: 2px solid #d65db1;
 }
