@@ -48,12 +48,7 @@ function addOperator() {
   decimalButton.disabled = false;
   if (num2 !== "" || num1 !== "") {
     if (num2 !== "") {
-      btmDisplay("");
-      num1 = operate();
-      setTimeout(() => {
-        btmDisplay(roundResult(num1));
-      }, 200);
-      num2 = "";
+      operateEquals();
     }
     operator = this.id;
     operatorSymbol = this.textContent;
