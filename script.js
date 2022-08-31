@@ -205,7 +205,7 @@ function roundResult(nm) {
         if (nm > 99999999999999) {
           return parseFloat(nm).toExponential(8);
         } else {
-          return nm.toPrecision(13);
+          return parseFloat(nm.toPrecision(13));
         }
       }
     } else {
