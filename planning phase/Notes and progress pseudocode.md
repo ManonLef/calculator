@@ -79,7 +79,7 @@ So things to do now:
 - [x] rewrite the operate function to use `Number` or `+` instead of `parseFloat`
 - [x] test the above task
 
-### 2208051825 Official TODO's left
+### 2208051825 TODO's left
 - [x] implement decimal funtionality after a pseudo session
 - [x] round decimals to avoid overflowing the screen *changed on [9 august](#2208091346) to round to 3 decimals
 - [ ] OPTIONAL add keyboard support
@@ -142,8 +142,8 @@ Then I looked at my html and found out the divide button's `id` was literally `b
 ### 2208091346 rounding and prep for keyboard support
 - I want to start preparing for keyboard implementation and I believe that should be done by removing the functions from the event listeners and making them stand alone. This way I can invoke the function with multiple event listeners. 
 The number and decimal buttons are obvious for the keyboard. I'll have to think about the other buttons.
-- [ ] remove functions from eventListeners and place them in the global scope.
-- [ ] decide which button to use for DEL, AC, Power
+- [x] remove functions from eventListeners and place them in the global scope.
+- ~~[ ] decide which button to use for DEL, AC, Power~~
 
 - For rounding current max:
     - Top Display: 18 characters
@@ -157,7 +157,7 @@ The number and decimal buttons are obvious for the keyboard. I'll have to think 
 - [x] FIX ISSUE selfDestruct displays nan or infinity.
 - ~~[ ] Consider equalsbutton (and possible operatorbutton) `if ((num2 !== "") && (num2 !== 0 && operator !== "divide"))` else selfdestruct. Redundant code. We can then remove selfdestruct from operate function.~~ (will check when)
 - *2208091519* BUG(fixed) pressing equals button on division. 
-- [ ] add check when pressing num/dec buttons to see if it reaches end of display length.
+- [x] add check when pressing num/dec buttons to see if it reaches end of display length.
 
 ### 2208111409 
 - [x] (fixed) BUG -> AC pressed keeps decimal button disabled.
@@ -248,3 +248,14 @@ Another possibility is checking if bottomdisplay isn't a string perhaps. Need to
 ### 2208292153
 - added styling today.
 - [x] look into max safe integer. Above that it seems the number doesn't round anymore, could also be error in rounding funtion. perhaps add error.
+- The above wasn't related to max safe integer. some of my conditionals probably were because they compared against a number above the `MAX_SAFE_INTEGER` and above that JS can;t reliably compare values anymore I what I seemed to gather from reading up on it. 
+
+### 2208311530
+- Most time went into the rounding function these past days. I think that was the biggest hurdle in this calculator. Especially since all the calculators I see published seem to have the same issues, especially when it comes to rounding. Yesterday I stumbled upon `.toPrecision` which was a great way to simplify my code where I turned the number into an array, split at the decimal, then  rounded and added it back together. I am still very curious to see if there's a way or a method I could use to make this all simpler. However, I have spent so long on that part and used so many conditionals to make all of the rounding work, if I come across anything in the future that solves that heap of code, I'll remember this project and come back to it. 
+- Today my calculator also suddenly showed NAN during `selfDestruct`. I made up awesome theories about how `prettier` made my code faster and now `selfDestruct()` and `num1 = operate()` started running out of sync etc. Avoided a rabbit hole by looking at my previous commits where I removed a conditional for `num1 === undefined` because I probably forgot why it was there when refactoring. Lesson learned and I added a comment to be sure. 
+- I'm about ready to ship it. I'll play with some different fonts for the styling and add some info to it, and that should be it.
+- [ ] Add footer 
+- [ ] Add calculator header
+- [ ] Look into making it display on mobile a bit better (unneeded, responsiveness not yet covered) 
+- [ ] Add README
+- [ ] Consider darkening the screen when power is off.
