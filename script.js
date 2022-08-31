@@ -52,7 +52,9 @@ function addOperator() {
     }
     operator = this.id;
     operatorSymbol = this.textContent;
-    topDisplay("trackInput");
+    if (num1 !== undefined) {
+      topDisplay("trackInput");
+    }
   } else {
     randomError();
   }
@@ -378,7 +380,7 @@ function randomError() {
 }
 
 function playDramaticChipmunk() {
-  var audio = new Audio("../sounds/DramaChip.mp3");
+  var audio = new Audio("./resources/DramaChip.mp3");
   audio.loop = false;
   audio.play();
 }
