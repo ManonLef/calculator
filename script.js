@@ -180,13 +180,17 @@ function roundResult(nm) { //to make every result fit in the screen while also r
         return nm;
     } else {
         if (nm.toString().includes(".")) { 
-            if (nm < 1) {
-                if (nm > -1 && nm < 0) {
-                    return parseFloat(nm.toFixed(11)); //toFixed since zeroes get disregarded with toPrecision
-                } else if (nm <= -1) {
-                    return parseFloat(nm.toPrecision(12));
+            if (nm < 1) { // numbers below zero and numbers between 0 and 1 for using the `toPrecision` method which disregards zeroes
+                if (nm > -1 && nm < 0) { //0 to -1
+                    return parseFloat(nm.toFixed(11)); 
+                } else if (nm <= -1) { //-1 and below
+                    if (nm < -9999999999999) { //negatives overflowing screen 
+                        return parseFloat(nm.toExponential(7));
+                    } else {
+                        return parseFloat(nm.toPrecision(12));
+                    };
                 } else {
-                    return parseFloat(nm.toFixed(12)); //toFixed since zeroes get disregarded with toPrecision
+                    return parseFloat(nm.toFixed(12)); //for everything between 0 and 1
                 }
             } else {
                 if (nm > 99999999999999) {
@@ -196,7 +200,7 @@ function roundResult(nm) { //to make every result fit in the screen while also r
                 }
             };
         } else {
-            return parseFloat(nm).toExponential(8);
+            return parseFloat(nm).toExponential(7); // exp(7) to account for scientific notations up to e100+ and for the minus sign scientific notations as well.
         };
     };
 };
