@@ -254,8 +254,8 @@ Another possibility is checking if bottomdisplay isn't a string perhaps. Need to
 - Most time went into the rounding function these past days. I think that was the biggest hurdle in this calculator. Especially since all the calculators I see published seem to have the same issues, especially when it comes to rounding. Yesterday I stumbled upon `.toPrecision` which was a great way to simplify my code where I turned the number into an array, split at the decimal, then  rounded and added it back together. I am still very curious to see if there's a way or a method I could use to make this all simpler. However, I have spent so long on that part and used so many conditionals to make all of the rounding work, if I come across anything in the future that solves that heap of code, I'll remember this project and come back to it. 
 - Today my calculator also suddenly showed NAN during `selfDestruct`. I made up awesome theories about how `prettier` made my code faster and now `selfDestruct()` and `num1 = operate()` started running out of sync etc. Avoided a rabbit hole by looking at my previous commits where I removed a conditional for `num1 === undefined` because I probably forgot why it was there when refactoring. Lesson learned and I added a comment to be sure. 
 - I'm about ready to ship it. I'll play with some different fonts for the styling and add some info to it, and that should be it.
-- [ ] Add footer 
-- [ ] Add calculator header
-- [ ] Look into making it display on mobile a bit better (unneeded, responsiveness not yet covered) 
-- [ ] Add README
-- [ ] Consider darkening the screen when power is off.
+- [x] Add footer 
+- [x] Add calculator header
+- ~~[ ] Look into making it display on mobile a bit better (unneeded, responsiveness not yet covered)~~
+    - the above would have been less headache if I designed mobile first. 
+- [x] Add README
