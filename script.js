@@ -188,23 +188,20 @@ function roundResult(nm) {
   } else {
     if (nm.toString().includes(".")) {
       if (nm.toString().length >= 12) {
-        nm = Math.round((nm + Number.EPSILON) * 1000000000) / 1000000000; // to minimise the floating point errors a little more.
+        nm = Math.round((nm + Number.EPSILON) * 1000000000) / 1000000000; // to minimise the floating point errors.
       }
       if (nm < 1) {
         // numbers below zero and numbers between 0 and 1 for using the `toPrecision` method which disregards zeroes
         if (nm > -1 && nm < 0) {
-          // 0 to -1
           return parseFloat(nm.toFixed(11));
         } else if (nm <= -1) {
-          // -1 and below
           if (nm < -9999999999999) {
-            //negatives overflowing screen
             return parseFloat(nm.toExponential(7));
           } else {
             return parseFloat(nm.toPrecision(12));
           }
         } else {
-          return parseFloat(nm.toFixed(12)); // for everything between 0 and 1
+          return parseFloat(nm.toFixed(12));
         }
       } else {
         if (nm > 99999999999999) {
