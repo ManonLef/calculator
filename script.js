@@ -187,6 +187,9 @@ function roundResult(nm) {
     return nm;
   } else {
     if (nm.toString().includes(".")) {
+      if (nm.toString().length >= 12) {
+        nm = Math.round((nm + Number.EPSILON) * 1000000000) / 1000000000; // to minimise the floating point errors a little more.
+      }
       if (nm < 1) {
         // numbers below zero and numbers between 0 and 1 for using the `toPrecision` method which disregards zeroes
         if (nm > -1 && nm < 0) {
