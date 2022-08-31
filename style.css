@@ -1,6 +1,6 @@
 body {
-  height: 100%;
-  width: auto;
+  height: 100vh;
+  width: 100%;
   padding: 0px;
   margin: 0px;
   display: flex;
@@ -28,11 +28,6 @@ body {
     #d65db1
   );
   background-repeat: no-repeat;
-}
-
-html {
-  height: 100%;
-  width: auto;
 }
 
 header {
