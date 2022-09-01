@@ -2,4 +2,4 @@
 
 You can find the live version [here](https://manonlef.github.io/calculator/)
 ## Preview
-![preview of my calculator](./resources/calculator-preview.png | width=300)
+![preview of my calculator](https://github.com/ManonLef/calculator/blob/main/resources/calculator-preview.png?raw=true | width=300)
