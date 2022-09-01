@@ -34,7 +34,7 @@ This is one I couldn't easily overcome and haven't fully yet. The solution for t
 
 Since I have spent most of my time in this project on researching and working with rounding and its errors, I'm sure once I ever come across a new way to approach these, I will get back to this project and try it out.
 ### xy problems
-- accidentally changing an operator ID to `buttonide` and at first not being able to figure out why my operator got assigned a string value of `buttonide` instead of its id, nor finding any info on `buttonide` online. That was a bit f a facepalm moment when finding out to be honest. Lesson learned: Trace the process, all the way from the html if needed.
+- accidentally changing an operator ID to `buttonide` and at first not being able to figure out why my operator got assigned a string value of `buttonide` instead of its ID, nor finding any info on `buttonide` online. That was a bit of a facepalm moment when finding out to be honest. Lesson learned: Trace the process, all the way from the html if needed.
 - Removing a bit of code that I thought was obsolete. I should have taken some time to figure out why I put it there in the first place. After the errors started popping up, I tried explaining them or connecting them to completely unrelated changes I made to the code a little before that. Eventually I took a break, checked my previous commits and figured out I removed a bit of essential code. Lesson Learned: If something doesn't seem to be related to your issue, retrace your step further back for a bit. A good descriptive commit history is a goldmine. Sadly mine had a typo but I instantly found the problem looking at the history. 
 
 ## Other Notes on this project
