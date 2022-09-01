@@ -348,7 +348,7 @@ function selfDestruct() {
   }, 7000);
 }
 
-function randomError() {
+function randomError() { // special credits to Peaches for adding to my list of random errors 
   let message = [
     "nope",
     "doesn't work",
