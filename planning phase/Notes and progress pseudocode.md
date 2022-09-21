@@ -259,3 +259,6 @@ Another possibility is checking if bottomdisplay isn't a string perhaps. Need to
 - ~~[ ] Look into making it display on mobile a bit better (unneeded, responsiveness not yet covered)~~
     - the above would have been less headache if I designed mobile first. 
 - [x] Add README
+
+### 2209212120
+- Idea: Use fluid type for top input window: [link here](https://web.dev/min-max-clamp/#fluid-typography)
