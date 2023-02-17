@@ -49,10 +49,3 @@ Since I have spent most of my time in this project on researching and working wi
 I decided to not implement keyboard functionality in the end. I may get back to it but at this point it felt like I had spent enough time on this project, checking off all basic requirements and learning and adding a lot more as I went along. Keyboard support didn't feel like a new topic since we already practiced that before, but it did involve having to change a lot of code. I thought that time would be best spent moving forward and learning new things after this project. 
 
 It was a great project to do. It really boosted my confidence with trying to implement new methods (especially the multiple methods for handling displayed rounding) and I feel like I have learned a lot about JS on the topic of how integers and floating points are handled. 
-
-## Preview
-
-The name is derived from one of the first tools that was used as a calculator; [Pascal's Calculator, also known as Pascaline](https://en.wikipedia.org/wiki/Pascal%27s_calculator).
-![preview of my calculator](https://github.com/ManonLef/calculator/blob/main/resources/calculator-preview.png?raw=true)
-
-[Live Version](https://manonlef.github.io/calculator/)
