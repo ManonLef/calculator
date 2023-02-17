@@ -1,5 +1,12 @@
 # My Calculator from The Odin Project course curriculum
 
+## Result
+
+The name is derived from one of the first tools that was used as a calculator; [Pascal's Calculator, also known as Pascaline](https://en.wikipedia.org/wiki/Pascal%27s_calculator).
+![preview of my calculator](https://github.com/ManonLef/calculator/blob/main/resources/calculator-preview.png?raw=true)
+
+You can also check out the live version of the calculator [here](https://manonlef.github.io/calculator/).
+
 ## About this project
 
 This project is the final project in the foundations course of [The Odin Project](https://www.theodinproject.com/lessons/foundations-calculator). 
